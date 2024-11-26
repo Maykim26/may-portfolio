@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.a7933110.css",
-    "main.js": "/static/js/main.e66e6d64.js",
-    "static/media/port03.jpg": "/static/media/port03.10502167886097e4ab9a.jpg",
-    "static/media/port09.jpg": "/static/media/port09.9124259969f223516e0a.jpg",
-    "static/media/port07.jpg": "/static/media/port07.f1ca7a69df2193ef7341.jpg",
-    "static/media/about.jpg": "/static/media/about.7603727cc44fae869a08.jpg",
-    "static/media/port10.jpg": "/static/media/port10.e887146d87b151838576.jpg",
-    "static/media/port06.jpg": "/static/media/port06.8754efaddfae4c96c423.jpg",
-    "static/media/port01.jpg": "/static/media/port01.86da11c450aa1ec41383.jpg",
-    "static/media/port02.jpg": "/static/media/port02.d84264667591e1038e42.jpg",
-    "static/media/port08.jpg": "/static/media/port08.37865dcd03b8e3e64163.jpg",
-    "static/media/port04.jpg": "/static/media/port04.736e7eaba137255e6a72.jpg",
-    "static/media/port05.jpg": "/static/media/port05.d7cbc880837be1dc9761.jpg",
-    "index.html": "/index.html",
-    "static/media/arrow.svg": "/static/media/arrow.5484000f7088bc4fd412.svg",
-    "main.a7933110.css.map": "/static/css/main.a7933110.css.map",
-    "main.e66e6d64.js.map": "/static/js/main.e66e6d64.js.map"
+    "main.css": "/may-portfolio/static/css/main.702f0717.css",
+    "main.js": "/may-portfolio/static/js/main.9f3487df.js",
+    "static/media/port03.jpg": "/may-portfolio/static/media/port03.10502167886097e4ab9a.jpg",
+    "static/media/port09.jpg": "/may-portfolio/static/media/port09.9124259969f223516e0a.jpg",
+    "static/media/port07.jpg": "/may-portfolio/static/media/port07.f1ca7a69df2193ef7341.jpg",
+    "static/media/about.jpg": "/may-portfolio/static/media/about.7603727cc44fae869a08.jpg",
+    "static/media/port10.jpg": "/may-portfolio/static/media/port10.e887146d87b151838576.jpg",
+    "static/media/port06.jpg": "/may-portfolio/static/media/port06.8754efaddfae4c96c423.jpg",
+    "static/media/port01.jpg": "/may-portfolio/static/media/port01.86da11c450aa1ec41383.jpg",
+    "static/media/port02.jpg": "/may-portfolio/static/media/port02.d84264667591e1038e42.jpg",
+    "static/media/port08.jpg": "/may-portfolio/static/media/port08.37865dcd03b8e3e64163.jpg",
+    "static/media/port04.jpg": "/may-portfolio/static/media/port04.736e7eaba137255e6a72.jpg",
+    "static/media/port05.jpg": "/may-portfolio/static/media/port05.d7cbc880837be1dc9761.jpg",
+    "index.html": "/may-portfolio/index.html",
+    "static/media/arrow.svg": "/may-portfolio/static/media/arrow.5484000f7088bc4fd412.svg",
+    "main.702f0717.css.map": "/may-portfolio/static/css/main.702f0717.css.map",
+    "main.9f3487df.js.map": "/may-portfolio/static/js/main.9f3487df.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7933110.css",
-    "static/js/main.e66e6d64.js"
+    "static/css/main.702f0717.css",
+    "static/js/main.9f3487df.js"
   ]
 }
