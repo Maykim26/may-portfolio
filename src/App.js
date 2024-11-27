@@ -29,17 +29,6 @@ const App = () => {
 			}}
 		>
 			<GlobalStyle />
-
-			{/* 다크 모드 상태에 따른 메시지 표시 */}
-			<h1 style={{ textAlign: "center", marginTop: "20px" }}>
-				{isDarkMode
-					? "Dark Mode is ON"
-					: "Light Mode is ON"}
-			</h1>
-
-			{/* ThemeToggle 버튼 표시 */}
-			<ThemeToggle />
-
 			{/* 라우터 설정 */}
 			<BrowserRouter>
 				<Routes>

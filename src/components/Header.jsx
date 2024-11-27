@@ -1,74 +1,113 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { headerNav } from "../constants";
+import ThemeContext from "../context/ThemeContext";
+import { styled } from "@mui/system";
+import { Switch } from "@mui/material";
 
-// MUI 아이콘 및 컴포넌트 임포트
-import {
-	HomeRounded,
-	AssignmentIndRounded,
-	LanRounded,
-	DevicesRounded,
-	PermContactCalendarRounded,
-} from "@mui/icons-material";
-import { Tooltip, Switch } from "@mui/material";
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+	width: 62,
+	height: 34,
+	padding: 7,
+	"& .MuiSwitch-switchBase": {
+		margin: 1,
+		padding: 0,
+		transform: "translateX(6px)",
+		"&.Mui-checked": {
+			color: "#fff",
+			transform: "translateX(22px)",
+			"& .MuiSwitch-thumb:before": {
+				backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+					"#fff"
+				)}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
+			},
+			"& + .MuiSwitch-track": {
+				opacity: 1,
+				backgroundColor: "#070707",
+			},
+		},
+	},
+	"& .MuiSwitch-thumb": {
+		backgroundColor: "#858585",
+		width: 32,
+		height: 32,
+		"&::before": {
+			content: "''",
+			position: "absolute",
+			width: "100%",
+			height: "100%",
+			left: 0,
+			top: 0,
+			backgroundRepeat: "no-repeat",
+			backgroundPosition: "center",
+			backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+				"#fff"
+			)}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
+		},
+	},
+	"& .MuiSwitch-track": {
+		opacity: 1,
+		backgroundColor: "#070707",
+		borderRadius: 20 / 2,
+	},
+}));
 
 const Header = () => {
-	const [darkMode, setDarkMode] = useState(false);
+	const [show, setShow] = useState(false);
+	const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
-	const handleDarkModeToggle = () => {
-		setDarkMode(!darkMode);
-		// 여기에 다크 모드 스타일 적용 로직 추가 가능
-	};
-
-	const icons = {
-		main: <HomeRounded />,
-		about: <AssignmentIndRounded />,
-		skills: <LanRounded />,
-		project: <DevicesRounded />,
-		contact: <PermContactCalendarRounded />,
+	const toggleMenu = () => {
+		setShow((prevShow) => !prevShow);
 	};
 
 	return (
 		<header id="header" role="banner">
-			<div className="header__nav-container">
+			<div className="header__inner">
 				<nav
-					className="header__nav"
+					className={`header__nav ${
+						show ? "show" : ""
+					}`}
 					role="navigation"
 					aria-label="메인메뉴"
 				>
 					<ul>
 						{headerNav.map((nav, key) => (
 							<li key={key}>
-								<Tooltip
-									title={
+								<a
+									href={
+										nav.url
+									}
+								>
+									{
 										nav.title
 									}
-									arrow
-								>
-									<a
-										href={
-											nav.url
-										}
-									>
-										{icons[
-											nav.title.toLowerCase()
-										] ||
-											null}
-									</a>
-								</Tooltip>
+								</a>
 							</li>
 						))}
+						<li>
+							<div className="header__darkmode-toggle">
+								<MaterialUISwitch
+									checked={
+										isDarkMode
+									}
+									onChange={
+										toggleTheme
+									}
+								/>
+							</div>
+						</li>
 					</ul>
-					{/* 다크모드 토글 */}
-					<div className="header__darkmode-toggle">
-						<Switch
-							checked={darkMode}
-							onChange={
-								handleDarkModeToggle
-							}
-							color="primary"
-						/>
-					</div>
 				</nav>
+				<div
+					className="header__nav__mobile"
+					id="headerToggle"
+					aria-controls="primary-menu"
+					aria-expanded={show ? "true" : "false"}
+					role="button"
+					tabIndex="0"
+					onClick={toggleMenu}
+				>
+					<span></span>
+				</div>
 			</div>
 		</header>
 	);
