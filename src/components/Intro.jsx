@@ -9,35 +9,6 @@ const Intro = () => {
 	const [splitText, setSplitText] = useState([]);
 
 	useEffect(() => {
-		// 단어 하이라이트 리스트
-		const highlightedWords = ["possimus", "perferendis", "dolore"];
-
-		// 단어 단위 하이라이트 적용
-		// const highlightWords = (text) => {
-		// 	const words = text.split(" ");
-		// 	return words.map((word, index) => {
-		// 		const cleanWord = word.replace(
-		// 			/[^a-zA-Z0-9]/g,
-		// 			""
-		// 		);
-		// 		const isHighlighted = highlightedWords.includes(
-		// 			cleanWord.toLowerCase()
-		// 		);
-
-		// 		// 하이라이트가 필요한 단어에 'highlighted' 클래스를 추가
-		// 		return isHighlighted ? (
-		// 			<span
-		// 				key={index}
-		// 				className="highlighted"
-		// 			>
-		// 				{word}
-		// 			</span>
-		// 		) : (
-		// 			<span key={index}>{word}</span>
-		// 		);
-		// 	});
-		// };
-
 		// 텍스트를 문자 단위로 분리하여 JSX로 변환
 		const splitLetters = (text) => {
 			const newText = text.split("").map((letter, index) => {
@@ -60,7 +31,7 @@ const Intro = () => {
 				document.querySelector(".intro__inner");
 
 			// GSAP 애니메이션 적용
-			letterElements.forEach((letter, i) => {
+			letterElements.forEach((letter) => {
 				gsap.fromTo(
 					letter,
 					{
@@ -78,12 +49,12 @@ const Intro = () => {
 							-138,
 							187
 						), // 회전 시작값
-						duration: 1.5,
+						duration: 5.5,
 						ease: "circ.inOut", // 자연스러운 감속
 						scrollTrigger: {
 							trigger: sectionTrigger,
 							start: "top 0%", // intro 섹션의 20% 지점에서 애니메이션 시작
-							end: "bottom 20%", // intro 섹션의 80% 지점에서 애니메이션 종료
+							end: "bottom 80%", // intro 섹션의 80% 지점에서 애니메이션 종료
 							markers: true, // 디버깅용 마커 비활성화
 							scrub: 1, // 스크롤과 함께 애니메이션이 부드럽게 진행
 							toggleActions:
@@ -96,12 +67,16 @@ const Intro = () => {
 
 		// 텍스트 분리 및 애니메이션 실행
 		const text = introText.title;
-		// highlightWords(text);
 		splitLetters(text); // 문자 분리
 
-		// 상태가 업데이트된 후 애니메이션을 실행하도록 바로 실행
-		requestAnimationFrame(animateLetters); // requestAnimationFrame을 사용하여 애니메이션 실행
-	}, []); // useEffect가 처음 실행될 때만 호출됨
+		// `splitText`가 업데이트된 후 애니메이션을 실행하도록 설정
+		const timer = setTimeout(() => {
+			animateLetters(); // 애니메이션 실행
+		}, 50); // 딜레이를 줄여 애니메이션이 더 빠르게 실행되도록
+
+		// 컴포넌트 언마운트 시 애니메이션 타이머 클리어
+		return () => clearTimeout(timer);
+	}, []); // 컴포넌트가 처음 마운트될 때만 실행
 
 	return (
 		<section id="intro">
