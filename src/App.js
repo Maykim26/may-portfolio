@@ -8,7 +8,6 @@ import smooth from "./utils/smooth";
 import link from "./utils/link";
 
 const App = () => {
-	// Theme Context 사용
 	const { isDarkMode } = useContext(ThemeContext);
 
 	// useEffect로 smooth 스크롤과 링크 처리
@@ -29,8 +28,7 @@ const App = () => {
 			}}
 		>
 			<GlobalStyle />
-			{/* 라우터 설정 */}
-			<BrowserRouter>
+			<BrowserRouter basename="/may-portfolio">
 				<Routes>
 					<Route
 						path="/"
