@@ -1,16 +1,24 @@
 {
   "files": {
-    "main.css": "/Maykim26/may-portfolio.git/static/css/main.f855e6bc.css",
-    "main.js": "/Maykim26/may-portfolio.git/static/js/main.7b36ba56.js",
-    "static/js/488.84be13b8.chunk.js": "/Maykim26/may-portfolio.git/static/js/488.84be13b8.chunk.js",
-    "static/media/logo.svg": "/Maykim26/may-portfolio.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/Maykim26/may-portfolio.git/index.html",
-    "main.f855e6bc.css.map": "/Maykim26/may-portfolio.git/static/css/main.f855e6bc.css.map",
-    "main.7b36ba56.js.map": "/Maykim26/may-portfolio.git/static/js/main.7b36ba56.js.map",
-    "488.84be13b8.chunk.js.map": "/Maykim26/may-portfolio.git/static/js/488.84be13b8.chunk.js.map"
+    "main.css": "/may-portfolio/static/css/main.a5123a22.css",
+    "main.js": "/may-portfolio/static/js/main.6f1481b1.js",
+    "static/media/port03.jpg": "/may-portfolio/static/media/port03.10502167886097e4ab9a.jpg",
+    "static/media/port09.jpg": "/may-portfolio/static/media/port09.9124259969f223516e0a.jpg",
+    "static/media/port07.jpg": "/may-portfolio/static/media/port07.f1ca7a69df2193ef7341.jpg",
+    "static/media/port10.jpg": "/may-portfolio/static/media/port10.e887146d87b151838576.jpg",
+    "static/media/port06.jpg": "/may-portfolio/static/media/port06.8754efaddfae4c96c423.jpg",
+    "static/media/port01.jpg": "/may-portfolio/static/media/port01.86da11c450aa1ec41383.jpg",
+    "static/media/port02.jpg": "/may-portfolio/static/media/port02.d84264667591e1038e42.jpg",
+    "static/media/port08.jpg": "/may-portfolio/static/media/port08.37865dcd03b8e3e64163.jpg",
+    "static/media/port04.jpg": "/may-portfolio/static/media/port04.736e7eaba137255e6a72.jpg",
+    "static/media/port05.jpg": "/may-portfolio/static/media/port05.d7cbc880837be1dc9761.jpg",
+    "index.html": "/may-portfolio/index.html",
+    "static/media/arrow.svg": "/may-portfolio/static/media/arrow.5484000f7088bc4fd412.svg",
+    "main.a5123a22.css.map": "/may-portfolio/static/css/main.a5123a22.css.map",
+    "main.6f1481b1.js.map": "/may-portfolio/static/js/main.6f1481b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.7b36ba56.js"
+    "static/css/main.a5123a22.css",
+    "static/js/main.6f1481b1.js"
   ]
 }
