@@ -1,6 +1,7 @@
-.slkll__inner {
+.skill__inner {
 	padding: 16px;
 	display: flex;
+	margin-top: 200px;
 	justify-content: space-between;
 
 	@media (max-width: 800px) {
@@ -13,6 +14,7 @@
 		left: 0;
 		width: 48%;
 		height: 5vw;
+		text-align: right;
 		font-size: 4vw;
 		font-weight: 900;
 		line-height: 1.6;
@@ -26,8 +28,8 @@
 			margin-bottom: 10vw;
 			font-size: 30px;
 			height: auto;
-			top: 68px;
-			background-color: var(--mainBg-color);
+			// top: 68px;
+			background-color: var(--mainBackground);
 		}
 
 		em {
@@ -62,6 +64,8 @@
 		}
 		p {
 			margin-bottom: 30vh;
+			display: block;
+			width: 50%;
 			font-size: 1.1rem;
 		}
 	}

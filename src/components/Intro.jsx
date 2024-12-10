@@ -55,7 +55,7 @@ const Intro = () => {
 							trigger: sectionTrigger,
 							start: "top 0%", // intro 섹션의 20% 지점에서 애니메이션 시작
 							end: "bottom 80%", // intro 섹션의 80% 지점에서 애니메이션 종료
-							markers: true, // 디버깅용 마커 비활성화
+							markers: false, // 디버깅용 마커 비활성화
 							scrub: 1, // 스크롤과 함께 애니메이션이 부드럽게 진행
 							toggleActions:
 								"restart none reverse none", // 섹션을 벗어나면 원위치로 돌아오도록 설정
