@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/globalStyles";
 import ThemeToggle from "./components/ThemeToggle";
 import ThemeContext from "./context/ThemeContext";
 import HomeView from "./views/HomeView";
+import MouseFollowEffect from "./components/MouseFollowEffect"; // 블롭 효과 추가
 import smooth from "./utils/smooth";
 import link from "./utils/link";
 
@@ -28,6 +29,9 @@ const App = () => {
 			}}
 		>
 			<GlobalStyle />
+			{/* MouseFollowEffect 렌더링 */}
+			<MouseFollowEffect isDarkMode={isDarkMode} />
+
 			<BrowserRouter basename="/may-portfolio">
 				<Routes>
 					<Route

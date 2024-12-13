@@ -1,200 +1,219 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Matter from "matter-js";
 
 const Contact = () => {
+	const textBoxRef = useRef(null);
+	const wordElementsRef = useRef([]);
+	const contactRef = useRef(null); // #contact 요소 참조
+	const [isInViewport, setIsInViewport] = useState(false); // 뷰포트 진입 여부
+
+	// Intersection Observer를 사용하여 #contact가 뷰포트에 진입했을 때 물리 엔진 시작
 	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				// #contact가 뷰포트에 진입하면 isInViewport 값을 true로 설정
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setIsInViewport(true); // 뷰포트 진입 시
+					}
+				});
+			},
+			{
+				threshold: 0.1, // 모바일에서도 좀 더 일찍 감지
+			}
+		);
+
+		// #contact 요소를 관찰
+		if (contactRef.current) {
+			observer.observe(contactRef.current);
+		}
+
+		// cleanup
+		return () => {
+			if (contactRef.current) {
+				observer.unobserve(contactRef.current);
+			}
+		};
+	}, []);
+
+	// Matter.js 물리 엔진 초기화
+	useEffect(() => {
+		if (!isInViewport) return; // #contact가 뷰포트에 없으면 초기화하지 않음
+
+		let engine, runner;
+
+		// splitWords 함수 정의
+		const splitWords = () => {
+			const textNode = textBoxRef.current;
+			const text = textNode.textContent;
+			const words = text.split(" ");
+			const newElements = words.map((word, index) => {
+				const span = document.createElement("span");
+				span.className = "word";
+				span.textContent = word;
+				span.setAttribute("key", index);
+
+				// 특정 단어를 highlight 클래스 추가
+				if (
+					word.toLowerCase().includes("혁신") ||
+					word.toLowerCase().includes("최고")
+				) {
+					span.classList.add("highlighted");
+				}
+
+				return span;
+			});
+
+			textNode.textContent = "";
+			newElements.forEach((el) => {
+				textNode.appendChild(el);
+			});
+
+			wordElementsRef.current = newElements;
+		};
+
+		// 물리 엔진 초기화
 		const initializePhysics = () => {
-			const textBox =
-				document.querySelector(".contact__text");
-			const textBoxRect = textBox.getBoundingClientRect();
-			const engine = Matter.Engine.create();
+			engine = Matter.Engine.create();
 			const world = engine.world;
 
-			// contact__text 영역의 크기
-			const bounds = {
-				top: textBoxRect.top + window.scrollY,
-				left: textBoxRect.left,
-				right: textBoxRect.left + textBoxRect.width,
-				bottom:
-					textBoxRect.top +
-					textBoxRect.height +
-					window.scrollY,
-			};
-
-			// 상하좌우 벽 설정
-			const walls = [
-				Matter.Bodies.rectangle(
-					(bounds.left + bounds.right) / 2,
-					bounds.top,
-					bounds.right - bounds.left,
-					10,
-					{ isStatic: true }
-				),
-				Matter.Bodies.rectangle(
-					(bounds.left + bounds.right) / 2,
-					bounds.bottom,
-					bounds.right - bounds.left,
-					10,
-					{ isStatic: true }
-				),
-				Matter.Bodies.rectangle(
-					bounds.left,
-					(bounds.top + bounds.bottom) / 2,
-					10,
-					bounds.bottom - bounds.top,
-					{ isStatic: true }
-				),
-				Matter.Bodies.rectangle(
-					bounds.right,
-					(bounds.top + bounds.bottom) / 2,
-					10,
-					bounds.bottom - bounds.top,
-					{ isStatic: true }
-				),
-			];
-
-			// 단어들을 물리 객체로 변환
-			const wordElements = document.querySelectorAll(".word");
-			wordElements.forEach((word) => {
-				// 특정 로직을 통해 top, left 값 조정
-				word.style.top = `${Math.random() * 100}%`;
-				word.style.left = `${Math.random() * 100}%`;
-			});
-
-			const wordBodies = [...wordElements].map((elemRef) => {
-				const width = elemRef.offsetWidth;
-				const height = elemRef.offsetHeight;
-
-				const body = Matter.Bodies.rectangle(
-					bounds.left +
-						(bounds.right - bounds.left) /
-							2,
-					bounds.top +
-						(bounds.bottom - bounds.top) /
-							2,
-					width,
-					height,
-					{ render: { visible: false } }
-				);
-
-				Matter.Body.setVelocity(body, {
-					x: (Math.random() - 0.5) * 10,
-					y: (Math.random() - 0.5) * 10,
-				});
-
-				Matter.Body.setAngularVelocity(
-					body,
-					(Math.random() - 0.5) * 0.1
-				);
-
-				return {
-					body,
-					elem: elemRef,
-					render() {
-						const { x, y } =
-							this.body.position;
-						const width =
-							this.elem.offsetWidth;
-						const height =
-							this.elem.offsetHeight;
-
-						this.elem.style.top = `${
-							y - height / 2
-						}px`;
-						this.elem.style.left = `${
-							x - width / 2
-						}px`;
-						this.elem.style.transform = `rotate(${this.body.angle}rad)`;
-					},
-				};
-			});
-
-			// 물리 엔진에 벽과 단어 물리 객체 추가
-			Matter.World.add(world, [
-				...walls,
-				...wordBodies.map((box) => box.body),
-			]);
-
-			// MouseConstraint 추가
-			const mouse = Matter.Mouse.create(textBox);
-			const mouseConstraint = Matter.MouseConstraint.create(
-				engine,
-				{
-					mouse: mouse,
-					constraint: {
-						stiffness: 0.2,
-						render: { visible: false },
-					},
-				}
+			// 화면 크기에 맞춰 벽 크기 설정
+			const leftWall = Matter.Bodies.rectangle(
+				15, // 화면 왼쪽 끝에 위치
+				window.innerHeight / 2,
+				30,
+				window.innerHeight,
+				{ isStatic: true }
+			);
+			const rightWall = Matter.Bodies.rectangle(
+				window.innerWidth - 15, // 화면 오른쪽 끝에 위치
+				window.innerHeight / 2,
+				30,
+				window.innerHeight,
+				{ isStatic: true }
+			);
+			const ground = Matter.Bodies.rectangle(
+				window.innerWidth / 2, // 화면 중앙
+				window.innerHeight / 3, // 바닥에 위치
+				window.innerWidth,
+				30,
+				{ isStatic: true }
+			);
+			const topLine = Matter.Bodies.rectangle(
+				window.innerWidth / 2, // 화면 중앙
+				15, // 상단에 위치
+				window.innerWidth,
+				30,
+				{ isStatic: true }
 			);
 
+			// 벽을 월드에 추가
+			Matter.World.add(world, [
+				leftWall,
+				rightWall,
+				ground,
+				topLine,
+			]);
+
+			// 단어 객체 생성 및 추가
+			const wordBodies = createWordBodies();
+			Matter.World.add(
+				world,
+				wordBodies.map(({ body }) => body)
+			);
+
+			// 마우스 컨스트레인트 추가
+			const mouseConstraint = setupMouseConstraint(engine);
 			Matter.World.add(world, mouseConstraint);
 
-			// Matter.Runner 설정
-			const runner = Matter.Runner.create();
+			// 물리 엔진 실행
+			runner = Matter.Runner.create();
 			Matter.Runner.run(runner, engine);
 
-			// 애니메이션을 계속해서 업데이트
+			// 렌더링 루프
 			function rerender() {
-				wordBodies.forEach((element) =>
-					element.render()
-				);
-				Matter.Engine.update(engine);
+				wordBodies.forEach(({ body, elem }) => {
+					const { x, y } = body.position;
+					elem.style.top = `${
+						y - elem.offsetHeight / 2
+					}px`;
+					elem.style.left = `${
+						x - elem.offsetWidth / 2
+					}px`;
+					elem.style.transform = `rotate(${body.angle}rad)`;
+				});
 				requestAnimationFrame(rerender);
 			}
 			rerender();
 		};
-		const splitWords = () => {
-			const textNode =
-				document.querySelector(".contact__text");
-			const text = textNode.textContent;
 
-			const newDomElements = text
-				.split(" ")
-				.map((word, index) => {
-					const highlighted = [
-						"CTdddO",
-						"재미있게",
-						"만든",
-					].includes(word);
-					const span =
-						document.createElement("span");
-					span.classList.add("word");
-					if (highlighted) {
-						span.classList.add(
-							"highlighted"
-						);
+		// 단어 객체 생성
+		const createWordBodies = () => {
+			const elements = wordElementsRef.current;
+			return elements.map((elem) => {
+				const width = elem.offsetWidth;
+				const height = elem.offsetHeight;
+				const body = Matter.Bodies.rectangle(
+					window.innerWidth / 2, // 화면 중앙에서 생성
+
+					window.innerHeight / 8, // 랜덤한 높이에서 생성
+					width,
+					height,
+					{
+						restitution: 0.8,
 					}
-					span.textContent = word;
+				);
 
-					// 위치 값 랜덤화, 화면 내에서 벗어나지 않도록 제한
-					const top = Math.random() * 50 + 20; // 20% ~ 70% 범위
-					const left = Math.random() * 80 + 10; // 10% ~ 90% 범위
-					const rotate =
-						(Math.random() - 0.5) * 1.5; // -1.5 ~ 1.5 radians 범위
-
-					span.style.top = `${top}px`;
-					span.style.left = `${left}px`;
-					span.style.transform = `rotate(${rotate}rad)`;
-
-					return span;
+				Matter.Body.setVelocity(body, {
+					x: (Math.random() - 0.5) * 5, // 모바일에서는 속도 감소
+					y: (Math.random() - 0.5) * 5,
 				});
+				Matter.Body.setAngularVelocity(
+					body,
+					(Math.random() - 0.5) * 0.05 // 각속도도 감소
+				);
 
-			textNode.innerHTML = ""; // 기존 내용 초기화
-			newDomElements.forEach((span) =>
-				textNode.appendChild(span)
-			);
+				return { body, elem };
+			});
 		};
 
-		// 단어 분리 후 물리 엔진 초기화
+		// 마우스 컨스트레인트 설정
+		const setupMouseConstraint = (engine) => {
+			if (textBoxRef.current) {
+				const mouse = Matter.Mouse.create(
+					textBoxRef.current
+				);
+				return Matter.MouseConstraint.create(engine, {
+					mouse,
+					constraint: {
+						stiffness: 0.2,
+						render: { visible: false },
+					},
+				});
+			}
+		};
+
+		// splitWords는 #contact가 뷰포트에 보일 때 실행
 		splitWords();
+
+		// 물리 엔진 초기화
 		initializePhysics();
-	}, []);
+
+		// cleanup 함수
+		return () => {
+			if (runner) {
+				Matter.Runner.stop(runner);
+			}
+			if (engine) {
+				Matter.Engine.clear(engine);
+			}
+		};
+	}, [isInViewport]); // isInViewport가 변경되면 useEffect 실행
 
 	return (
-		<section id="contact">
+		<section id="contact" ref={contactRef}>
 			<div className="contact__inner">
-				<h2 className="contact__title">Contact</h2>
+				<h2 className="contact__title">Contact</h2>{" "}
 				<div
 					className="contact__lines top"
 					aria-hidden="true"
@@ -207,10 +226,10 @@ const Contact = () => {
 					<span className="line"></span>
 					<span className="line"></span>
 				</div>
-				<div className="contact__text">
+				<div ref={textBoxRef} className="contact__text">
 					Mang CTdddO Myssss thrill 팀이 만든
 					최고의 혁신 프로젝트 입니다. 이 텍스트를
-					드래그 하거나 스크롤하며 재미있게
+					드래그하거나 스크롤하며 재미있게
 					즐겨보세요!
 				</div>
 				<div

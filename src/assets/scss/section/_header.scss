@@ -14,7 +14,7 @@
 	border-radius: 8px;
 	background-color: rgba(99, 97, 97, 0.03);
 	backdrop-filter: blur(15px);
-	padding: 1rem;
+	padding: 0.5rem 1rem;
 
 	@media (max-width: 800px) {
 		position: absolute;
@@ -57,6 +57,8 @@
 
 				li {
 					padding: 1px;
+					display: flex;
+					align-items: center;
 				}
 			}
 		}
@@ -83,6 +85,7 @@
 
 .header__nav__mobile {
 	display: none;
+	position: absolute;
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
