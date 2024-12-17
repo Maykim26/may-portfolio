@@ -58,7 +58,7 @@
 			text-decoration: underline;
 			text-align: center;
 			position: relative;
-			z-index: 100;
+			// z-index: 100;
 			transition: all 0.3s;
 			cursor: all-scroll;
 
@@ -131,7 +131,7 @@
 				display: none;
 
 				@media (max-width: 800px) {
-					display: block;
+					display: none;
 				}
 
 				&:nth-child(1) {

@@ -1,6 +1,6 @@
 #header {
 	@include position-fixed-bottom;
-	z-index: 10000;
+	z-index: 8888;
 	@media (max-width: 800px) {
 		position: fixed;
 		right: 0;
@@ -12,7 +12,7 @@
 .header__inner {
 	@include position-center;
 	border-radius: 8px;
-	background-color: rgba(99, 97, 97, 0.03);
+	background-color: rgba(167, 167, 167, 0.104);
 	backdrop-filter: blur(15px);
 	padding: 0.5rem 1rem;
 
@@ -68,6 +68,8 @@
 		display: flex;
 		list-style: none;
 		padding: 0;
+		justify-content: center;
+		align-items: center;
 		margin: 0;
 
 		li {
@@ -127,4 +129,5 @@
 	margin-left: auto;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }

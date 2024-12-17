@@ -4,7 +4,7 @@ import { GlobalStyle } from "./styles/globalStyles";
 import ThemeToggle from "./components/ThemeToggle";
 import ThemeContext from "./context/ThemeContext";
 import HomeView from "./views/HomeView";
-import MouseFollowEffect from "./components/MouseFollowEffect"; // 블롭 효과 추가
+import MouseFollowEffect from "./components/MouseFollowEffect";
 import smooth from "./utils/smooth";
 import link from "./utils/link";
 
@@ -28,10 +28,30 @@ const App = () => {
 				flexDirection: "column",
 			}}
 		>
-			<GlobalStyle />
+			<GlobalStyle /> {/* SVG 필터 정의 */}
+			<svg width="0" height="0">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur
+							in="SourceGraphic"
+							stdDeviation="10"
+							result="blur"
+						/>
+						<feColorMatrix
+							in="blur"
+							mode="matrix"
+							values="
+								1 0 0 0 0
+								0 1 0 0 0
+								0 0 1 0 0
+								0 0 0 20 -8"
+							result="gooey"
+						/>
+					</filter>
+				</defs>
+			</svg>
 			{/* MouseFollowEffect 렌더링 */}
 			<MouseFollowEffect isDarkMode={isDarkMode} />
-
 			<BrowserRouter basename="/may-portfolio">
 				<Routes>
 					<Route

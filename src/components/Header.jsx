@@ -5,8 +5,8 @@ import { styled } from "@mui/system";
 import { Switch } from "@mui/material";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-	width: 62,
-	height: 34,
+	width: 50,
+	height: 27,
 	padding: 7,
 	"& .MuiSwitch-switchBase": {
 		margin: 1,
@@ -22,14 +22,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 			},
 			"& + .MuiSwitch-track": {
 				opacity: 1,
-				backgroundColor: "#ddd",
+				backgroundColor: "#858585",
 			},
 		},
 	},
 	"& .MuiSwitch-thumb": {
 		backgroundColor: "#f0f0f0",
-		width: 32,
-		height: 32,
+		width: 25,
+		height: 25,
 		"&::before": {
 			content: "''",
 			position: "absolute",
@@ -46,7 +46,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 	},
 	"& .MuiSwitch-track": {
 		opacity: 1,
-		backgroundColor: "#dddddd",
+		backgroundColor: "#858585",
 		borderRadius: 20 / 2,
 	},
 }));

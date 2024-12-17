@@ -1,0 +1,36 @@
+/* Loader.css */
+@import url("https://fonts.googleapis.com/css?family=Teko");
+
+.Loader {
+	color: white;
+	font-family: "Teko", serif;
+	font-size: 10vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	letter-spacing: 0.01em;
+	transition: transform 0.125s ease;
+}
+
+.Loader sup {
+	font-size: 50%;
+	vertical-align: baseline;
+}
+
+/* Add dynamic size and opacity based on data-size attribute */
+.Loader[data-size="1"] {
+	transform: scale(1.02);
+	opacity: 0.01;
+}
+
+.Loader[data-size="2"] {
+	transform: scale(1.04);
+	opacity: 0.02;
+}
+
+.Loader[data-size="3"] {
+	transform: scale(1.06);
+	opacity: 0.03;
+}
+
+/* You can repeat the same for other values from 4 to 100 */

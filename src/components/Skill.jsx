@@ -13,10 +13,8 @@ const Skill = () => {
 				<div className="skill__desc">
 					{skillText.map((skill, key) => (
 						<div key={key}>
-							<span>
-								{skill.title}
-							</span>
-							{/* <h3>{skill.title}</h3> */}
+							<span>{key + 1}.</span>
+							<h3>{skill.title}</h3>
 							<p>{skill.desc}</p>
 						</div>
 					))}

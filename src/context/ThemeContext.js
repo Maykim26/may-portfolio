@@ -20,7 +20,7 @@ export const ThemeProvider = ({ children }) => {
 		if (isDarkMode) {
 			root.style.setProperty(
 				"--secondaryBackground",
-				"#111111"
+				"#2e2e2e"
 			);
 			root.style.setProperty("--secondaryColor", "#858585");
 			root.style.setProperty("--mainBackground", "#141414");

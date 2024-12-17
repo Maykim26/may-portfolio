@@ -11,7 +11,7 @@ const Intro = () => {
 	useEffect(() => {
 		// 텍스트를 문자 단위로 분리하여 JSX로 변환
 		const splitLetters = (text) => {
-			const newText = text.split("").map((letter, index) => {
+			return text.split("").map((letter, index) => {
 				return letter === " " ? (
 					<span key={index}> </span>
 				) : (
@@ -20,7 +20,17 @@ const Intro = () => {
 					</span>
 				);
 			});
-			setSplitText(newText);
+		};
+
+		// 텍스트를 여러 줄로 나누고 각 줄을 JSX로 변환
+		const splitLines = (text) => {
+			const lines = text.split("\n"); // 줄바꿈을 기준으로 텍스트 분리
+			return lines.map((line, index) => (
+				<div key={index} className="text-line">
+					{splitLetters(line)}{" "}
+					{/* 각 줄의 문자를 분리하여 애니메이션 적용 */}
+				</div>
+			));
 		};
 
 		// 문자 애니메이션 적용
@@ -67,7 +77,7 @@ const Intro = () => {
 
 		// 텍스트 분리 및 애니메이션 실행
 		const text = introText.title;
-		splitLetters(text); // 문자 분리
+		setSplitText(splitLines(text)); // 텍스트를 줄바꿈하여 분리
 
 		// `splitText`가 업데이트된 후 애니메이션을 실행하도록 설정
 		const timer = setTimeout(() => {

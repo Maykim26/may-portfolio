@@ -3,7 +3,7 @@
 
 	.site__title {
 		position: sticky;
-		top: 70px;
+		top: 0;
 		left: 0;
 		width: 70%;
 		height: 5vw;
@@ -13,7 +13,7 @@
 		font-family: var(--mainKor-font);
 		text-transform: uppercase;
 		// color: var(--black100);
-		border-bottom: 0.4vw solid var(--black100);
+		border-bottom: 0.4vw solid var(--secondaryColor);
 		margin-bottom: 100px;
 
 		@media (max-width: 800px) {
@@ -21,9 +21,8 @@
 			margin-bottom: 10vw;
 			font-size: 30px;
 			height: auto;
-			top: 68px;
+			// top: 68px;
 			z-index: 1000;
-			background-color: var(--mainBg-color);
 		}
 
 		em {
@@ -42,34 +41,34 @@
 
 			&.s1 {
 				background-color: var(--subBg100);
-				top: 180px;
+				top: 120px;
 
 				@media (max-width: 800px) {
-					top: 140px;
+					top: 70px;
 				}
 			}
 			&.s2 {
 				background-color: var(--subBg200);
-				top: 200px;
+				top: 140px;
 
 				@media (max-width: 800px) {
-					top: 160px;
+					top: 90px;
 				}
 			}
 			&.s3 {
 				background-color: var(--subBg300);
-				top: 220px;
+				top: 160px;
 
 				@media (max-width: 800px) {
-					top: 180px;
+					top: 110px;
 				}
 			}
 			&.s4 {
 				background-color: var(--subBg400);
-				top: 240px;
+				top: 180px;
 
 				@media (max-width: 800px) {
-					top: 200px;
+					top: 130px;
 				}
 			}
 			.num {

@@ -11,8 +11,8 @@ import port10 from "../assets/img/port10.jpg";
 
 export const headerNav = [
 	{
-		title: "intro",
-		url: "#intro",
+		title: "about",
+		url: "#about",
 	},
 	{
 		title: "skill",
@@ -33,22 +33,41 @@ export const headerNav = [
 ];
 
 export const introText = {
-	title: "perferendis laboriosam sapiente nemo,iure nris!",
+	title: "perferendis laboriosam \nsapiente nemo,\niure nris!",
 	desc: ["talent is", "found at the end of the", "effort"],
+};
+
+export const aboutText = {
+	title: "about",
+	intro: "라이트룸 서울은 도심 속 오아시스 같은 곳입니다.",
+	details: "20,000평이 넘는 부지에 다양한 시설을 갖추고 있습니다. 아트숍과 카페, 레스토랑, 온실, 정원 등 풍부한 볼거리를 제공합니다.",
+	shopTitle: "Lightroom shop",
+	shopDescription:
+		"라이트룸 전시장에서 나와 산책하듯 정원을 가로질러 가면 숲 속의 상점 같은 ‘라이트룸 숍’을 만날 수 있습니다.",
+	fnbTitle: "FnB",
+	fnbDescription:
+		"라이트룸 숍의 맞은편에는 ‘줄 서서 먹는 도넛’으로 유명한 디저트 카페 ‘노티드’와 한식 베이스의 다양한 도시락과 바베큐를 즐길 수 있는 ‘콩두 피크닉’ 레스토랑이 자리합니다.",
+	shuttleTitle: "Shuttle Bus",
+	shuttleDescription:
+		"여러분의 편한 이동을 위하여 천호역에서 라이트룸 서울까지의 셔틀버스를 운영하고 있습니다.",
 };
 
 export const skillText = [
 	{
-		title: "title1",
-		desc: "If you need to use a one-off breakpoint that  doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.",
+		title: "Immersive",
+		desc: "최첨단 기술력이 도입된 LIGHTROOM SEOUL의 몰입형 전시장은 관람객들이 이전까지 한번도 느껴보지 못한 특별한 경험을 제공합니다.",
 	},
 	{
-		title: "title2",
-		desc: "If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.",
+		title: "Large-Scale",
+		desc: "가로 18.5m, 세로 26m, 높이 12m의 대형 공간에 빛으로 연출된 예술, 그리고 오감을 자극하는 화려한 사운드로 가득한 전시를 경험할 수 있습니다.",
 	},
 	{
-		title: "title3",
-		desc: "If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the min or max modifiers to generate a custom breakpoint on the fly using any arbitrary value.",
+		title: "Overwhelming",
+		desc: "몰입형 복합 문화공간인 LIGHTROOM SEOUL에서는 예술과 기술이 융합된 압도적인 스케일의 미디어 아트를 감상할 수 있습니다.",
+	},
+	{
+		title: "Innovative",
+		desc: "특별한 기획을 통해 작가와의 협업을 이끌어낸 LIGHTROOM SEOUL의 전시는 기존 미디어 전시의 수준을 혁신적으로 끌어올린 최고의 플랫폼입니다.",
 	},
 ];
 
