@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer id="footer" role="contentinfo">
             <div className="footer__inner">
-                <h2 className="footer__text">
+                {/* <h2 className="footer__text">
                     <div>webstoryboy</div>
                     <div>@webs</div>
                 </h2>
@@ -28,14 +28,14 @@ const Footer = () => {
                             ))}
                         </ul>
                     </div>
-                </div>
+                </div> */}
                 <div className="footer__right">
-                    &copy; 2023 webstoryboy<br />
-                    이 사이트는 리액트를 이용하여 제작하였습니다.
+                    &copy; 2024 may. All Rights Reserved.
+                    <br />이 사이트는 포트폴리오용으로 제작하였습니다.
                 </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
 export default Footer;
