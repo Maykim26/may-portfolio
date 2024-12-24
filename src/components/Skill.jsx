@@ -40,8 +40,8 @@ const Skill = () => {
     if (currentTitle) {
       gsap.fromTo(
         currentTitle,
-        { opacity: 0.7, rotateX: 30 }, // 아래로 내려오며 보이지 않음
-        { opacity: 1, rotateX: 0, duration: 0.3, ease: 'circ.inOut', force3D: true }, // 자연스럽게 위로 올라오며 보임
+        { opacity: 0.7, translateY: 10 }, // 아래로 내려오며 보이지 않음
+        { opacity: 1, translateY: 0, duration: 0.6, ease: 'circ.inOut', force3D: true }, // 자연스럽게 위로 올라오며 보임
       );
     }
 
@@ -57,7 +57,7 @@ const Skill = () => {
   return (
     <section id="skill" ref={containerRef}>
       <div className="skill__inner">
-        <h2 className="skill__title">Mㅇㅇs</h2>
+        <h2 className="skill__title">My skill</h2>
         <div className="skill__desc">
           <div>
             {skillText.map((skill, key) => (

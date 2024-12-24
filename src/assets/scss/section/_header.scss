@@ -33,18 +33,24 @@
 
   @media (max-width: 800px) {
     display: none;
+    opacity: 0; /* 초기 상태에서 투명 */
+    transform: translateX(100%); /* 메뉴가 화면 밖으로 숨겨짐 */
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease; /* 부드러운 트랜지션 */
 
     &.show {
       display: block;
+      opacity: 1; /* 메뉴가 나타날 때 투명도 1 */
+      transform: translateX(0); /* 메뉴가 화면 안으로 슬라이드 */
       position: absolute;
       top: 40px;
       right: 0;
       width: 160%;
-      transition: all 0.3s;
-
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease; /* 부드러운 트랜지션 */
       border-radius: 50px 0 0 25px;
-      // background-color: var(--mainBackground);
-
       z-index: 10000;
 
       ul {
