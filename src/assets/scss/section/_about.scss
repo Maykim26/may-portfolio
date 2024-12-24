@@ -75,20 +75,23 @@
       .txt-subtitle-4 {
         font-size: 1.6rem;
         color: var(--mainColor);
-        font-weight: 600;
+        font-weight: 900;
+        font-family: var(--mainEng-font);
       }
 
       .txt-b3 {
         font-size: 1rem;
         color: var(--mainColor);
         margin-top: 8px;
+        font-family: var(--mainKor-font);
         line-height: 1.5;
       }
 
       .num {
-        font-size: 2rem;
+        font-weight: 900;
+        font-family: var(--mainEng-font);
         color: var(--mainColor);
-        font-weight: bold;
+        font-size: 1.6rem;
         margin-right: 15px;
       }
     }
