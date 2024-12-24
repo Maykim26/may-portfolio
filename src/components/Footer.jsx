@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { footerText } from "../constants";
+import { footerText } from '../constants';
 
 const Footer = () => {
-    return (
-        <footer id="footer" role="contentinfo">
-            <div className="footer__inner">
-                {/* <h2 className="footer__text">
+  return (
+    <footer id="footer" role="contentinfo">
+      <div className="footer__inner">
+        {/* <h2 className="footer__text">
                     <div>webstoryboy</div>
                     <div>@webs</div>
                 </h2>
@@ -29,13 +29,13 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div> */}
-                <div className="footer__right">
-                    &copy; 2024 may. All Rights Reserved.
-                    <br />이 사이트는 포트폴리오용으로 제작하였습니다.
-                </div>
-            </div>
-        </footer>
-    );
+        <div className="footer__right">
+          &copy; 2024 may. All Rights Reserved.
+          <br />이 사이트는 포트폴리오용으로 제작하였습니다.
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/may-portfolio/static/css/main.b3d6e555.css",
-    "main.js": "/may-portfolio/static/js/main.2295a3ad.js",
+    "main.css": "/may-portfolio/static/css/main.c9008f0c.css",
+    "main.js": "/may-portfolio/static/js/main.04f4d6b2.js",
     "static/media/port03.jpg": "/may-portfolio/static/media/port03.10502167886097e4ab9a.jpg",
     "static/media/port09.jpg": "/may-portfolio/static/media/port09.9124259969f223516e0a.jpg",
     "static/media/port07.jpg": "/may-portfolio/static/media/port07.f1ca7a69df2193ef7341.jpg",
@@ -14,11 +14,11 @@
     "static/media/port05.jpg": "/may-portfolio/static/media/port05.d7cbc880837be1dc9761.jpg",
     "index.html": "/may-portfolio/index.html",
     "static/media/arrow.svg": "/may-portfolio/static/media/arrow.2e4d39e45ed199875f7f.svg",
-    "main.b3d6e555.css.map": "/may-portfolio/static/css/main.b3d6e555.css.map",
-    "main.2295a3ad.js.map": "/may-portfolio/static/js/main.2295a3ad.js.map"
+    "main.c9008f0c.css.map": "/may-portfolio/static/css/main.c9008f0c.css.map",
+    "main.04f4d6b2.js.map": "/may-portfolio/static/js/main.04f4d6b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3d6e555.css",
-    "static/js/main.2295a3ad.js"
+    "static/css/main.c9008f0c.css",
+    "static/js/main.04f4d6b2.js"
   ]
 }

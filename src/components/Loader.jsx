@@ -1,26 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from 'react';
 
-const Loader = ({ number }) => {
-	// number가 100이 될 때 스크롤 활성화
-	useEffect(() => {
-		if (number === 100) {
-			document.body.style.overflow = "auto"; // body 스크롤 활성화
-			document.documentElement.style.overflow = "auto"; // html 스크롤 활성화
-		}
-	}, [number]); // number 값이 변경될 때마다 실행
+const Loader = ({ onComplete }) => {
+  const [number, setNumber] = useState(0);
 
-	// number가 10 미만일 때 앞에 0을 추가
-	let numberString = number;
-	if (number < 10) {
-		numberString = "0" + number;
-	}
+  useEffect(() => {
+    let start = null;
+    const animate = timestamp => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
 
-	return (
-		<div className="Loader" data-size={number}>
-			{numberString}
-			<sup>%</sup>
-		</div>
-	);
+      // 숫자가 100에 도달하는 시간 설정 (3초 동안 증가)
+      const increment = Math.min(progress / 30, 101);
+      setNumber(Math.floor(increment)); // 소수점 없이 정수로 처리
+
+      if (increment < 101) {
+        requestAnimationFrame(animate); // 계속 애니메이션을 진행
+      } else {
+        if (onComplete) {
+          onComplete(); // 로딩 완료 후 onComplete 콜백 호출
+        }
+      }
+    };
+
+    // 로딩 시작
+    requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animate); // 컴포넌트 언마운트 시 애니메이션 종료
+  }, [onComplete]);
+
+  // number가 10 미만일 때 앞에 0을 추가
+  let numberString = number < 10 ? '0' + number : number;
+
+  return (
+    <div className="loader-container">
+      <div className="line"></div>
+      <div className="loader">
+        {numberString}
+        <sup>%</sup>
+      </div>
+    </div>
+  );
 };
 
 export default Loader;

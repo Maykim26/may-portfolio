@@ -1,19 +1,20 @@
 @charset "UTF-8";
 
 // setting
-@import "setting/fonts";
-@import "setting/vars";
-@import "setting/mouseFollowEffect";
-@import "setting/reset";
-@import "setting/mixin";
+@import 'setting/fonts';
+@import 'setting/vars';
+@import 'setting/mouseFollowEffect';
+@import 'setting/reset';
+@import 'setting/mixin';
 
 // section
-@import "section/header";
-@import "section/intro";
-@import "section/about";
-@import "section/skill";
-@import "section/site";
-@import "section/port";
-@import "section/contact";
-@import "section/footer";
-@import "section/loader";
+@import 'section/loader';
+@import 'section/header';
+@import 'section/intro';
+@import 'section/about';
+@import 'section/skill';
+@import 'section/site';
+@import 'section/port';
+@import 'section/contact';
+@import 'section/footer';
+@import 'section/loader';

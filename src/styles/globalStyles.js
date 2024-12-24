@@ -1,5 +1,5 @@
 // src/styles/globalStyles.js
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   /* html과 body 전체에 대해 전환 효과 적용 */
