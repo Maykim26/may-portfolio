@@ -10,7 +10,7 @@
     font-size: 4vw;
     font-weight: 900;
     line-height: 1.6;
-    font-family: var(--mainKor-font);
+    font-family: var(--mainEng-font);
     text-transform: uppercase;
     // color: var(--black100);
     border-bottom: 0.15vw solid var(--secondaryColor);
@@ -111,13 +111,13 @@
         a {
           text-decoration: underline;
           text-transform: uppercase;
-          color: var(--black200);
+          color: var(--textPrimary);
           font-size: 1rem;
           transition: all 0.3s;
           margin: 0 2px;
 
           &:hover {
-            color: var(--black);
+            color: var(--white);
           }
         }
       }

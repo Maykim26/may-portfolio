@@ -6,9 +6,7 @@ const Site = () => {
   return (
     <section id="site">
       <div className="site__inner">
-        <h2 className="site__title">
-          Docs <em>classNAme</em>
-        </h2>
+        <h2 className="site__title">MY PROJECT</h2>
         <div className="site__wrap">
           {siteText.map((site, key) => (
             <article className={`site__item s${key + 1}`} key={key}>

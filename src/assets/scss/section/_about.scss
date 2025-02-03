@@ -13,11 +13,12 @@
     flex-direction: column;
   }
   .about__title {
-    width: 70%;
+    width: 100%;
     font-size: 4vw;
+    height: 5vw;
     font-weight: 900;
     line-height: 1.6;
-    font-family: var(--mainKor-font);
+    font-family: var(--mainEng-font);
 
     text-transform: uppercase;
     // color: var(--black100);

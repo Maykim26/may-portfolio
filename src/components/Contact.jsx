@@ -217,7 +217,7 @@ const Contact = () => {
           <span className="line"></span>
         </div>
         <div ref={textBoxRef} className="contact__text">
-          <a href="mailto:audgml522@naver.com">email: audgml522@naver.com</a>
+          <a href="mailto:maykim1823@gmail.com">email: maykim1823@gmail.com</a>
           <span>
             {' '}
             phone:{' '}
@@ -233,15 +233,6 @@ const Contact = () => {
             </a>
           </span>
           <span> address: 서울시 광진구 자양동</span>
-        </div>
-        <div className="contact__lines" aria-hidden="true">
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
         </div>
       </div>
     </section>

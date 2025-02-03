@@ -1,6 +1,6 @@
 #port {
   width: 100%;
-  margin-top: 30vh;
+
   // overflow: hidden;
 }
 .port__inner {
@@ -12,10 +12,10 @@
     font-size: 4vw;
     font-weight: 900;
     line-height: 1.6;
-    font-family: var(--mainKor-font);
+    font-family: var(--mainEng-font);
     text-transform: uppercase;
     // color: var(--black100);
-    border-bottom: 0.15vw solid var(--black100);
+    border-bottom: 0.15vw solid var(--secondaryColor);
     margin-bottom: 16px;
     text-indent: -0.26vw;
 
@@ -31,8 +31,8 @@
     width: 7000px;
 
     .port__item {
-      width: 500px;
-      height: 70vh;
+      width: 1000px;
+      height: 85vh;
       // background-color: var(--subBg100);
       padding: 2.5rem;
       margin-right: 20px;
@@ -52,28 +52,14 @@
       &.p5 {
         background-color: var(--subBg500);
       }
-      &.p6 {
-        background-color: var(--subBg100);
-      }
-      &.p7 {
-        background-color: var(--subBg200);
-      }
-      &.p8 {
-        background-color: var(--subBg300);
-      }
-      &.p9 {
-        background-color: var(--subBg400);
-      }
-      &.p10 {
-        background-color: var(--subBg500);
-      }
+
       .num {
-        font-size: 2rem;
-        font-family: var(--mainNum-font);
+        font-family: var(--mainEng-font);
+        font-weight: bold;
       }
       .img {
         display: block;
-        margin-top: -20px;
+        margin-top: -80px;
         transition: margin-top 0.3s;
 
         img {
@@ -96,14 +82,15 @@
         padding: 0.8rem 0;
         font-weight: 700;
         // color: var(--black100);
-        border-bottom: 2px solid var(--black100);
+        border-bottom: 2px solid var(--mainColor);
         margin-bottom: 1rem;
       }
       .desc {
         font-size: 1rem;
+        margin-top: 20px;
       }
       .site {
-        border: 1px solid var(--black100);
+        border: 1px solid var(--mainColor);
         display: block;
         text-align: center;
         padding: 0.625rem 1.5rem;
@@ -111,7 +98,7 @@
         transition: all 0.2s;
 
         &:hover {
-          background-color: var(--black100);
+          background-color: var(--textPrimary);
           color: var(--white);
         }
       }

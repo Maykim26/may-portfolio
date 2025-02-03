@@ -1,13 +1,6 @@
-import port01 from '../assets/img/port01.jpg';
-import port02 from '../assets/img/port02.jpg';
-import port03 from '../assets/img/port03.jpg';
-import port04 from '../assets/img/port04.jpg';
-import port05 from '../assets/img/port05.jpg';
-import port06 from '../assets/img/port06.jpg';
-import port07 from '../assets/img/port07.jpg';
-import port08 from '../assets/img/port08.jpg';
-import port09 from '../assets/img/port09.jpg';
-import port10 from '../assets/img/port10.jpg';
+import port01 from '../assets/img/port01.png';
+import port02 from '../assets/img/port02.png';
+import port03 from '../assets/img/port03.png';
 
 export const headerNav = [
   {
@@ -52,18 +45,6 @@ export const aboutText = {
 };
 
 export const skillText = [
-  // {
-  //   title: 'djwdlge',
-  //   desc: 'lldkfnadsghaiuwehtoiguahelgiaufdnlk.jdfnlaweulwheiu',
-  // },
-  // {
-  //   title: 'djwdlgㄴes2',
-  //   desc: 'lldkfnadsghaiuwehtoiguahelgiaufdnlk.jdfnlaweulwheiu12',
-  // },
-  // {
-  //   title: 'djwdlge3',
-  //   desc: 'lldkfnadsghaiuwehtoiguahelgiaufdnlk.jdfnlaweulwheiu34',
-  // },
   {
     title: 'HTML5 / CSS3',
     desc: '웹의 기초부터 고급까지, 웹 페이지의 구조와 스타일을 설계하는 데 필수적인 능력을 보유하고 있습니다. 최신 웹 표준을 준수하여 접근성과 SEO 최적화를 고려한 웹 페이지 구조 설계에 강점이 있습니다. 시맨틱 마크업을 활용하여 검색엔진 최적화와 웹 접근성을 향상시키는데 주력합니다. 반응형 웹 디자인과 크로스 브라우징 호환성을 고려한 스타일링이 가능합니다. CSS Grid와 Flexbox를 활용한 모던 레이아웃 구현에 능숙합니다. SCSS/SASS 전처리기를 활용한 효율적인 스타일 관리 경험이 있습니다. CSS 애니메이션과 트랜지션을 활용한 인터랙티브한 사용자 경험 구현이 가능합니다. 미디어 쿼리를 활용한 다양한 디바이스 대응 능력을 보유하고 있습니다.',
@@ -83,50 +64,6 @@ export const skillText = [
 ];
 
 export const siteText = [
-  // {
-  //   text: ['lorem', 'ipsum', 'dolor', 'sit', 'amet'],
-  //   title: '비트를 이용한 사이트 제작',
-  //   code: 'https://github.com/webstoryboy/port2023-vite',
-  //   view: 'https://port2023-vite.netlify.app',
-  //   info: [
-  //     'consectetur adipiscing elit',
-  //     'production period : four days',
-  //     'use stack : Lorem/CSS3, Dummy Variable, Vite',
-  //   ],
-  // },
-  // {
-  //   text: ['lorem', 'ipsum', 'dolor', 'sit', 'react.js'],
-  //   title: '리액트를 이용한 사이트 제작',
-  //   code: 'https://github.com/webstoryboy/port2023-react',
-  //   view: 'https://port2023-react.netlify.app',
-  //   info: [
-  //     'consectetur adipiscing elit',
-  //     'production period : four days',
-  //     'use stack : Lorem/CSS3, Dummy Variable, react',
-  //   ],
-  // },
-  // {
-  //   text: ['lorem', 'ipsum', 'dolor', 'sit', 'vue.js'],
-  //   title: '뷰를 이용한 사이트 제작',
-  //   code: 'https://github.com/webstoryboy/port2023-vue',
-  //   view: 'https://port2023-vue.netlify.app',
-  //   info: [
-  //     'consectetur adipiscing elit',
-  //     'production period : four days',
-  //     'use stack : Lorem/CSS3, Dummy Variable, vue',
-  //   ],
-  // },
-  // {
-  //   text: ['lorem', 'ipsum', 'dolor', 'sit', 'next.js'],
-  //   title: '넥스트를 이용한 사이트 제작',
-  //   code: 'https://github.com/webstoryboy/port2023-next',
-  //   view: 'https://port2023-next.netlify.app',
-  //   info: [
-  //     'consectetur adipiscing elit',
-  //     'production period : four days',
-  //     'use stack : Lorem/CSS3, Dummy Variable, next.js',
-  //   ],
-  // },
   {
     text: ['make', 'calendar-app with', 'React.js'],
     title: '리액트를 이용한 스케줄앱 제작',
@@ -151,59 +88,32 @@ export const siteText = [
 ];
 
 export const portText = [
-  // {
-  //   num: '01',
-  //   title: 'lorem ipsum portfolio',
-  //   desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis tortor eu risus tempor, ut fringilla felis ullamcorper. Integer eget tortor at ante cursus egestas. Aliquam erat volutpat. Sed nec velit sit amet libero vulputate laoreet. Fusce auctor, lorem eget fringilla.',
-  //   // img: port01,
-  //   code: 'https://github.com/loremipsum/portfolio',
-  //   view: 'https://loremipsum-portfolio.netlify.app',
-  //   name: 'Lorem Ipsum',
-  // },
-  // {
-  //   num: '02',
-  //   title: 'dolor sit amet portfolio',
-  //   desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis tortor eu risus tempor, ut fringilla felis ullamcorper. Integer eget tortor at ante cursus egestas. Aliquam erat volutpat. Sed nec velit sit amet libero vulputate laoreet. Fusce auctor, lorem eget fringilla.',
-  //   // img: port02,
-  //   code: 'https://github.com/dolorsit/portfolio',
-  //   view: 'https://dolorsit-portfolio.netlify.app',
-  //   name: 'Dolor Sit',
-  // },
-  // {
-  //   num: '03',
-  //   title: 'consectetur adipiscing portfolio',
-  //   desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis tortor eu risus tempor, ut fringilla felis ullamcorper. Integer eget tortor at ante cursus egestas. Aliquam erat volutpat. Sed nec velit sit amet libero vulputate laoreet. Fusce auctor, lorem eget fringilla.',
-  //   // img: port03,
-  //   code: 'https://github.com/consectetur/portfolio',
-  //   view: 'https://consectetur-portfolio.netlify.app',
-  //   name: 'Consectetur Adipiscing',
-  // },
   {
     num: '01',
-    title: '어워드에도 올라간 포트폴리오',
-    desc: '라마 디자인을 통해 자신의 스킬을 가장 멋지게 표현한 포트폴리오입니다. 가로 모드와 세로 모드는 매우 인상적이며 특히 리액트와 비트를 이용하여 제작한 것은 더욱 놀랍습니다. 이 사이트는 awwwards.com에도 인정받아 올라간 포트폴리오입니다. 확실히 그의 뛰어난 디자인 스킬과 기술력이 빛을 발휘한 결과물인 것 같습니다.',
+    title: 'Wix Studio로 제작한 홈페이지',
+    desc: '자사 홈페이지의 전면적인 리뉴얼을 주도하며, Wix Studio를 학습하고 적용하여 유지보수와 관리가 용이한 시스템을 구축했습니다. 메인 및 서브 페이지의 디자인 시안을 설계하고, UI/UX 개선을 위한 퍼블리싱 작업을 수행했습니다. 프로젝트의 각 단계에서 팀원들과 긴밀히 협업하며 요구 사항을 반영하고, 디자인 품질을 향상시키기 위한 다양한 시도를 진행했습니다.',
     img: port01,
-    code: 'https://github.com/kimsangjunv1/-React-Portfolio',
-    view: 'https://portfoliosj-react.netlify.app',
-    name: '김상* 포트폴리오',
+    code: 'https://www.cravis.co.kr/',
+    view: 'https://www.cravis.co.kr/',
+    name: '자사홈페이지',
   },
   {
     num: '02',
-    title: '빛나는 밤에 포트폴리오',
-    desc: '이 사이트는 정말 인상적인 포트폴리오입니다. 특히 스무스한 효과와 가로 모드드 높은 퀄리티를 자랑합니다. 디테일과 꼼꼼함이 넘치는 포트폴리오는 개발자의 뛰어난 능력을 엿볼 수 있습니다. GSAP와 React.js를 이용하여 사이트를 표현한 것은 기술적인 능력과 창의성을 강조하는데, 부족함이 없으며, 세심한 코딩과 디테일한 작업으로 그의 개발 감각과 능력이 빛을 발휘한 것 같습니다. ',
+    title: 'Wix Editor로 제작한 기술지원 사이트',
+    desc: '솔루션 런칭을 위한 기술지원 사이트를 개발하며, Wix Editor를 학습하고 CMS 기능을 활용하여 게시판 및 동영상 등 다양한 애플리케이션을 통합했습니다. 사용자 친화적인 기술지원 매뉴얼을 제작하고, 효율적인 사이트 유지보수 및 관리를 위해 체계적인 시스템 구조를 설계했습니다. 프로젝트 진행 과정에서 지속적인 피드백을 반영하며 최적화 작업을 수행했습니다.',
     img: port02,
-    code: 'https://github.com/seolhee313/PORTFOLIO-REACT',
-    view: 'https://portfolio-313.web.app/',
-    name: '천설* 포트폴리오',
+    code: 'https://www.bluesql.co.kr/',
+    view: 'https://www.bluesql.co.kr/',
+    name: '기술지원홈페이지',
   },
   {
     num: '03',
-    title: '열정이 넘치는 포트폴리오',
-    desc: '이 사이트는 정말 인상적인 포트폴리오입니다. 특히 스무스한 효과와 가로 모드드 높은 퀄리티를 자랑합니다. 디테일과 꼼꼼함이 넘치는 포트폴리오는 개발자의 뛰어난 능력을 엿볼 수 있습니다. GSAP와 React.js를 이용하여 사이트를 표현한 것은 기술적인 능력과 창의성을 강조하는데, 부족함이 없으며, 세심한 코딩과 디테일한 작업으로 그의 개발 감각과 능력이 빛을 발휘한 것 같습니다. ',
+    title: 'Aesop 브랜드 리디자인 프로젝트',
+    desc: '이솝 브랜드의 콘텐츠를 직관적으로 재구성하고, 메인 페이지 내에서 정보를 효과적으로 구조화하여 사용자 경험을 개선했습니다. Swiper.js 플러그인을 활용해 부드러운 인터랙션을 구현하였으며, 브랜드 아이덴티티를 유지하면서도 현대적인 디자인 요소를 반영했습니다.',
     img: port03,
-    code: 'https://github.com/seolhee313/PORTFOLIO-REACT',
-    view: 'https://portfolio-313.web.app/',
-    name: '천설* 포트폴리오',
+    code: 'https://maykim26.github.io/portfolio3/scroll/project/Aesop/index.html',
+    view: 'https://maykim26.github.io/portfolio3/scroll/project/Aesop/index.html',
+    name: '이솝 리디자인',
   },
 ];
 

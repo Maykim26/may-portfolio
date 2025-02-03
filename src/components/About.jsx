@@ -75,10 +75,7 @@ const About = () => {
         <div className="row title-text-row">
           <div className="half">
             <span className="title-left txt-subtitle-3">
-              <h2 className="about__title">
-                About ME
-                {/* <em>me</em> */}
-              </h2>
+              <h2 className="about__title">About ME</h2>
             </span>
           </div>
           <div className="half">

@@ -1,34 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const Loader = ({ onComplete }) => {
   const [number, setNumber] = useState(0);
+  const [stuckAt100, setStuckAt100] = useState(false);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     let start = null;
     const animate = timestamp => {
       if (!start) start = timestamp;
       const progress = timestamp - start;
+      let increment = Math.min(progress / 15, 100);
 
-      // 숫자가 100에 도달하는 시간 설정 (3초 동안 증가)
-      const increment = Math.min(progress / 30, 101);
-      setNumber(Math.floor(increment)); // 소수점 없이 정수로 처리
+      if (increment === 100 && !stuckAt100) {
+        setStuckAt100(true);
+        setTimeout(() => {
+          setStuckAt100(false);
+          if (onComplete) onComplete();
+        }, 700); // 0.5초 동안 멈추게 함
+      }
 
-      if (increment < 101) {
-        requestAnimationFrame(animate); // 계속 애니메이션을 진행
-      } else {
-        if (onComplete) {
-          onComplete(); // 로딩 완료 후 onComplete 콜백 호출
-        }
+      if (!stuckAt100) {
+        setNumber(Math.floor(increment));
+        animationRef.current = requestAnimationFrame(animate);
       }
     };
 
-    // 로딩 시작
-    requestAnimationFrame(animate);
+    animationRef.current = requestAnimationFrame(animate);
 
-    return () => cancelAnimationFrame(animate); // 컴포넌트 언마운트 시 애니메이션 종료
-  }, [onComplete]);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, [onComplete, stuckAt100]);
 
-  // number가 10 미만일 때 앞에 0을 추가
   let numberString = number < 10 ? '0' + number : number;
 
   return (

@@ -19,7 +19,7 @@ const Port = () => {
       ease: 'none',
       scrollTrigger: {
         trigger: horizontal,
-        start: 'top 56px',
+        start: 'top -20px',
         end: () => '+=' + horizontal.offsetWidth,
         pin: true,
         scrub: 1,
@@ -37,17 +37,17 @@ const Port = () => {
   return (
     <section id="port" ref={horizontalRef}>
       <div className="port__inner">
-        <h2 className="port__title">
-          afkjeg <em>dsaklf</em>
-        </h2>
+        <h2 className="port__title">MY PORTFOLIO</h2>
         <div className="port__wrap">
           {portText.map((port, key) => (
             <article className={`port__item p${key + 1}`} key={key} ref={el => (sectionRef.current[key] = el)}>
-              <span className="num">{port.num}.</span>
+              <h3 className="title">
+                {' '}
+                <span className="num">{port.num}.</span> {port.title}
+              </h3>
               <a href={port.code} target="_blank" className="img" rel="noreferrer noopener">
                 <img src={port.img} alt={port.name} />
               </a>
-              <h3 className="title">{port.title}</h3>
               <p className="desc">{port.desc}</p>
               <a href={port.view} target="_blank" className="site" rel="noreferrer noopener">
                 사이트 보기
