@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/may-portfolio/static/css/main.af09e4fa.css",
-    "main.js": "/may-portfolio/static/js/main.55cce818.js",
+    "main.css": "/may-portfolio/static/css/main.b1f1108e.css",
+    "main.js": "/may-portfolio/static/js/main.da67323f.js",
     "static/media/port03.png": "/may-portfolio/static/media/port03.5705e4074b842e55a46f.png",
     "static/media/port01.png": "/may-portfolio/static/media/port01.e410add7a994cdde9e86.png",
     "static/media/port02.png": "/may-portfolio/static/media/port02.d892df705145e6a5f9c2.png",
     "index.html": "/may-portfolio/index.html",
     "static/media/arrow.svg": "/may-portfolio/static/media/arrow.2e4d39e45ed199875f7f.svg",
-    "main.af09e4fa.css.map": "/may-portfolio/static/css/main.af09e4fa.css.map",
-    "main.55cce818.js.map": "/may-portfolio/static/js/main.55cce818.js.map"
+    "main.b1f1108e.css.map": "/may-portfolio/static/css/main.b1f1108e.css.map",
+    "main.da67323f.js.map": "/may-portfolio/static/js/main.da67323f.js.map"
   },
   "entrypoints": [
-    "static/css/main.af09e4fa.css",
-    "static/js/main.55cce818.js"
+    "static/css/main.b1f1108e.css",
+    "static/js/main.da67323f.js"
   ]
 }
