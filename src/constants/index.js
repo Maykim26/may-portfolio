@@ -90,7 +90,7 @@ export const siteText = [
 export const portText = [
   {
     num: '01',
-    title: 'Wix Studio로 제작한 홈페이지',
+    title: '회사 홈페이지',
     desc: '자사 홈페이지의 전면적인 리뉴얼을 주도하며, Wix Studio를 학습하고 적용하여 유지보수와 관리가 용이한 시스템을 구축했습니다. 메인 및 서브 페이지의 디자인 시안을 설계하고, UI/UX 개선을 위한 퍼블리싱 작업을 수행했습니다. 프로젝트의 각 단계에서 팀원들과 긴밀히 협업하며 요구 사항을 반영하고, 디자인 품질을 향상시키기 위한 다양한 시도를 진행했습니다.',
     img: port01,
     code: 'https://www.cravis.co.kr/',
@@ -99,7 +99,7 @@ export const portText = [
   },
   {
     num: '02',
-    title: 'Wix Editor로 제작한 기술지원 사이트',
+    title: '기술지원 사이트',
     desc: '솔루션 런칭을 위한 기술지원 사이트를 개발하며, Wix Editor를 학습하고 CMS 기능을 활용하여 게시판 및 동영상 등 다양한 애플리케이션을 통합했습니다. 사용자 친화적인 기술지원 매뉴얼을 제작하고, 효율적인 사이트 유지보수 및 관리를 위해 체계적인 시스템 구조를 설계했습니다. 프로젝트 진행 과정에서 지속적인 피드백을 반영하며 최적화 작업을 수행했습니다.',
     img: port02,
     code: 'https://www.bluesql.co.kr/',
@@ -114,54 +114,5 @@ export const portText = [
     code: 'https://maykim26.github.io/portfolio3/scroll/project/Aesop/index.html',
     view: 'https://maykim26.github.io/portfolio3/scroll/project/Aesop/index.html',
     name: '이솝 리디자인',
-  },
-];
-
-export const contactText = [
-  {
-    link: 'https://open.kakao.com/o/gM7YLzwf',
-    title: 'KAKAO : webstupids',
-  },
-  {
-    link: 'mailto:webstoryboy@naver.com',
-    title: 'mail : webstoryboy@naver.com',
-  },
-];
-
-export const footerText = [
-  {
-    title: 'youtube',
-    desc: '유튜브에 오시면 더 많은 강의를 볼 수 있습니다.',
-    link: 'https://www.youtube.com/@Webstoryboy',
-  },
-  {
-    title: 'github',
-    desc: '깃헙에 오시면 더 많은 소스를 볼 수 있습니다.',
-    link: 'https://github.com/webstoryboy',
-  },
-  {
-    title: 'blog',
-    desc: '블러그에 오시면 더 많은 정보를 볼 수 있습니다.',
-    link: 'https://webstoryboy.co.kr',
-  },
-  {
-    title: 'gsap',
-    desc: 'GSAP에 오시면 더 많은 강의를 볼 수 있습니다.',
-    link: 'https://www.youtube.com/playlist?list=PL4UVBBIc6giL8-6jvrClimg0cFL-Muqiq',
-  },
-  {
-    title: 'react',
-    desc: '리액트로 만든 사이트를 같이 만들어 봅니다.',
-    link: 'https://github.com/webstoryboy/port2023-react',
-  },
-  {
-    title: 'vue',
-    desc: '뷰로 만든 사이트를 같이 만들어 봅니다.',
-    link: 'https://github.com/webstoryboy/port2023-vue',
-  },
-  {
-    title: 'next',
-    desc: '넥스트로 만든 사이트를 같이 만들어 봅니다.',
-    link: 'https://github.com/webstoryboy/port2023-next',
   },
 ];

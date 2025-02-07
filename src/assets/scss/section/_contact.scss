@@ -26,10 +26,6 @@
     white-space: nowrap;
     text-indent: -0.5vw;
     letter-spacing: -0.3vw;
-
-    // @media (max-width: 800px) {
-    // 	display: none;
-    // }
   }
 
   .animated-text {
@@ -48,6 +44,9 @@
     justify-content: center;
     flex-direction: column;
     overflow: visible;
+    @media (max-width: 800px) {
+      font-size: 10px;
+    }
 
     cursor:
       url('https://img.icons8.com/emoji/48/backhand-index-pointing-up-emoji.png') 56 56,

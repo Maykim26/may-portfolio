@@ -18,7 +18,14 @@
     border-bottom: 0.15vw solid var(--secondaryColor);
     margin-bottom: 16px;
     text-indent: -0.26vw;
-
+    @media (max-width: 800px) {
+      width: 100%;
+      margin-bottom: 10vw;
+      font-size: 30px;
+      height: auto;
+      // top: 68px;
+      z-index: 1000;
+    }
     em {
       font-size: 1.25rem;
       font-weight: 400;
@@ -28,15 +35,17 @@
   .port__wrap {
     display: flex;
     flex-wrap: wrap;
-    width: 7000px;
+    width: 3200px;
 
     .port__item {
       width: 1000px;
-      height: 85vh;
+      height: 830px;
       // background-color: var(--subBg100);
       padding: 2.5rem;
       margin-right: 20px;
-
+      @media (max-width: 800px) {
+        width: 400px;
+      }
       &.p1 {
         background-color: var(--subBg100);
       }
@@ -61,11 +70,16 @@
         display: block;
         margin-top: -80px;
         transition: margin-top 0.3s;
-
+        @media (max-width: 800px) {
+          margin-top: 0;
+        }
         img {
           border-radius: 5px;
           filter: saturate(0%);
           transition: all 0.3s;
+          @media (max-width: 800px) {
+            filter: saturate(100%);
+          }
         }
 
         &:hover {

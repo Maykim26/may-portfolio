@@ -55,7 +55,7 @@ const Contact = () => {
 
         // 특정 단어를 highlight 클래스 추가
         if (
-          word.toLowerCase().includes('audgml522@naver.com') ||
+          word.toLowerCase().includes('maykim1823@gmail.com') ||
           word.toLowerCase().includes('010-7159-1823') ||
           word.toLowerCase().includes('자양동') ||
           word.toLowerCase().includes('광진구') ||

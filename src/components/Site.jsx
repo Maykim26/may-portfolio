@@ -22,9 +22,9 @@ const Site = () => {
                 <a href={site.view}>view</a>
               </div>
               <div className="info">
-                <span>{site.info[0]}</span>
-                <span>{site.info[1]}</span>
+                {/* <span>{site.info[0]}</span> */}
                 <span>{site.info[2]}</span>
+                <span>{site.info[1]}</span>
               </div>
             </article>
           ))}

@@ -15,7 +15,8 @@
   background-color: rgba(167, 167, 167, 0.104);
   backdrop-filter: blur(15px);
   padding: 0.5rem 1rem;
-
+  font-family: var(--mainEng-font);
+  font-weight: 500;
   @media (max-width: 800px) {
     position: absolute;
     right: 0;

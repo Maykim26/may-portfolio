@@ -15,8 +15,7 @@
   .footer__info {
     display: flex;
     justify-content: space-between;
-    margin: 100px 0;
-
+    margin: 50px 0;
     @media (max-width: 800px) {
       flex-direction: column;
     }
