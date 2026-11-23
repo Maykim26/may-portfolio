@@ -17,22 +17,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
-/* 레이아웃: 코드 편집기 화면. 위 탭, 왼쪽 탐색기, 가운데 문서, 아래 상태 표시줄. 빨강은 원래 상태, 초록은 고친 뒤, 파랑은 선택 */
+/* 레이아웃: 코드 편집기 화면. 위 탭, 왼쪽 탐색기, 가운데 문서, 아래 상태 표시줄. 회색은 원래 상태, 노랑은 고친 뒤, 파랑은 선택 */
 :root{
   --bg:#FFFFFF; --chrome:#F3F4F6; --chrome2:#E9EBEE; --ink:#16181D; --sub:#3A414B; --mute:#6A717C; --line:#DADDE2;
-  --del:#B3261E; --delbg:#FCEBE9; --add:#1B7A3E; --addbg:#E4F4E8; --pick:#2A5BE8; --fill:#2A5BE8; --pickbg:rgba(42,91,232,.10); --warn:#B7791F;
-  --term:#16181D; --termfg:#E4E7EB; --termmute:#8E96A1; --termok:#7FD69A; --termng:#FF9A8F; --status:#16181D; --statusfg:#DDE0E5;
+  --del:#5F6670; --delbg:#E9EBEE; --add:#16181D; --addbg:#FFEFA0; --hl:#FFE27A; --pick:#2A5BE8; --fill:#2A5BE8; --pickbg:rgba(42,91,232,.10); --warn:#B7791F;
+  --term:#16181D; --termfg:#E4E7EB; --termmute:#8E96A1; --termok:#DDE1E6; --termng:#FFD84D; --status:#16181D; --statusfg:#DDE0E5;
   --sans:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --mono:"IBM Plex Mono","IBM Plex Sans KR",ui-monospace,Menlo,monospace;
   --side:248px; --top:44px; --bar:28px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#15171B; --chrome:#1C1F24; --chrome2:#252930; --ink:#E8EAED; --sub:#C2C7CF; --mute:#8B929C; --line:#2C3038;
-  --del:#FF8A80; --delbg:rgba(255,99,88,.13); --add:#6FD38F; --addbg:rgba(80,200,120,.13); --pick:#7C9CFF; --pickbg:rgba(124,156,255,.14); --warn:#F2C261;
+  --del:#8B929C; --delbg:#252930; --add:#FFE27A; --addbg:rgba(255,214,64,.17); --pick:#7C9CFF; --pickbg:rgba(124,156,255,.14); --warn:#F2C261;
   --term:#0E1013; --termfg:#E4E7EB; --termmute:#7E8691; --status:#0E1013; --statusfg:#C9CDD3; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#15171B; --chrome:#1C1F24; --chrome2:#252930; --ink:#E8EAED; --sub:#C2C7CF; --mute:#8B929C; --line:#2C3038;
-  --del:#FF8A80; --delbg:rgba(255,99,88,.13); --add:#6FD38F; --addbg:rgba(80,200,120,.13); --pick:#7C9CFF; --pickbg:rgba(124,156,255,.14); --warn:#F2C261;
+  --del:#8B929C; --delbg:#252930; --add:#FFE27A; --addbg:rgba(255,214,64,.17); --pick:#7C9CFF; --pickbg:rgba(124,156,255,.14); --warn:#F2C261;
   --term:#0E1013; --termfg:#E4E7EB; --termmute:#7E8691; --status:#0E1013; --statusfg:#C9CDD3; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top) + 36px)}
@@ -85,7 +85,7 @@ svg.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;str
 .status{position:sticky;bottom:0;z-index:50;height:calc(var(--bar) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--status);color:var(--statusfg);font-size:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .status div{display:flex;align-items:center;gap:16px;min-width:0;white-space:nowrap}
 .status .sm{display:flex;align-items:center;gap:6px;color:#fff;overflow:hidden;text-overflow:ellipsis}
-.status .ok{color:var(--termok)}
+.status .ok{color:var(--hl)}
 .prog{position:absolute;left:0;top:0;height:2px;background:var(--pick);width:0;transition:width .1s linear}
 
 /* ---------- document ---------- */
@@ -186,7 +186,7 @@ p{margin:0}
 .code .bar em{font-style:normal;background:#2A5BE8;color:#fff;border-radius:3px;padding:0 5px;font-size:10px;font-weight:600}
 .code pre{margin:0;padding:14px 18px 18px;overflow-x:auto;white-space:pre}
 .code .ln{color:#555C66;display:inline-block;width:22px;user-select:none}
-.k{color:#C792EA}.s{color:#C3E88D}.p{color:#82AAFF}.c{color:#6B7380}
+.k{color:#C792EA}.s{color:#FFE27A}.p{color:#82AAFF}.c{color:#6B7380}
 
 /* ---------- three strengths ---------- */
 .s3{display:grid;border-top:1px solid var(--line)}
@@ -299,7 +299,7 @@ td.pc{font-family:var(--mono);font-size:13px}
 .res .n{background:var(--addbg);color:var(--add);font-weight:700;font-size:22px;letter-spacing:-.03em;gap:8px}
 .res i{font-style:normal;font-family:var(--mono);font-size:13px;font-weight:500}
 .term{background:var(--term);color:var(--termfg);border-radius:12px;font-family:var(--mono);font-size:13px;line-height:1.8;padding:20px 22px}
-.term .pr{color:var(--termok);margin-right:8px;font-weight:600}
+.term .pr{color:var(--hl);margin-right:8px;font-weight:600}
 .term .tm{color:var(--termmute)}
 .qgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:8px 6px;margin:16px 0 12px;max-width:420px}
 .qgrid span{aspect-ratio:1;display:grid;place-items:center;border-radius:4px;font-size:12px;font-weight:700;opacity:0;transform:scale(.4);transition:opacity .25s,transform .35s cubic-bezier(.2,1.6,.4,1)}
@@ -595,7 +595,7 @@ p,li{text-wrap:pretty}
     <div class="doc"><div class="inner">
 
 <section class="sec hero" id="readme" data-file="README.md" data-stat="−1|+1" data-msg="변경 1건">
-  <div class="meta"><span>프론트엔드 개발자 김명희는</span><span class="sw"><i style="background:var(--del)"></i>원래</span><span class="sw"><i style="background:var(--add)"></i>고친 뒤</span><span class="sw"><i style="background:var(--pick)"></i>선택</span></div>
+  <div class="meta"><span>프론트엔드 개발자 김명희는</span></div>
   <div class="diffhead" aria-label="시키는 일만 하는, 에서 직접 찾아서 개선하는, 으로 바꾼 프론트엔드 개발자">
     <div class="hl del" aria-hidden="true"><u>1</u><i>−</i><span class="t"><s>시키는 일만 하는</s></span></div>
     <div class="hl add" aria-hidden="true"><u>1</u><i>+</i><span class="t"><span class="sel">직접 찾아서 개선하는<span class="bx"><b></b><b></b><b></b><b></b><span class="sz" id="sz">W 1024 × H 128</span><span class="who">명희</span></span></span><span class="caret"></span></span></div>
@@ -611,7 +611,7 @@ p,li{text-wrap:pretty}
       <p class="lead">보험사와 맥주 브랜드의 웹사이트를 2년 8개월 동안 만들고 운영했습니다.<br class="br"> 운영하다 보이는 문제를 직접 찾아 고치고, 숫자와 검수로 확인합니다.</p>
       <form class="ask" id="ask" style="margin-top:26px" autocomplete="off">
         <label for="askIn" class="mono" style="font-size:12px;color:var(--pick);white-space:nowrap">질문</label>
-        <input id="askIn" placeholder="궁금한 걸 물어보세요. 예: OB맥주 홈페이지는 뭘 했나요?">
+        <input id="askIn" placeholder="궁금한 걸 물어보세요. 예: 이름, 연락처, 경력, 강점">
         <button type="submit" aria-label="답 보기"><svg class="ic" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
       </form>
       <div class="sugg" id="sugg"></div>
@@ -654,7 +654,7 @@ p,li{text-wrap:pretty}
 </section>
 
 <section class="sec" id="fixes" data-file="요약.diff" data-dir="라이나생명" data-stat="−10|+10" data-msg="10줄 변경">
-  <div class="rv"><div class="kick"><p><b>개선한 것들</b>라이나생명 디지털세일즈팀, 2026.04 ~ 현재</p><em>빨간 칸이 전, 초록 칸이 후</em></div>
+  <div class="rv"><div class="kick"><p><b>개선한 것들</b>라이나생명 디지털세일즈팀, 2026.04 ~ 현재</p><em>회색 칸이 전, 노란 칸이 후</em></div>
   <h2>시킨 일이 아니었던 일곱 건을,<br class="br"> 직접 찾아서 제안하고 개선했습니다</h2></div>
   <div class="dt watch" id="diffTable"></div>
 </section>
@@ -739,8 +739,8 @@ p,li{text-wrap:pretty}
     <div class="rv d1">
       <p class="pt">2026년 7월부터 11월까지 진행한 실험 <b>40건</b></p>
       <div class="abg watch" id="abg"></div>
-      <p class="hn">초록 칸: 소셜프루프 문구와 숫자 카운팅, 제가 제안한 소재</p>
-      <p class="pt" style="margin-top:26px">담당 범위. 초록 줄이 새로 맡은 일</p>
+      <p class="hn">노란 칸: 소셜프루프 문구와 숫자 카운팅, 제가 제안한 소재</p>
+      <p class="pt" style="margin-top:26px">담당 범위. 노란 줄이 새로 맡은 일</p>
       <div class="stp watch"><div class="add"><i>+</i>실험 소재 발굴</div><div class="add"><i>+</i>실험 생성</div><div class="add"><i>+</i>A/B 테스트 세팅</div><div class="ctx"><i></i>화면 제작 <em>처음 맡은 범위</em></div><div class="add"><i>+</i>QA</div><div class="add"><i>+</i>결과 해석</div></div>
       <div class="res" style="margin-top:18px"><p>소셜프루프 실험 전환율</p><span class="o"><i>−</i>기존안</span><span class="n"><i>+</i>10% 상승</span></div>
     </div>
@@ -1035,18 +1035,45 @@ const QA=[
   rel:[['','검수.log','qa'],['','심의번호.diff','review-no']]},
  {k:['검수','운영 중','점검','확인'],q:'운영 중인 페이지는 어떻게 검수하나요?',a:'직접 만든 QA 에이전트로 운영 랜딩 84개를 한 번에 돌립니다. 실제 상담 DB가 생기지 않게 조회 외 요청은 모두 막고, 빈 화면, 스크립트 오류, 깨진 이미지, 누락 리소스, 심의필, 잘못된 번호 차단까지 확인합니다.',
   rel:[['','검수.log','qa']]},
+ {k:['이름','성함','누구','who'],q:'이름이 뭔가요?',a:'김명희입니다. 영어 이름은 May를 씁니다.',rel:[['','소개.md','about']]},
+ {k:['나이','몇 살','몇살','생년','년생','출생'],q:'나이가 어떻게 되나요?',a:'1997년생입니다.',rel:[['','소개.md','about']]},
+ {k:['전화','번호','연락처','핸드폰','휴대폰','phone'],q:'전화번호가 뭔가요?',a:'010-7159-1823입니다. 문자나 전화 모두 괜찮습니다.',rel:[['','경력.md','career']]},
+ {k:['이메일','메일','email','mail'],q:'이메일 주소가 뭔가요?',a:'qlqlqlrr@kakao.com입니다.',rel:[['','경력.md','career']]},
+ {k:['사는','거주','어디 살','어디살','지역','위치','주소'],q:'어디에 사나요?',a:'서울 광진구에 살고 있습니다.',rel:[['','경력.md','career']]},
+ {k:['경력','연차','몇 년','몇년','얼마나 일'],q:'경력이 얼마나 되나요?',a:'2년 8개월입니다. 비디에서 1년 3개월, 미래피엠피에서 9개월, 라이나생명에서 8개월째 일하고 있습니다.',rel:[['','경력.md','career']]},
+ {k:['지금','현재','회사','재직','하는 일','무슨 일','직장'],q:'지금 어디서 무슨 일을 하나요?',a:'라이나생명 디지털세일즈팀에서 보험 상품 페이지와 광고 랜딩을 개발하고 운영합니다. 다이렉트몰, 텔레마케팅몰, 홈페이지 세 채널을 맡고 있습니다.',rel:[['','요약.diff','fixes'],['','랜딩.html','lina']]},
+ {k:['미래피엠피','이전 회사','전 회사','전 직장','이전 직장','한맥','스텔라'],q:'이전 회사에서는 뭘 했나요?',a:'미래피엠피에서 OB맥주, 한맥, 스텔라 아르투아, 미켈롭 브랜드 사이트를 구축하고 운영했습니다. 8개월 동안 12건을 만들었고 그중 11건은 퍼블리싱을 혼자 맡았습니다.',rel:[['img/ob_top.jpg','OB맥주 홈페이지','ob'],['','목록.csv','list']]},
+ {k:['비디','첫 회사','첫 직장','dbms','솔루션'],q:'첫 회사에서는 뭘 했나요?',a:'비디에서 사내 DBMS 솔루션 UI와 자사 웹사이트를 만들고 유지보수했습니다. 자사 홈페이지 리뉴얼과 기술지원 사이트 신규 제작을 맡았습니다.',rel:[['','경력.md','career']]},
+ {k:['학력','학교','대학','전공','졸업','학위'],q:'학력이 어떻게 되나요?',a:'한양사이버대학교 응용소프트웨어공학과에 학사 편입해 일과 병행했습니다. (2025.03 ~ 2026.08)',rel:[['','경력.md','career']]},
+ {k:['교육','수료','학원','부트캠프','아카데미','국비'],q:'어떤 교육을 받았나요?',a:'SBS아카데미컴퓨터아트학원 웹 퍼블리싱 및 UI/UX 과정(2023), 이젠아카데미 풀스택 자바 웹개발자 과정(2022)을 수료했습니다.',rel:[['','경력.md','career']]},
+ {k:['주력','주로','잘하는 기술','언어','javascript','자바스크립트','html','css','scss'],q:'주로 쓰는 기술이 뭔가요?',a:'JavaScript, HTML5, CSS3, SCSS, jQuery를 주로 씁니다. 써 본 것은 React, Vue, PHP, JSP, Drupal, GSAP, Tailwind CSS입니다.',rel:[['','환경.md','env'],['','경력.md','career']]},
+ {k:['react','리액트'],q:'React도 할 수 있나요?',a:'네, 쓸 수 있습니다. 개인 포트폴리오 사이트를 React로 직접 설계하고 구현해 GitHub Pages로 배포했습니다. 실무에서는 JSP와 Vue 환경이 중심이었습니다.',rel:[['','환경.md','env']]},
+ {k:['vue','뷰','cms'],q:'Vue는 어디에 썼나요?',a:'라이나생명 홈페이지가 Vue와 CMS 구조입니다. 보험료 간편조회 랜딩은 Vue 화면을 그대로 두고 CMS 영역에서 기능을 붙이도록 개발과 연결 규칙을 정해 만들었습니다.',rel:[['img/li_easy.jpg','보험료 간편조회','lina']]},
+ {k:['강점','장점','잘하는','특기','어떤 사람','성격'],q:'강점이 뭔가요?',a:'시키는 일만 하지 않고 운영하다 보이는 문제를 직접 찾아서 개선합니다. 처음 해 보는 일도 안 된다고 하기 전에 먼저 찾아보고 되는 방법을 만듭니다.',rel:[['','소개.md','about'],['','요약.diff','fixes']]},
+ {k:['희망','지원','직무','포지션','원하는','하고 싶나','하고 싶은','어떤 일'],q:'어떤 일을 하고 싶나요?',a:'프론트엔드 개발, UI 개발, 웹 퍼블리싱입니다. 사용자가 많은 서비스에서 화면 품질을 숫자로 끌어올리는 일을 하고 싶습니다.',rel:[['','소개.md','about']]},
+ {k:['접근성','kwcag','웹표준','웹 표준','aria','스크린리더'],q:'웹 접근성은 어떻게 챙기나요?',a:'KWCAG 기준으로 제목 구조, alt, ARIA, 색상 대비를 정비합니다. 치아보험 랜딩의 모바일 접근성 점수를 59점에서 74점으로 올렸고, 유의사항 글자색은 대비 4.5:1 기준으로 통일했습니다.',rel:[['','검색.diff','search']]},
+ {k:['seo','geo','aeo','검색 노출','검색엔진','언급률','인용률','json-ld','구조화'],q:'SEO, GEO, AEO는 뭘 했나요?',a:'통이미지 랜딩을 시맨틱 마크업으로 바꾸고 FAQ 구조화 데이터(JSON-LD)를 넣었습니다. 치아보험 기준 AI 검색 언급률이 18.2%에서 31.4%로, 인용률이 19.2%에서 30.6%로 올랐습니다.',rel:[['','검색.diff','search']]},
+ {k:['성능','속도','lcp','lighthouse','webp','최적화','느린'],q:'성능 개선은 뭘 했나요?',a:'통이미지를 텍스트 마크업으로 바꿔 PC LCP를 4.23초에서 3.18초로 줄였습니다. PNG, JPG를 WebP로 바꿔 이미지 전송량도 53~57% 줄였습니다.',rel:[['','검색.diff','search'],['','요약.diff','fixes']]},
+ {k:['협업','소통','커뮤니케이션','개발팀','대행사','스쿼드','sr'],q:'협업은 어떻게 하나요?',a:'개발팀에는 BRD와 SR로 요건을 정리해 요청하고, 채널별 대행사에는 퍼블리싱 가이드를 만들어 주고 산출물을 검수합니다. 전환율 개선 스쿼드에서는 개선 아이디어를 냅니다.',rel:[['','환경.md','env']]},
+ {k:['반응형','모바일','태블릿','tablet','폴더블'],q:'반응형 작업 경험이 있나요?',a:'OB맥주 공식 홈페이지를 PC, Tablet, Mobile 세 구간으로 따로 설계했고 Tablet은 별도 레이아웃으로 정의했습니다. 라이나생명에서는 폴더블과 태블릿의 반응형 이슈를 찾아 고쳤습니다.',rel:[['img/ob_top.jpg','OB맥주 홈페이지','ob']]},
+ {k:['개인 프로젝트','사이드','토이','웨딩','flutter','플러터'],q:'개인 프로젝트는 뭐가 있나요?',a:'우리의 웨딩 플래너(Vanilla JS, 드래그 정렬과 localStorage 저장), Focuslet(Flutter 포모도로 타이머), React로 만든 포트폴리오 사이트가 있습니다.',rel:[['','환경.md','env']]},
+ {k:['캠페인','이벤트','스무스','미켈롭','리더보드','지도'],q:'캠페인 페이지는 뭘 만들었나요?',a:'한맥 스무스 마스터는 SVG 지도와 지역 선택을 연동했고, 미켈롭 울트라 홀 챌린지는 참여 흐름을 리더보드 UI로 풀었습니다.',rel:[['img/sm_map.jpg','한맥 스무스 마스터','campaigns']]},
+ {k:['가장','제일','대표','자랑','기억에 남는','큰 성과','심의번호','심의'],q:'가장 큰 성과는 뭔가요?',a:'광고심의번호 통합 관리입니다. 90곳에 따로 적던 값을 공통 소스 한 곳으로 모아, 7.5시간 걸리던 작업을 22분으로 줄였습니다.',rel:[['','심의번호.diff','review-no']]},
+ {k:['도구','툴','figma','피그마','git','깃','협업툴'],q:'어떤 도구를 쓰나요?',a:'Hackle, Git, SourceTree, Figma를 씁니다. 운영 검수와 반복 작업에는 직접 구성한 AI 에이전트를 씁니다.',rel:[['','경력.md','career'],['','검수.log','qa']]},
+ {k:['이 사이트','이 페이지','포트폴리오는','어떻게 만들','콘셉트','컨셉','디자인'],q:'이 사이트는 어떤 콘셉트인가요?',a:'코드 편집기 화면이 콘셉트입니다. 왼쪽 탐색기의 파일 하나가 사례 하나이고, 회색은 원래 상태, 노란색은 고친 뒤, 파랑은 선택을 뜻합니다. Cmd+K로 파일을 찾을 수 있습니다.',rel:[['','소개.md','about']]},
  {k:['개선','고친','고쳤','찾아','성과','숫자'],q:'직접 찾아서 개선한 건 뭐가 있나요?',a:'라이나생명 8개월 동안 7건입니다. 심의번호 관리 7.5시간을 22분으로 줄였고, 통이미지 랜딩을 마크업으로 바꿔 AI 검색 언급률을 18.2%에서 31.4%로 올렸습니다.',
   rel:[['','요약.diff','fixes'],['','심의번호.diff','review-no'],['','검색.diff','search']]},
  {k:['ab','a/b','실험','테스트','핵클','hackle','전환'],q:'A/B 테스트는 어디까지 하나요?',a:'실험 소재 발굴, 생성, 세팅, 화면 제작, QA, 결과 해석까지 맡습니다. 2026년 7월부터 약 40건 진행했고, 제안한 소셜프루프 소재로 전환율이 10% 올랐습니다.',
   rel:[['','실험.json','experiment'],['','요약.diff','fixes']]},
  {k:['ai','에이전트','자동화','검수','qa'],q:'AI는 어떻게 쓰나요?',a:'운영 랜딩 84개를 전수 점검하는 검수 에이전트를 직접 구성했습니다. 시험 입력으로 실제 DB가 생기지 않게 조회 외 요청은 막았습니다. WebP 변환과 신규 페이지 생성도 에이전트로 자동화했습니다.',
   rel:[['','검수.log','qa'],['','환경.md','env']]},
- {k:['react','리액트','vue','기술','스택','php','jsp','drupal','환경'],q:'어떤 환경에서 일해 봤나요?',a:'주로 JavaScript, HTML5, CSS3, SCSS, jQuery를 씁니다. PHP, Drupal, JSP/SSI 환경에서 일했고, 환경이 바뀔 때마다 그 구조부터 읽고 결과를 냈습니다.',
+ {k:['기술 스택','스택','php','jsp','drupal','환경'],q:'어떤 환경에서 일해 봤나요?',a:'주로 JavaScript, HTML5, CSS3, SCSS, jQuery를 씁니다. PHP, Drupal, JSP/SSI 환경에서 일했고, 환경이 바뀔 때마다 그 구조부터 읽고 결과를 냈습니다.',
   rel:[['','환경.md','env'],['','경력.md','career']]},
- {k:['연락','메일','전화','이메일'],q:'연락은 어떻게 하나요?',a:'qlqlqlrr@kakao.com, 010-7159-1823으로 연락 주세요.',rel:[['','경력.md','career']]},
+ {k:['연락','컨택','contact','문의'],q:'연락은 어떻게 하나요?',a:'qlqlqlrr@kakao.com, 010-7159-1823으로 연락 주세요.',rel:[['','경력.md','career']]},
 ];
 const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-function sugg(skip){$('#sugg').innerHTML=QA.map((x,i)=>[x,i]).filter(([x])=>x!==skip).slice(0,4).map(([x,i])=>`<button type="button" data-i="${i}">${x.q}</button>`).join('')}
+const FIRST=['이름이 뭔가요?','연락은 어떻게 하나요?','지금 어디서 무슨 일을 하나요?','강점이 뭔가요?'];let so=0;
+function sugg(skip){const all=QA.map((x,i)=>[x,i]);let pick;if(!skip&&!so){pick=FIRST.map(q=>all.find(([x])=>x.q===q)).filter(Boolean)}else{const rest=all.filter(([x])=>x!==skip);pick=[0,1,2,3].map(j=>rest[(so+j)%rest.length])}so+=4;$('#sugg').innerHTML=pick.map(([x,i])=>`<button type="button" data-i="${i}">${x.q}</button>`).join('')}
 sugg(null);
 let typingT;
 function answer(x,qtext){const box=$('#answer');box.hidden=false;clearTimeout(typingT);
@@ -1059,7 +1086,7 @@ function answer(x,qtext){const box=$('#answer');box.hidden=false;clearTimeout(ty
   const step=()=>{p.textContent=txt.slice(0,i);i+=2;if(i<=txt.length+1)typingT=setTimeout(step,16);else done()};
   typingT=setTimeout(()=>{p.classList.remove('loading');p.classList.add('typing');RM?done():step()},RM?0:750);}
 $('#sugg').onclick=e=>{const b=e.target.closest('button');if(!b)return;const x=QA[+b.dataset.i];$('#askIn').value='';answer(x,x.q)};
-$('#ask').onsubmit=e=>{e.preventDefault();const v=$('#askIn').value.trim();if(!v)return;const l=v.toLowerCase();const x=QA.find(q=>q.k.some(k=>l.includes(k)));$('#askIn').value='';answer(x,v)};
+$('#ask').onsubmit=e=>{e.preventDefault();const v=$('#askIn').value.trim();if(!v)return;const l=v.toLowerCase();let x=null,best=0;QA.forEach(q=>{const sc=q.k.reduce((n,k)=>n+(l.includes(k)?k.length:0),0);if(sc>best){best=sc;x=q}});$('#askIn').value='';answer(x,v)};
 
 /* palette */
 const items=S.map(s=>({id:s.id,f:s.dataset.file,t:(s.querySelector('h2')||{}).textContent||''}));
