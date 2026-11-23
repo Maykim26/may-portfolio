@@ -1,6 +1,16 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>김명희 포트폴리오</title>
+<!doctype html><html lang="ko" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>김명희 포트폴리오</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="만들고, 고치고, 넓히는 프론트엔드 개발자 김명희의 포트폴리오">
+<meta name="description" content="운영하면서 보이는 문제를 직접 찾아서 개선하는 프론트엔드 개발자 김명희의 포트폴리오">
+<meta property="og:type" content="website">
+<meta property="og:title" content="김명희 포트폴리오">
+<meta property="og:description" content="운영하면서 보이는 문제를 직접 찾아서 개선하는 프론트엔드 개발자 김명희의 포트폴리오">
+<meta property="og:url" content="https://maykim26.github.io/may-portfolio/">
+<meta property="og:image" content="https://maykim26.github.io/may-portfolio/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maykim26.github.io/may-portfolio/img/og.png">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
@@ -525,7 +535,8 @@ p,li{text-wrap:pretty}
   .hl.add{clip-path:none}.hero::before{transform:none}
 }
 </style>
-</head><body>
+</head><body><script>(function(){var t=null;try{t=localStorage.getItem('may-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t||'light')})();</script>
+
 <a class="skip" href="#readme">본문으로 건너뛰기</a>
 
 <header class="top">
@@ -847,8 +858,8 @@ const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* theme */
 const root=document.documentElement;
-try{const t=localStorage.getItem('may-theme'); if(t) root.dataset.theme=t;}catch(e){}
-$('#themeBtn').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+let _t=null;try{_t=localStorage.getItem('may-theme')}catch(e){} root.dataset.theme=_t||'light';
+$('#themeBtn').onclick=()=>{const dark=root.dataset.theme==='dark';
   root.dataset.theme=dark?'light':'dark'; try{localStorage.setItem('may-theme',root.dataset.theme)}catch(e){} toast(dark?'밝은 화면':'어두운 화면');};
 
 /* data tables */
