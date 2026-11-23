@@ -1,1 +1,1088 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/may-portfolio/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/may-portfolio/logo192.png"/><link rel="manifest" href="/may-portfolio/manifest.json"/><title>React App</title><script defer="defer" src="/may-portfolio/static/js/main.6abc3093.js"></script><link href="/may-portfolio/static/css/main.756717b2.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>김명희 포트폴리오</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="만들고, 고치고, 넓히는 프론트엔드 개발자 김명희의 포트폴리오">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 레이아웃: 코드 편집기 화면. 위 탭, 왼쪽 탐색기, 가운데 문서, 아래 상태 표시줄. 빨강은 원래 상태, 초록은 고친 뒤, 파랑은 선택 */
+:root{
+  --bg:#FFFFFF; --chrome:#F3F4F6; --chrome2:#E9EBEE; --ink:#16181D; --sub:#3A414B; --mute:#6A717C; --line:#DADDE2;
+  --del:#B3261E; --delbg:#FCEBE9; --add:#1B7A3E; --addbg:#E4F4E8; --pick:#2A5BE8; --fill:#2A5BE8; --pickbg:rgba(42,91,232,.10); --warn:#B7791F;
+  --term:#16181D; --termfg:#E4E7EB; --termmute:#8E96A1; --termok:#7FD69A; --termng:#FF9A8F; --status:#16181D; --statusfg:#DDE0E5;
+  --sans:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono","IBM Plex Sans KR",ui-monospace,Menlo,monospace;
+  --side:248px; --top:44px; --bar:28px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171B; --chrome:#1C1F24; --chrome2:#252930; --ink:#E8EAED; --sub:#C2C7CF; --mute:#8B929C; --line:#2C3038;
+  --del:#FF8A80; --delbg:rgba(255,99,88,.13); --add:#6FD38F; --addbg:rgba(80,200,120,.13); --pick:#7C9CFF; --pickbg:rgba(124,156,255,.14); --warn:#F2C261;
+  --term:#0E1013; --termfg:#E4E7EB; --termmute:#7E8691; --status:#0E1013; --statusfg:#C9CDD3; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171B; --chrome:#1C1F24; --chrome2:#252930; --ink:#E8EAED; --sub:#C2C7CF; --mute:#8B929C; --line:#2C3038;
+  --del:#FF8A80; --delbg:rgba(255,99,88,.13); --add:#6FD38F; --addbg:rgba(80,200,120,.13); --pick:#7C9CFF; --pickbg:rgba(124,156,255,.14); --warn:#F2C261;
+  --term:#0E1013; --termfg:#E4E7EB; --termmute:#7E8691; --status:#0E1013; --statusfg:#C9CDD3; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top) + 36px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;letter-spacing:-.012em;word-break:keep-all;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--chrome)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--pick);outline-offset:2px;border-radius:2px}
+.skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--fill);color:#fff;padding:8px 14px;font-size:14px;transition:top .2s}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 8px)}
+.mono{font-family:var(--mono)}
+svg.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- chrome ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;height:var(--top);display:flex;background:var(--chrome);border-bottom:1px solid var(--line)}
+.brand{width:var(--side);flex:none;display:flex;align-items:center;gap:10px;padding-left:max(16px,env(safe-area-inset-left,0px));font-weight:700;font-size:14px;border-right:1px solid var(--line)}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--chrome2);border:1px solid var(--line)}
+.tabs{flex:1;min-width:0;display:flex;overflow-x:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;display:flex;align-items:center;gap:8px;padding:0 18px;font-family:var(--mono);font-size:12.5px;color:var(--mute);border-right:1px solid var(--line);white-space:nowrap;transition:color .2s,background .2s}
+.tab:hover{color:var(--ink)}
+.tab.on{background:var(--bg);color:var(--ink);font-weight:500}
+.tab.on::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--pick)}
+.tab .x{opacity:0;font-size:11px}.tab.on .x{opacity:.5}
+.tools{display:flex;align-items:center;gap:4px;padding-right:max(12px,env(safe-area-inset-right,0px));padding-left:8px;border-left:1px solid var(--line)}
+.tbtn{height:30px;min-width:30px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 8px;border-radius:6px;font-size:12.5px;color:var(--mute);transition:background .2s,color .2s}
+.tbtn:hover{background:var(--chrome2);color:var(--ink)}
+.tbtn kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 5px;line-height:18px}
+.menu{display:none}
+
+.wrap{display:grid;grid-template-columns:var(--side) minmax(0,1fr)}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--top));height:calc(100vh - var(--top) - var(--bar) - env(safe-area-inset-top,0px));overflow-y:auto;background:var(--chrome);border-right:1px solid var(--line);padding:18px 0 18px;display:flex;flex-direction:column}
+.sh{font-size:11.5px;color:var(--mute);padding-left:max(20px,env(safe-area-inset-left,0px));margin:0 0 8px;font-weight:500}
+.tree{font-family:var(--mono);font-size:12.8px}
+.tree .row{position:relative;display:flex;align-items:center;gap:6px;height:30px;white-space:nowrap;padding-right:16px;transition:background .15s,color .15s}
+.tree .root{padding-left:max(16px,env(safe-area-inset-left,0px));font-weight:600}
+.tree .dir{padding-left:calc(max(16px,env(safe-area-inset-left,0px)) + 12px);font-weight:500;margin-top:6px;cursor:pointer;width:100%;text-align:left}
+.tree .dir em{font-family:var(--sans);font-style:normal;font-size:11px;color:var(--mute);font-weight:400}
+.tree .dir svg{transition:transform .25s}.tree .dir[aria-expanded="false"] svg{transform:rotate(-90deg)}
+.tree .grp{display:grid;grid-template-rows:1fr;transition:grid-template-rows .3s ease}.tree .grp>div{overflow:hidden}
+.tree .grp.shut{grid-template-rows:0fr}
+.tree a.row{padding-left:calc(max(16px,env(safe-area-inset-left,0px)) + 34px);color:var(--sub)}
+.tree a.row.l1{padding-left:calc(max(16px,env(safe-area-inset-left,0px)) + 18px)}
+.tree a.row:hover{background:var(--chrome2);color:var(--ink)}
+.tree a.row.on{background:var(--bg);color:var(--ink);font-weight:600;box-shadow:inset 2px 0 0 var(--pick)}
+.tree a.row b{margin-left:auto;font-weight:400;color:var(--mute);font-size:11px}
+.side .me{margin-top:auto;padding:18px max(20px,env(safe-area-inset-left,0px)) 0;font-size:12.5px;color:var(--mute);line-height:1.6;border-top:1px solid var(--line)}
+.side .me b{display:block;color:var(--ink);font-size:14px}
+.side .me a{color:var(--pick);font-family:var(--mono);font-size:12px}
+
+.status{position:sticky;bottom:0;z-index:50;height:calc(var(--bar) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--status);color:var(--statusfg);font-size:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.status div{display:flex;align-items:center;gap:16px;min-width:0;white-space:nowrap}
+.status .sm{display:flex;align-items:center;gap:6px;color:#fff;overflow:hidden;text-overflow:ellipsis}
+.status .ok{color:var(--termok)}
+.prog{position:absolute;left:0;top:0;height:2px;background:var(--pick);width:0;transition:width .1s linear}
+
+/* ---------- document ---------- */
+main{min-width:0}
+.doc{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.inner{max-width:1080px;margin:0 auto}
+.crumb{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--top));z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;height:34px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:12px;color:var(--mute);border-bottom:1px solid var(--line);padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.crumb .cp{display:flex;align-items:center;gap:6px;min-width:0;overflow:hidden;white-space:nowrap}
+.crumb .cp span:last-child{color:var(--ink)}
+.crumb .st{white-space:nowrap}.crumb .st i{font-style:normal;margin-left:10px}
+.d{color:var(--del)}.a{color:var(--add)}
+
+section.sec{padding-block:clamp(56px,9vw,104px);border-bottom:1px solid var(--line)}
+.kick{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;font-size:13px;color:var(--mute);margin-bottom:10px}
+.kick b{color:var(--ink);font-size:15px;font-weight:700;margin-right:10px}
+.kick em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--pick)}
+h2{font-size:clamp(26px,3.4vw,38px);line-height:1.32;letter-spacing:-.045em;margin:0 0 clamp(28px,4vw,44px);font-weight:700;text-wrap:balance}
+h3{font-size:clamp(19px,2vw,22px);line-height:1.4;letter-spacing:-.035em;margin:6px 0 12px;font-weight:700;text-wrap:balance}
+p{margin:0}
+.lead{font-size:clamp(16px,1.6vw,18px);color:var(--sub);max-width:62ch}
+.cap{font-size:13px;color:var(--mute)}
+.url{font-family:var(--mono);font-size:12.5px;color:var(--pick);display:inline-flex;gap:4px;align-items:center;margin-top:10px}
+.url{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s}.url:hover{background-size:100% 1px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start}
+.ck{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ck li{display:grid;grid-template-columns:22px 1fr;font-size:15px;color:var(--sub);line-height:1.6}
+.ck li svg{color:var(--add);margin-top:5px;stroke-width:2}
+.pts{display:grid;gap:22px}
+.pts>div{display:grid;grid-template-columns:24px 1fr}
+.pts svg{color:var(--add);margin-top:6px;stroke-width:2}
+.pts p{font-size:15.5px;color:var(--sub);line-height:1.72}
+.pts p b{color:var(--ink);font-size:16.5px;margin-right:6px}
+
+/* reveal (visible at rest; JS adds .pre only to things below the fold) */
+.rv{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{opacity:0;transform:translateY(28px)}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(40px,7vw,84px) clamp(48px,7vw,80px);overflow:hidden}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13px;color:var(--mute);margin-bottom:28px}
+.sw{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 6px;background:var(--bg)}
+.sw i{width:12px;height:12px;border-radius:3px}
+.diffhead{display:grid;gap:4px;margin-left:calc(-1 * max(20px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(20px,env(safe-area-inset-right,0px)))}
+.hl{display:grid;grid-template-columns:clamp(36px,6vw,64px) clamp(28px,4vw,48px) minmax(0,1fr);align-items:center;min-height:clamp(64px,10vw,128px)}
+.hl u{text-decoration:none;font-family:var(--mono);font-size:12px;color:var(--mute);text-align:right;padding-right:8px}
+.hl i{font-style:normal;font-family:var(--mono);font-size:clamp(18px,2.4vw,30px);text-align:center;font-weight:500}
+.hl .t{position:relative;font-weight:700;font-size:clamp(32px,5.4vw,80px);letter-spacing:-.065em;line-height:1.06;padding-block:4px;min-width:0}
+.hl.del{background:var(--delbg);color:var(--del)}
+.hl.del .t{font-weight:500}
+.hl.del .t s{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 58%;background-size:0 .06em;transition:background-size .9s cubic-bezier(.6,0,.2,1) .4s}
+.hero.go .hl.del .t s{background-size:100% .06em}
+.hl.add{background:var(--addbg)}.hl.add i{color:var(--add)}
+.hl.add{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.7,0,.2,1) 1.2s}
+.hero.go .hl.add{clip-path:inset(0 0 0 0)}
+.caret{display:inline-block;width:.05em;height:.82em;background:var(--pick);vertical-align:-.06em;margin-left:.06em;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* figma selection box */
+.sel{position:relative;display:inline-block;padding:0 .08em}
+.sel .bx{position:absolute;inset:-.02em -.06em;border:1.5px solid var(--pick);opacity:0;transform:scale(1.04);transition:opacity .4s 2.3s,transform .5s cubic-bezier(.2,.7,.2,1) 2.3s;pointer-events:none}
+.hero.go .sel .bx{opacity:1;transform:none}
+.sel .bx b{position:absolute;width:9px;height:9px;background:var(--bg);border:1.5px solid var(--pick)}
+.sel .bx b:nth-child(1){left:-5px;top:-5px}.sel .bx b:nth-child(2){right:-5px;top:-5px}.sel .bx b:nth-child(3){left:-5px;bottom:-5px}.sel .bx b:nth-child(4){right:-5px;bottom:-5px}
+.sel .sz{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0;color:#fff;background:var(--fill);padding:2px 7px;border-radius:3px;white-space:nowrap}
+.sel .who{position:absolute;right:-.1em;top:-.42em;font-size:12px;font-weight:600;letter-spacing:0;color:#fff;background:var(--fill);padding:2px 8px;border-radius:3px 3px 3px 0;line-height:1.5}
+.sel .who::after{content:"";position:absolute;left:-14px;bottom:-12px;width:14px;height:16px;background:var(--fill);clip-path:polygon(0 0,100% 55%,45% 60%,30% 100%)}
+.hl.ctx .t{color:var(--ink)}
+/* floating chips */
+.chips{position:absolute;inset:0;pointer-events:none;z-index:3}
+.chip{position:absolute;display:inline-flex;align-items:center;gap:6px;background:var(--fill);color:#fff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;box-shadow:0 8px 24px -10px var(--fill);pointer-events:auto;cursor:grab;user-select:none;opacity:0;transform:translateY(30%) scale(.7) rotate(-6deg);transition:opacity .4s,transform .6s cubic-bezier(.2,1.5,.4,1)}
+.chip:nth-child(1){transition-delay:2.6s}.chip:nth-child(2){transition-delay:2.75s}.chip:nth-child(3){transition-delay:2.9s}
+.hero.done .chip{transition:transform .25s ease-out;transition-delay:0s}
+.hl.add{position:relative;z-index:2}.hero.done .hl.add{clip-path:none}
+.chip sup{font-family:var(--mono);font-size:10px;opacity:.8}
+.hero.go .chip{opacity:1;transform:none}
+.chip.alt{background:var(--ink);color:var(--bg);box-shadow:none}
+.chip.out{background:var(--bg);color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
+.chip.dragging{cursor:grabbing;transition:none;z-index:3}
+.float{animation:drift 6s ease-in-out infinite}
+@keyframes drift{50%{translate:0 -8px}}
+.hero .below{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end;margin-top:clamp(36px,5vw,56px)}
+/* ask box */
+.ask{border:1.5px solid var(--ink);border-radius:999px;display:flex;align-items:center;gap:10px;padding:6px 6px 6px 20px;background:var(--bg);transition:box-shadow .25s,border-color .25s}
+.ask:focus-within{box-shadow:0 0 0 4px var(--pickbg);border-color:var(--pick)}
+.ask input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:15px;color:var(--ink);height:38px}
+.ask input::placeholder{color:var(--mute)}
+.ask button{width:38px;height:38px;border-radius:50%;background:var(--fill);color:#fff;display:grid;place-items:center;flex:none;transition:transform .2s}
+.ask button:hover{transform:scale(1.07)}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sugg button{font-size:13px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:5px 12px;transition:border-color .2s,color .2s,background .2s}
+.sugg button:hover{border-color:var(--pick);color:var(--pick);background:var(--pickbg)}
+.answer{margin-top:18px;font-size:15px;color:var(--sub);display:grid;gap:10px}
+.answer .q{font-family:var(--mono);font-size:12.5px;color:var(--mute)}
+.answer a{color:var(--pick);font-size:14px;font-weight:500}
+.typing::after{content:"▍";color:var(--pick);animation:blink 1s steps(1) infinite}
+.code{background:var(--term);color:var(--termfg);border-radius:12px;font-family:var(--mono);font-size:13px;line-height:1.85;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.code .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--termmute)}
+.code .bar em{font-style:normal;background:#2A5BE8;color:#fff;border-radius:3px;padding:0 5px;font-size:10px;font-weight:600}
+.code pre{margin:0;padding:14px 18px 18px;overflow-x:auto;white-space:pre}
+.code .ln{color:#555C66;display:inline-block;width:22px;user-select:none}
+.k{color:#C792EA}.s{color:#C3E88D}.p{color:#82AAFF}.c{color:#6B7380}
+
+/* ---------- three strengths ---------- */
+.s3{display:grid;border-top:1px solid var(--line)}
+.s3 .r{display:grid;grid-template-columns:60px 200px minmax(0,1fr) minmax(0,1.3fr);gap:20px;align-items:start;padding:30px 0;border-bottom:1px solid var(--line);position:relative}
+.s3 .r::before{content:"";position:absolute;inset:0;background:var(--addbg);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.s3 .r:hover::before{transform:scaleX(1)}
+.s3 u{text-decoration:none;font-family:var(--mono);font-size:12px;color:var(--mute);padding-top:12px}
+.s3 .v{font-size:clamp(28px,3.2vw,38px);font-weight:700;letter-spacing:-.06em;line-height:1.15}
+.s3 .v a{display:block;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:0;color:var(--pick);margin-top:8px}
+.s3 .c{font-size:17px;font-weight:600;letter-spacing:-.03em;line-height:1.55;padding-top:6px}
+.facts{display:grid;grid-template-columns:72px 1fr;font-size:14.5px;line-height:2;border-top:1px solid var(--line);padding-top:14px}
+.facts dt{color:var(--mute)}.facts dd{margin:0}
+
+/* ---------- frames ---------- */
+.fr{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg);box-shadow:0 24px 50px -32px rgba(20,24,40,.35);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.fr:hover{transform:translateY(-4px);box-shadow:0 36px 60px -30px rgba(20,24,40,.45)}
+.ub{display:flex;align-items:center;gap:10px;height:34px;padding:0 12px;background:var(--chrome);border-bottom:1px solid var(--line)}
+.ub .dots i{width:9px;height:9px}
+.ub span{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:11.5px;color:var(--mute);padding:0 12px;line-height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.im{position:relative;overflow:hidden}
+.im img{display:block;width:100%;height:auto;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.fr:hover .im img{transform:scale(1.03)}
+.pk{position:absolute;border:2px solid var(--pick);background:var(--pickbg);opacity:0;transform:scale(1.06);transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.pk b{position:absolute;left:-2px;bottom:100%;background:var(--fill);color:#fff;font-size:12px;font-weight:600;line-height:1;padding:5px 8px;white-space:nowrap}
+.pk b.bl{bottom:auto;top:100%}.pk b.br{left:auto;right:-2px;bottom:auto;top:100%}
+.in .pk{opacity:1;transform:none}
+.in .pk:nth-child(3){transition-delay:.25s}
+.lk{position:absolute;border-top:2px dashed var(--pick);opacity:0;transition:opacity .4s .5s}.in .lk{opacity:1}
+.rul{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-family:var(--mono);font-size:12.5px;margin-top:14px}
+.rul span{display:flex;align-items:center;justify-content:center;gap:8px;padding:9px 6px;border-right:1px solid var(--line);text-align:center;cursor:default;transition:background .2s,color .2s}
+.rul span:last-child{border-right:0}
+.rul span:hover,.rul span.hi{background:var(--pickbg);color:var(--pick)}
+.rul em{font-style:normal;font-family:var(--sans);font-size:12px}
+.proj{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,4vw,48px);align-items:start}
+.pj .pn{font-size:13px;color:var(--mute)}.pj .pn b{color:var(--ink);font-size:15px;margin-right:10px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(28px,4vw,48px);align-items:start}
+.stack{display:grid;gap:clamp(36px,5vw,56px)}
+.pj .fr{margin-bottom:22px}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:clamp(40px,5vw,64px)}
+.strip>div{background:var(--chrome);padding:20px 22px;transition:background .25s}
+.strip>div:hover{background:var(--bg)}
+.strip b{display:block;font-size:15px;margin-bottom:4px}.strip span{font-size:14px;color:var(--sub);line-height:1.6}
+.strip .h{grid-column:1/-1;background:var(--bg);font-size:13px;color:var(--mute);padding:12px 22px;font-family:var(--mono)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{font-weight:500;font-size:12.5px;color:var(--mute);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr{transition:background .2s}tbody tr:hover{background:var(--chrome)}
+td.no{font-family:var(--mono);font-size:12px;color:var(--mute);width:40px;text-align:center}
+td.nm{font-weight:600;white-space:nowrap}
+td.u a{font-family:var(--mono);font-size:12.5px;color:var(--pick);white-space:nowrap}
+td.u a:hover{text-decoration:underline}
+td.pc{font-family:var(--mono);font-size:13px}
+.bar100{display:inline-block;width:56px;height:5px;border-radius:3px;background:var(--line);margin-right:8px;vertical-align:middle;overflow:hidden}
+.bar100 i{display:block;height:100%;background:var(--add);width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+
+/* diff table */
+.dt{border-top:1px solid var(--line)}
+.dr{display:grid;grid-template-columns:44px minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1fr) minmax(0,1.4fr);align-items:stretch;border-bottom:1px solid var(--bg)}
+.dr.h{font-size:12.5px;color:var(--mute);border-bottom:1px solid var(--line)}
+.dr>*{display:flex;align-items:center;padding:12px 12px;min-width:0}
+.dr .n{font-family:var(--mono);font-size:12px;color:var(--mute);justify-content:center}
+.dr .w{font-weight:600}
+.dr .b{background:var(--delbg);color:var(--del);font-weight:500;gap:10px}
+.dr .f{background:var(--addbg);color:var(--add);font-weight:700;font-size:clamp(17px,1.8vw,21px);letter-spacing:-.03em;gap:10px;position:relative;overflow:hidden}
+.dr .f>span,.dr .b>span{transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.dr .b i,.dr .f i{font-style:normal;font-family:var(--mono);font-size:13px;font-weight:500}
+.dr .how{font-size:13.5px;color:var(--mute);line-height:1.55}
+.dr.h .b,.dr.h .f{background:none;font-size:12.5px;font-weight:500}
+.dt .dr:not(.h) .b span{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 55%;background-size:0 1.5px;transition:background-size .6s ease}
+.dt.in .dr:not(.h) .b span{background-size:100% 1.5px}
+.dt .dr:not(.h) .f>span{opacity:0;transform:translateX(-12px)}
+.dt.in .dr:not(.h) .f>span{opacity:1;transform:none}
+
+/* case visuals */
+.fl{border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:13px}
+.frow{display:grid;grid-template-columns:150px minmax(0,1fr);border-bottom:1px solid var(--bg)}
+.frow>span{display:flex;align-items:center;padding:7px 12px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frow .v{background:var(--delbg);color:var(--del);gap:8px;transition:opacity .5s}
+.frow.gap{color:var(--mute)}.frow.gap>span{grid-column:1/-1}
+.frow.new{border-top:1px solid var(--line);border-bottom:0}.frow.new>span:first-child{font-family:var(--sans);font-weight:700}
+.frow.new .v{background:var(--addbg);color:var(--add);font-weight:600}
+.fl.in .frow:not(.new) .v{opacity:.45}
+.fl .frow.new{transform:translateY(8px);opacity:0;transition:opacity .5s .6s,transform .5s .6s}
+.fl.in .frow.new{opacity:1;transform:none}
+.big{display:grid;margin-top:12px;border-radius:10px;overflow:hidden}
+.big>div{display:flex;align-items:center;gap:14px;padding:14px 18px}
+.big .o{background:var(--delbg);color:var(--del);font-size:20px;font-weight:500}
+.big .n{background:var(--addbg);color:var(--add);font-size:clamp(40px,5vw,56px);font-weight:700;letter-spacing:-.05em;justify-content:space-between;line-height:1.1}
+.big .n small{font-size:15px;letter-spacing:-.02em;font-weight:700}
+.big i{font-style:normal;font-family:var(--mono);font-size:16px;font-weight:500}
+.cb{border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:13px;line-height:1}
+.cl{display:flex;align-items:center;height:30px;position:relative;white-space:nowrap}
+.cl u{text-decoration:none;width:30px;text-align:right;color:var(--mute);font-size:11px;flex:none}
+.cl i{font-style:normal;width:26px;text-align:center;flex:none;font-weight:600}
+.cl.del{background:var(--delbg)}.cl.del i{color:var(--del)}
+.cl.add{background:var(--addbg)}.cl.add i{color:var(--add)}
+.cl code{font-family:inherit;overflow:hidden;text-overflow:ellipsis}
+.cb .cl.add{clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.6,0,.2,1)}
+.cb.in .cl.add{clip-path:inset(0 0 0 0)}
+.sq{text-decoration:underline wavy var(--del);text-underline-offset:4px}
+.tip{position:absolute;right:10px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);box-shadow:0 6px 16px -6px rgba(0,0,0,.25);padding:6px 10px;font-family:var(--sans);font-size:12.5px;font-weight:500;border-radius:6px;color:var(--ink)}
+.tip svg{color:var(--warn)}
+.res{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1fr);margin-top:8px;border-radius:8px;overflow:hidden}
+.res>*{display:flex;align-items:center;padding:12px 14px;min-width:0}
+.res p{font-weight:600;font-size:14.5px;background:var(--chrome)}
+.res .o{background:var(--delbg);color:var(--del);font-weight:500;gap:8px}
+.res .n{background:var(--addbg);color:var(--add);font-weight:700;font-size:22px;letter-spacing:-.03em;gap:8px}
+.res i{font-style:normal;font-family:var(--mono);font-size:13px;font-weight:500}
+.term{background:var(--term);color:var(--termfg);border-radius:12px;font-family:var(--mono);font-size:13px;line-height:1.8;padding:20px 22px}
+.term .pr{color:var(--termok);margin-right:8px;font-weight:600}
+.term .tm{color:var(--termmute)}
+.qgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:8px 6px;margin:16px 0 12px;max-width:420px}
+.qgrid span{aspect-ratio:1;display:grid;place-items:center;border-radius:4px;font-size:12px;font-weight:700;opacity:0;transform:scale(.4);transition:opacity .25s,transform .35s cubic-bezier(.2,1.6,.4,1)}
+.qgrid .ok{color:var(--termok)}
+.qgrid .ng{background:var(--termng);color:var(--term)}
+.term.in .qgrid span{opacity:1;transform:none}
+.term .sum span{margin-right:18px;font-weight:600}
+.abg{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px}
+.abg span{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;font-family:var(--mono);font-size:10.5px;color:var(--mute);text-align:center;line-height:22px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .4s}
+.abg span i{font-style:normal}.abg span i+i{background:var(--chrome)}
+.abg.in span{opacity:1;transform:none}
+.abg span.hi{border-color:var(--add);box-shadow:0 0 0 2px var(--addbg)}.abg span.hi i+i{background:var(--add);color:var(--bg);font-weight:600}
+.hn{font-size:13px;color:var(--add);font-weight:500;margin-top:10px}
+.stp{display:grid;gap:4px;margin-top:8px}
+.stp div{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:6px;font-weight:600;font-size:15px}
+.stp .add{background:var(--addbg);color:var(--add)}
+.stp .ctx{background:var(--chrome);color:var(--ink);font-weight:500}
+.stp i{font-style:normal;font-family:var(--mono);width:12px}
+.stp em{font-style:normal;font-weight:400;font-size:12.5px;color:var(--mute)}
+.stp .add{transform-origin:left;transform:scaleX(.02);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.stp.in .add{transform:none}
+.pt{font-size:14px;font-weight:600;margin-bottom:10px}.pt b{color:var(--pick)}
+
+/* env */
+.env td:first-child{font-family:var(--mono);font-size:12px;color:var(--mute);text-align:center;width:40px}
+.env td.e{font-family:var(--mono);font-weight:600;white-space:nowrap}
+.env td.w{color:var(--mute);font-size:13.5px;white-space:nowrap}
+
+/* career */
+.cv{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(36px,5vw,64px)}
+.git{position:relative;padding-left:44px;display:grid;gap:26px}
+.git::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--ink);transform-origin:top;transform:scaleY(0);transition:transform 1.4s cubic-bezier(.6,0,.2,1)}
+.git.in::before{transform:none}
+.git .it{position:relative}
+.git .it::before{content:"";position:absolute;left:-39px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 4px var(--bg)}
+.git .it.edu::before{background:var(--bg);border:2px solid var(--ink);width:8px;height:8px}
+.git .it.br::before{left:-25px;background:var(--bg);border:2px solid var(--pick);width:8px;height:8px}
+.git .it.br::after{content:"";position:absolute;left:-28px;top:-60px;height:96px;width:16px;border:2px solid var(--pick);border-left:0;border-radius:0 12px 12px 0;transform:translateX(-14px)}
+.git .d{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.git .n{font-size:15px}.git .n b{font-size:18px;letter-spacing:-.03em;margin-right:8px}
+.git .p{font-size:14.5px;color:var(--sub)}
+.sk{display:grid;grid-template-columns:100px 1fr;border-top:1px solid var(--line);font-size:15px}
+.sk dt,.sk dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+.sk dt{color:var(--mute);font-size:13.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;transition:border-color .2s,color .2s,transform .2s}
+.tags span:hover{border-color:var(--pick);color:var(--pick);transform:translateY(-2px)}
+.contact{margin-top:28px}
+.contact .term{padding:24px 26px}
+.contact .ml{font-family:var(--sans);font-weight:700;font-size:clamp(22px,2.6vw,28px);letter-spacing:-.03em;color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0}
+.copy{font-family:var(--mono);font-size:12px;color:var(--termfg);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:2px 10px;transition:background .2s}
+.copy:hover{background:rgba(255,255,255,.1)}
+.term a{color:var(--termfg);text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px}
+.bye{margin-top:14px}
+
+/* palette */
+.pal{position:fixed;inset:0;z-index:90;background:rgba(10,12,16,.45);display:grid;align-items:start;justify-items:center;padding:calc(env(safe-area-inset-top,0px) + 12vh) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));opacity:0;pointer-events:none;transition:opacity .2s}
+.pal.open{opacity:1;pointer-events:auto}
+.pal .box{width:min(560px,100%);background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);overflow:hidden;transform:translateY(-10px) scale(.98);transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.pal.open .box{transform:none}
+.pal input{width:100%;border:0;outline:0;border-bottom:1px solid var(--line);background:none;font:inherit;font-size:15px;color:var(--ink);padding:16px 18px}
+.pal ul{list-style:none;margin:0;padding:6px;max-height:50vh;overflow-y:auto}
+.pal li a{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:8px;font-size:14.5px}
+.pal li a span{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.pal li a.on,.pal li a:hover{background:var(--pickbg);color:var(--pick)}
+.toast{position:fixed;left:50%;bottom:calc(var(--bar) + 18px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:95;background:var(--ink);color:var(--bg);font-size:14px;padding:9px 16px;border-radius:8px;opacity:0;transition:opacity .25s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.scrim{display:none}
+
+
+/* ---------- interactions v2 ---------- */
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 12.5%);opacity:.55;transform:scaleY(0);transform-origin:top;transition:transform 1.3s cubic-bezier(.6,0,.2,1) .1s}
+.hero.go::before{transform:none}
+.hl.ctx .t{opacity:0;transform:translateY(18%);filter:blur(8px);transition:opacity .8s 1.9s,transform .8s cubic-bezier(.2,.7,.2,1) 1.9s,filter .8s 1.9s}
+.hero.go .hl.ctx .t{opacity:1;transform:none;filter:none}
+@keyframes wander{0%,100%{transform:translate(0,0)}35%{transform:translate(-46px,22px)}70%{transform:translate(12px,38px)}}
+.hero.go .sel .who{animation:wander 7s ease-in-out 3.2s infinite}
+h2 .w{display:inline-block;transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1),filter .7s}
+h2.pre2 .w{opacity:0;transform:translateY(45%);filter:blur(8px)}
+.im .open{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:var(--fill);color:#fff;font-size:14px;font-weight:600;transform:translateY(101%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.im .open span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.im .open span:last-child{white-space:nowrap}
+.fr:hover .open,.im .open:focus-visible{transform:none}
+.fr{will-change:transform}
+.flt{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.flt button{border:1.5px solid var(--ink);border-radius:999px;padding:4px 14px;font-size:13.5px;font-weight:600;transition:background .2s,color .2s,transform .15s}
+.flt button sup{font-family:var(--mono);font-size:10px;color:var(--pick);margin-left:4px}
+.flt button:hover{background:var(--pickbg)}
+.flt button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}.flt button[aria-pressed="true"] sup{color:inherit}
+.flt button:active,.ask button:active,.sugg button:active{transform:scale(.92)}
+#listTable tbody{transition:opacity .18s}
+#listTable tbody tr:hover{background:var(--pickbg)}#listTable tbody tr:hover .nm{color:var(--pick)}
+#listTable td.nm{transition:color .2s,transform .3s}#listTable tbody tr:hover td.nm{transform:translateX(4px)}
+.tree a.row span{transition:transform .2s}.tree a.row:hover span{transform:translateX(3px)}
+@keyframes bub{from{opacity:0;transform:translateY(16px)}}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+.qb{justify-self:end;max-width:100%;background:var(--ink);color:var(--bg);border-radius:999px;padding:8px 18px;font-size:14px;font-weight:600;animation:bub .4s both}
+.ab{border:1.5px solid var(--pick);border-radius:16px;padding:16px 18px;display:grid;gap:12px;animation:bub .4s .15s both;background:var(--bg)}
+.ab .lbl{font-size:12px;font-weight:700;color:var(--pick);display:flex;align-items:center;gap:6px}.ab .lbl i{width:7px;height:7px;border-radius:50%;background:var(--pick)}
+.ab .ans{color:var(--ink);line-height:1.7}.ab .loading{color:var(--mute)}.ab .loading::after{content:"";animation:dots 1.2s steps(1) infinite}
+.rel{display:flex;flex-wrap:wrap;gap:10px}
+.rel a{animation:bub .4s both}
+.rel a.th{width:118px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.rel a.th img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);margin-bottom:5px;transition:transform .3s}
+.rel a.th:hover img{transform:translateY(-3px)}
+.rel a.f{font-family:var(--mono);font-size:12.5px;font-weight:500;border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--pick);transition:border-color .2s,background .2s}
+.rel a.f:hover{border-color:var(--pick);background:var(--pickbg)}
+.totop{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(var(--bar) + 16px + env(safe-area-inset-bottom,0px));z-index:40;border:1.5px solid var(--ink);background:var(--bg);border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s,background .2s,color .2s}
+.totop.show{opacity:1;transform:none;pointer-events:auto}.totop:hover{background:var(--ink);color:var(--bg)}
+
+.lgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,4vw,56px) clamp(28px,4vw,48px)}
+.lcell{display:grid;gap:20px;align-items:start}.lcell .fr{margin-bottom:0}
+.lcell.pc{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}.lcell.ph{grid-template-columns:minmax(0,150px) minmax(0,1fr)}
+.lcell h3{font-size:clamp(17px,1.6vw,19px)}.lcell .ub{height:26px;padding:0 8px}.lcell .ub span{font-size:10px;line-height:18px}.lcell.ph .ub .dots{display:none}
+.lcell .url{font-size:11.5px;word-break:break-all}
+@media (max-width:1250px){.lcell.pc{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.lgrid{grid-template-columns:minmax(0,1fr)}.lcell.pc{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}}
+@media (max-width:600px){.lcell.pc{grid-template-columns:minmax(0,1fr)}.lcell.ph{grid-template-columns:minmax(0,120px) minmax(0,1fr)}}
+
+/* ---------- scroll frames, unified cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,5vw,64px) clamp(24px,3.5vw,44px);align-items:start}
+.cards.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card .fr{margin-bottom:20px}.card h3{font-size:clamp(17px,1.7vw,20px)}
+.fr{position:relative}.fr:hover{transform:none}
+.vp{aspect-ratio:16/10;overflow-y:auto;overflow-x:hidden;background:var(--chrome2);scrollbar-width:thin;scrollbar-color:var(--mute) transparent;overscroll-behavior-y:auto}
+.vp::-webkit-scrollbar{width:8px}.vp::-webkit-scrollbar-thumb{background:var(--mute);border-radius:4px;border:2px solid var(--chrome2)}
+.vp:focus-visible{outline-offset:-3px}
+.vp .pg{position:relative}.vp.ph .pg{width:min(44%,250px);margin:0 auto;box-shadow:0 0 0 1px var(--line),0 0 40px rgba(20,24,40,.12)}
+.vp img{display:block;width:100%;height:auto}
+.ub .go{font-size:11.5px;font-weight:600;color:var(--pick);white-space:nowrap;padding:2px 4px;border-radius:4px;transition:background .2s}.ub .go:hover{background:var(--pickbg)}
+.sp{position:absolute;left:0;top:34px;height:2px;width:0;background:var(--pick);z-index:2}
+.fr .hint{position:absolute;right:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:4px;background:var(--ink);color:var(--bg);font-size:11.5px;font-weight:600;padding:5px 10px 5px 7px;border-radius:999px;pointer-events:none;transition:opacity .4s,transform .4s;animation:nudge 1.8s ease-in-out infinite}
+.fr .hint svg{width:13px;height:13px}
+.fr.sc .hint{opacity:0;transform:translateY(8px)}
+@keyframes nudge{50%{translate:0 4px}}
+@media (max-width:1100px){.cards.c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.cards,.cards.c3{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.vp{aspect-ratio:4/3}.vp.ph .pg{width:62%}}
+
+/* ---------- project detail ---------- */
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;border:1.5px solid var(--ink);border-radius:999px;padding:5px 16px;font-size:13.5px;font-weight:600;transition:background .2s,color .2s,transform .15s}
+.more:hover{background:var(--ink);color:var(--bg)}.more:active{transform:scale(.94)}
+.more svg{width:13px;height:13px;transition:transform .25s}.more:hover svg{transform:translate(2px,-2px)}
+.card h3,.card .pn b{cursor:pointer}.card h3{transition:color .2s}.card:hover h3{color:var(--pick)}
+.card .url{display:none}
+.detail{position:fixed;z-index:48;top:calc(env(safe-area-inset-top,0px) + var(--top));left:var(--side);right:0;bottom:calc(var(--bar) + env(safe-area-inset-bottom,0px));background:var(--bg);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateY(28px);pointer-events:none;visibility:hidden;transition:opacity .35s,transform .5s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
+.detail.open{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.dbar{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:12px;height:34px;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--mute)}
+.dbar .cp{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap;overflow:hidden}.dbar .cp span:last-child{color:var(--ink)}
+.dbar button{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.dwrap{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:clamp(28px,4.5vw,72px);max-width:1280px;margin:0 auto;padding:clamp(28px,4vw,52px) max(20px,env(safe-area-inset-right,0px)) 72px max(20px,env(safe-area-inset-left,0px))}
+.dside{position:sticky;top:calc(34px + clamp(28px,4vw,52px));align-self:start;display:grid;gap:22px}
+.dside .cat{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.dside h2{font-size:clamp(30px,3.4vw,44px);line-height:1.2;letter-spacing:-.055em;margin:0}
+.pills{display:flex;flex-wrap:wrap;gap:6px}.pills span{background:var(--fill);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+.dmeta{display:grid;gap:14px;margin:6px 0 0}.dmeta dt{font-weight:700;font-size:12.5px}.dmeta dd{margin:2px 0 0;color:var(--sub);font-size:14px;line-height:1.55}
+.dclose{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;border-top:1px solid var(--line);padding-top:16px;margin-top:10px;justify-self:stretch;transition:color .2s}.dclose:hover{color:var(--pick)}
+.dmain{min-width:0;display:grid;gap:clamp(40px,6vw,72px)}
+.dov{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:20px 32px}
+.dov h3{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.05em;line-height:1.25;margin:0}
+.dov p{color:var(--sub);font-size:15.5px;line-height:1.8;margin-bottom:12px}
+.dmain .fr{box-shadow:0 30px 60px -36px rgba(20,24,40,.4)}
+.dwork{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px 40px;align-items:start}
+.dwork .lb{grid-column:1/-1;font-size:13px;color:var(--mute)}
+.dwork h3{font-size:clamp(23px,2.7vw,32px);letter-spacing:-.05em;line-height:1.35;margin:0}
+.dwork p{color:var(--sub);font-size:15.5px;line-height:1.8;margin-bottom:14px}
+.dnext{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;text-align:left;border-top:1px solid var(--ink);padding-top:22px}
+.dnext small{display:block;font-family:var(--mono);font-size:12px;color:var(--mute);margin-bottom:4px}
+.dnext b{font-size:clamp(24px,3vw,36px);letter-spacing:-.05em;line-height:1.25;transition:color .2s}
+.dnext svg{width:30px;height:30px;transition:transform .3s}.dnext:hover b{color:var(--pick)}.dnext:hover svg{transform:translateX(8px)}
+.dr2{transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1),filter .7s}.dr2.pre{opacity:0;transform:translateY(24px);filter:blur(6px)}
+@media (max-width:900px){.detail{left:0}.dwrap{grid-template-columns:minmax(0,1fr)}.dside{position:static}.dov,.dwork{grid-template-columns:minmax(0,1fr)}.dclose{display:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .s3 .r{grid-template-columns:44px 170px minmax(0,1fr)}
+  .s3 .r ul{grid-column:2/-1}
+}
+@media (max-width:900px){
+  :root{--side:280px}
+  .brand{width:auto;border-right:0;padding-right:12px}
+  .brand .dots{display:none}
+  .menu{display:inline-flex}
+  .wrap{display:block}
+  .side{position:fixed;left:0;top:calc(env(safe-area-inset-top,0px) + var(--top));bottom:0;height:auto;width:min(var(--side),86vw);z-index:45;transform:translateX(-102%);transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:20px 0 40px -20px rgba(0,0,0,.3)}
+  body.nav .side{transform:none}
+  .scrim{display:block;position:fixed;inset:0;z-index:44;background:rgba(10,12,16,.35);opacity:0;pointer-events:none;transition:opacity .3s}
+  body.nav .scrim{opacity:1;pointer-events:auto}
+  .two,.proj,.grid2,.cv,.hero .below{grid-template-columns:minmax(0,1fr)}
+  .tools .lbl{display:none}
+  .dr{grid-template-columns:36px minmax(0,1.2fr) minmax(0,.9fr) minmax(0,1fr)}
+  .dr .how{grid-column:2/-1;padding-top:0;background:none}
+  .dr.h .how{display:none}
+}
+@media (max-width:600px){
+  body{font-size:15px}
+  .tab{padding:0 12px}
+  .tab .x{display:none}
+  .tools kbd{display:none}
+  .hl{grid-template-columns:30px 24px minmax(0,1fr)}
+  .hl .t{font-size:clamp(21px,6.5vw,34px)}
+  .tw table{min-width:660px}
+  .sel .who{display:none}
+  .sel .sz{display:none}
+  .chips{position:static;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .chip{position:static;cursor:default}
+  .float{animation:none}
+  .s3 .r{grid-template-columns:28px minmax(0,1fr);gap:8px 12px;padding:24px 0}
+  .s3 .r .c,.s3 .r ul{grid-column:2}
+  .strip{grid-template-columns:minmax(0,1fr)}
+  .dr{grid-template-columns:28px minmax(0,1fr) minmax(0,1fr)}
+  .dr .w{grid-column:2/-1;padding-bottom:4px}
+  .dr .b{grid-column:2}.dr .f{grid-column:3}
+  .dr.h{display:none}
+  .dr>*{padding:8px 10px}
+  .dr .n{grid-row:1/span 3;align-items:flex-start;padding-top:12px}
+  .frow{grid-template-columns:116px minmax(0,1fr)}
+  .res{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.res p{grid-column:1/-1}
+  .qgrid{gap:6px 4px}
+  .abg{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .crumb .st{display:none}
+  .status .hide{display:none}
+  .sk{grid-template-columns:minmax(0,1fr)}.sk dt{padding-bottom:0;border-bottom:0}
+  .facts{grid-template-columns:60px 1fr}
+  .git{padding-left:36px}.git .it::before{left:-31px}.git::before{left:6px}
+  .git .it.br::before{left:-20px}.git .it.br::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv.pre{opacity:1;transform:none}
+  h2.pre2 .w,.hl.ctx .t,.dr2.pre{opacity:1;transform:none;filter:none}
+  .hl.add{clip-path:none}.hero::before{transform:none}
+}
+</style>
+</head><body>
+<a class="skip" href="#readme">본문으로 건너뛰기</a>
+
+<header class="top">
+  <div class="brand"><button class="tbtn menu" id="menuBtn" aria-label="탐색기 열기" aria-expanded="false"><svg class="ic" viewBox="0 0 16 16"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></button><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>김명희 포트폴리오</span></div>
+  <nav class="tabs" id="tabs" aria-label="열린 파일"></nav>
+  <div class="tools">
+    <button class="tbtn" id="palBtn" aria-label="파일 찾기"><svg class="ic" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg><span class="lbl">찾기</span><kbd>⌘K</kbd></button>
+    <button class="tbtn" id="themeBtn" aria-label="화면 모드 바꾸기"><svg class="ic" viewBox="0 0 16 16"><path d="M13.5 9.5A5.5 5.5 0 1 1 6.5 2.5a4.5 4.5 0 0 0 7 7Z"/></svg></button>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="side" id="side" aria-label="탐색기">
+    <p class="sh">탐색기</p>
+    <div class="tree" id="tree"></div>
+    <div class="me"><b>김명희</b>프론트엔드 개발자<br>웹 퍼블리싱 기반, 2년 8개월<br><a href="#career">연락처 보기</a></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main id="main">
+    <div class="crumb"><div class="cp" id="crumb"></div><div class="st" id="crumbSt"></div></div>
+    <div class="doc"><div class="inner">
+
+<section class="sec hero" id="readme" data-file="README.md" data-stat="−1|+1" data-msg="변경 1건">
+  <div class="meta"><span>프론트엔드 개발자 김명희는</span><span class="sw"><i style="background:var(--del)"></i>원래</span><span class="sw"><i style="background:var(--add)"></i>고친 뒤</span><span class="sw"><i style="background:var(--pick)"></i>선택</span></div>
+  <div class="diffhead" aria-label="시키는 일만 하는, 에서 직접 찾아서 개선하는, 으로 바꾼 프론트엔드 개발자">
+    <div class="hl del" aria-hidden="true"><u>1</u><i>−</i><span class="t"><s>시키는 일만 하는</s></span></div>
+    <div class="hl add" aria-hidden="true"><u>1</u><i>+</i><span class="t"><span class="sel">직접 찾아서 개선하는<span class="bx"><b></b><b></b><b></b><b></b><span class="sz" id="sz">W 1024 × H 128</span><span class="who">명희</span></span></span><span class="caret"></span></span></div>
+    <div class="hl ctx" aria-hidden="true"><u>2</u><i></i><span class="t">프론트엔드 개발자</span></div>
+  </div>
+  <div class="chips" id="chips" aria-hidden="true">
+    <span class="chip float" data-to="fixes" style="right:3%;top:14%">개선하고<sup>7</sup></span>
+    <span class="chip alt float" data-to="experiment" style="right:15%;top:31%;animation-delay:-2s">넓히고<sup>40</sup></span>
+    <span class="chip out float" data-to="lina" style="right:5%;top:47%;animation-delay:-4s">만듭니다<sup>16</sup></span>
+  </div>
+  <div class="below">
+    <div>
+      <p class="lead">보험사와 맥주 브랜드의 웹사이트를 2년 8개월 동안 만들고 운영했습니다. 맡은 화면을 만드는 데서 끝내지 않고, 운영하다 보이는 문제를 직접 찾아서 개선합니다.</p>
+      <form class="ask" id="ask" style="margin-top:26px" autocomplete="off">
+        <label for="askIn" class="mono" style="font-size:12px;color:var(--pick);white-space:nowrap">질문</label>
+        <input id="askIn" placeholder="궁금한 걸 물어보세요. 예: OB맥주 홈페이지는 뭘 했나요?">
+        <button type="submit" aria-label="답 보기"><svg class="ic" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
+      </form>
+      <div class="sugg" id="sugg"></div>
+      <div class="answer" id="answer" hidden aria-live="polite"></div>
+    </div>
+    <div class="code rv" aria-label="소개 코드">
+      <div class="bar"><em>TS</em>maykim.ts</div>
+<pre><span class="ln">1</span><span class="k">const</span> <span class="p">maykim</span> = {
+<span class="ln">2</span>  role: <span class="s">'프론트엔드 개발자'</span>,
+<span class="ln">3</span>  career: <span class="s">'2년 8개월'</span>,
+<span class="ln">4</span>  now: <span class="s">'라이나생명 디지털세일즈팀'</span>,
+<span class="ln">5</span>  built: <span class="p">16</span>,  <span class="c">// 금융 랜딩, 브랜드 사이트</span>
+<span class="ln">6</span>  improved: <span class="p">7</span>, <span class="c">// 직접 찾은 개선</span>
+<span class="ln">7</span>  tests: <span class="p">40</span>,  <span class="c">// A/B 테스트</span>
+<span class="ln">8</span>  stack: [<span class="s">'JS'</span>, <span class="s">'SCSS'</span>, <span class="s">'React'</span>, <span class="s">'JSP'</span>],
+<span class="ln">9</span>};</pre>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about" data-file="소개.md" data-msg="강점 3">
+  <div class="two">
+    <div class="rv"><div class="kick"><p><b>소개</b></p></div><h2>시키는 일만 하지 않고, 직접 찾아서 개선합니다</h2>
+      <p class="lead">웹 퍼블리셔로 일을 시작해 2년 8개월째 화면을 만들고 있습니다. 지금은 라이나생명에서 보험 상품 페이지와 광고 랜딩을 개발하고 운영하고, 그 전에는 미래피엠피에서 OB맥주 계열 브랜드 사이트를 구축했습니다. 처음 해 보는 일도 안 된다고 하기 전에 먼저 찾아보고, 되는 방법을 만듭니다.</p></div>
+    <dl class="facts rv d1" style="margin-top:58px"><dt>경력</dt><dd>2년 8개월</dd><dt>지금</dt><dd>라이나생명 디지털세일즈팀</dd><dt>이전</dt><dd>미래피엠피, 비디</dd><dt>학업</dt><dd>한양사이버대학교 응용소프트웨어공학과</dd><dt>주력</dt><dd>JavaScript, HTML5, CSS3, SCSS</dd></dl>
+  </div>
+  <div class="s3" style="margin-top:clamp(40px,5vw,64px)">
+    <div class="r rv"><u>1</u><div class="v">개선합니다<a href="#fixes">요약.diff</a></div><p class="c">직접 찾아서 제안하고, 개선한 뒤에는 숫자로 확인합니다.</p>
+      <ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>라이나생명 8개월 동안 직접 찾아서 실행한 개선 7건</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>심의번호 관리 7.5시간에서 22분, AI 검색 언급률 18.2%에서 31.4%</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>이미지 전송량 53~57% 감소, 모바일 접근성 59점에서 74점</li></ul></div>
+    <div class="r rv"><u>2</u><div class="v">넓힙니다<a href="#experiment">실험.json</a></div><p class="c">처음 해 보는 도구와 역할도 배워서 제 일로 만듭니다.</p>
+      <ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>화면 제작에서 실험 소재 발굴, 생성, 세팅, 결과 해석까지. A/B 테스트 약 40건</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>AI 에이전트 구성을 익혀 운영 랜딩 84개 전수 검수 도구 제작</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>PHP, Drupal, JSP/SSI. 환경이 바뀔 때마다 그 구조부터 읽고 결과를 냄</li></ul></div>
+    <div class="r rv"><u>3</u><div class="v">만듭니다<a href="#lina">랜딩.html</a></div><p class="c">설계부터 런칭까지 끝까지 맡습니다.</p>
+      <ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>OB맥주 공식 홈페이지 9개 영역 전 페이지 구축, 재오픈과 롤백 없이 런칭</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>미래피엠피 8개월 동안 브랜드 사이트와 캠페인 12건, 그중 11건은 퍼블리싱 100%</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>라이나생명 광고 랜딩의 히어로 분기, 담기 기능, 고정 입력 필드, 간편조회 신규 랜딩</li></ul></div>
+  </div>
+</section>
+
+<section class="sec" id="fixes" data-file="요약.diff" data-dir="라이나생명" data-stat="−10|+10" data-msg="10줄 변경">
+  <div class="rv"><div class="kick"><p><b>개선한 것들</b>라이나생명 디지털세일즈팀, 2026.04 ~ 현재</p><em>빨간 칸이 전, 초록 칸이 후</em></div>
+  <h2>시킨 일이 아니었던 일곱 건을, 직접 찾아서 제안하고 개선했습니다</h2></div>
+  <div class="dt watch" id="diffTable"></div>
+</section>
+
+<section class="sec" id="review-no" data-file="심의번호.diff" data-dir="라이나생명" data-stat="−90|+1" data-msg="파일 91개 변경">
+  <div class="rv"><div class="kick"><p><b>광고심의번호 통합 관리</b>라이나생명, 직접 제안하고 구현</p><em>작업 시간 95% 단축</em></div>
+  <h2>90곳에 따로 적던 값을 한 곳으로 모아, 7.5시간 걸리던 일을 22분으로 줄였습니다</h2></div>
+  <div class="two">
+    <div class="rv">
+      <div class="pts">
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>원인을 구조에서.</b>심의번호는 페이지마다 다른 값이 아니라 심의 건마다 정해지는 값입니다. 같은 값을 여러 곳에 적어 둔 구조가 원인이라고 보고, 공통 소스로 분리해 각 랜딩이 참조하게 바꿨습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>누구나 관리.</b>한 곳만 고치면 전체에 반영됩니다. 담당자가 아니어도 확인하고 관리할 수 있고, 빠뜨리거나 잘못 적을 위험이 없어졌습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>같은 방식으로 한 번 더.</b>같은 상품에 10개 이상 흩어져 있던 광고 랜딩도 URL 파라미터로 나누는 한 페이지로 통합해 수정 지점을 줄였습니다.</p></div>
+      </div>
+      <p class="cap" style="margin-top:26px;border-top:1px solid var(--line);padding-top:14px"><b style="color:var(--ink)">원래는.</b> 번호가 갱신되면 약 90개 페이지를 하나씩 열어 고치고 확인해야 했습니다. 한 번에 일곱 시간 반이 걸렸습니다.</p>
+    </div>
+    <div class="rv d1">
+      <p class="pt">변경된 파일 <b>91</b></p>
+      <div class="fl watch">
+        <div class="frow"><span>landing_01.html</span><span class="v"><i>−</i>심의필 제 2026-M00000호</span></div>
+        <div class="frow"><span>landing_02.html</span><span class="v"><i>−</i>심의필 제 2026-M00000호</span></div>
+        <div class="frow"><span>landing_03.html</span><span class="v"><i>−</i>심의필 제 2026-M00000호</span></div>
+        <div class="frow"><span>landing_04.html</span><span class="v"><i>−</i>심의필 제 2026-M00000호</span></div>
+        <div class="frow gap"><span>… 85개 더</span></div>
+        <div class="frow"><span>landing_90.html</span><span class="v"><i>−</i>심의필 제 2026-M00000호</span></div>
+        <div class="frow new"><span>공통 소스</span><span class="v"><i>+</i>심의필 제 2026-M00000호</span></div>
+      </div>
+      <p class="cap" style="margin-top:8px">이제 이 한 줄만 고치면 90개에 같이 반영됩니다. 번호는 예시입니다.</p>
+      <div class="big"><div class="o"><i>−</i>7.5시간</div><div class="n"><span><i>+</i> <span class="count" data-to="22">22</span>분</span><small>95% 단축</small></div></div>
+      <p class="cap" style="margin-top:8px">90개 기준, 한 개에 약 5분으로 계산했습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="search" data-file="검색.diff" data-dir="라이나생명" data-stat="−3|+8" data-msg="예시 코드">
+  <div class="rv"><div class="kick"><p><b>통이미지 랜딩의 마크업 전환</b>라이나생명, 직접 제안하고 주도</p><em>치아보험 랜딩 기준</em></div>
+  <h2>이미지 한 장이던 랜딩을 마크업으로 바꿔, AI 검색 언급률을 18.2%에서 31.4%로 올렸습니다</h2></div>
+  <div class="two">
+    <div class="rv">
+      <div class="pts">
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>작게 검증하고 넓힘.</b>전부 바꾸자고 하면 일이 너무 커집니다. 치아보험 한 상품에 먼저 적용해 숫자로 확인했고, 지금은 다른 상품으로 넓히고 있습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>읽히는 구조로.</b>Figma 시안을 기준으로 이미지를 시맨틱 마크업으로 다시 만들고 원본과 문구를 전부 대조했습니다. 제목 구조와 alt를 정리하고 FAQ 구조화 데이터(JSON-LD)를 넣었습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>속도와 접근성도 같이.</b>통이미지를 걷어 내자 화면이 뜨는 시간과 접근성 점수가 함께 좋아졌습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>이미지는 WebP로.</b>무거운 PNG, JPG를 찾아 전환을 제안하고 인기 상품 순으로 적용했습니다. 전송량 53~57% 감소, LCP 2.4~3.0초 단축.</p></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="cb watch" id="codeDiff"></div>
+      <p class="cap" style="margin-top:8px">구조를 설명하기 위한 예시 코드입니다.</p>
+      <div style="margin-top:18px" id="searchRes"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experiment" data-file="실험.json" data-dir="라이나생명" data-stat="|+5" data-msg="실험 40건">
+  <div class="rv"><div class="kick"><p><b>A/B 테스트 운영</b>라이나생명, 2026.07 ~ 11</p><em>약 40건, 한 주에 두 건꼴</em></div>
+  <h2>화면만 만들던 자리에서, 실험 소재 발굴부터 결과 해석까지 맡게 됐습니다</h2></div>
+  <div class="two">
+    <div class="rv">
+      <div class="pts">
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>맡은 범위를 넓힘.</b>Hackle이 도입된 뒤 실험 소재를 찾는 단계부터 참여했고, 실험 생성과 A/B 테스트 세팅을 익혀서 직접 맡았습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>제안한 소재로 성과.</b>소셜프루프 문구와 상담 인원 숫자 카운팅을 제안해 구현했습니다. 대표 상품 랜딩 2주 테스트에서 기존안보다 전환율이 10% 높았습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>집계부터 믿을 수 있게.</b>안별 구분값이 상담 DB에서 빠지던 원인 두 가지를 찾아 고쳤습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>단정하지 않음.</b>차이가 통계적으로 유의하지 않으면 효과가 있다고 쓰지 않고 추가 검증을 제안합니다.</p></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <p class="pt">2026년 7월부터 11월까지 진행한 실험 <b>40건</b></p>
+      <div class="abg watch" id="abg"></div>
+      <p class="hn">초록 칸: 소셜프루프 문구와 숫자 카운팅, 제가 제안한 소재</p>
+      <p class="pt" style="margin-top:26px">담당 범위. 초록 줄이 새로 맡은 일</p>
+      <div class="stp watch"><div class="add"><i>+</i>실험 소재 발굴</div><div class="add"><i>+</i>실험 생성</div><div class="add"><i>+</i>A/B 테스트 세팅</div><div class="ctx"><i></i>화면 제작 <em>처음 맡은 범위</em></div><div class="add"><i>+</i>QA</div><div class="add"><i>+</i>결과 해석</div></div>
+      <div class="res" style="margin-top:18px"><p>소셜프루프 실험 전환율</p><span class="o"><i>−</i>기존안</span><span class="n"><i>+</i>10% 상승</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="qa" data-file="검수.log" data-dir="라이나생명" data-msg="검수 84 / 84">
+  <div class="rv"><div class="kick"><p><b>운영 랜딩 QA 에이전트</b>라이나생명, 직접 구성</p><em>첫 실행에서 확인 필요 9건 발견</em></div>
+  <h2>AI 에이전트 구성을 익혀, 일부만 보던 검수를 84개 전수 점검으로 바꿨습니다</h2></div>
+  <div class="two">
+    <div class="rv">
+      <div class="pts">
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>새 도구를 배워서.</b>손으로 확인하면 페이지마다 몇 분씩 걸려 매번 일부만 볼 수 있었습니다. 그 한계가 보여서 AI 에이전트 구성 방법을 익혀 검수 도구를 직접 만들었습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>안전 조건 먼저.</b>시험 입력 때문에 실제 상담 DB가 만들어지면 안 됩니다. 조회 외의 요청은 모두 막아 두고 시작했습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>한 번에 점검.</b>정상 입력과 잘못된 휴대폰 번호 입력을 시험하고, 심의필 문구와 누락 리소스, 깨진 이미지, 스크립트 오류를 모아 보고서로 만듭니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>다른 일에도.</b>퍼블리싱 에이전트로 WebP 변환과 신규 페이지 생성을 자동화했고, 결과는 직접 검수한 뒤에 반영합니다.</p></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="term watch" id="term">
+        <p><span class="pr">$</span>운영 랜딩 검수 실행</p>
+        <p class="tm">84개, 3개 채널의 PC와 모바일</p>
+        <div class="qgrid" id="qgrid"></div>
+        <p class="sum"><span style="color:var(--termok)">정상 <span class="count" data-to="75">75</span></span><span style="color:var(--termng)">확인 필요 <span class="count" data-to="9">9</span></span></p>
+        <p class="tm">누락된 리소스 7, 빈 화면 1, 깨진 이미지 1</p>
+      </div>
+      <div class="res" style="margin-top:14px"><p>검수 범위</p><span class="o"><i>−</i>일부만</span><span class="n"><i>+</i>84개 전부</span></div>
+      <div class="res"><p>시험 중 생긴 실제 DB</p><span class="o" style="background:var(--chrome)"></span><span class="n"><i>+</i>0건</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lina" data-file="랜딩.html" data-dir="라이나생명" data-msg="미리보기">
+  <div class="rv"><div class="kick"><p><b>라이나생명 랜딩</b>디지털세일즈팀, 2026.04 ~ 현재</p><em>카드를 누르면 상세 내용이 열립니다</em></div>
+  <h2>운영만 하지 않고, 랜딩의 기능과 흐름을 직접 제안하고 만들었습니다</h2></div>
+  <div class="cards">
+<article class="card pj rv "><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>direct.e-lina.co.kr/emall/P00355</span><a class="go" href="https://direct.e-lina.co.kr/emall/P00355.htm?t=S1_2611_A_01&amp;adtype=WEB_SA&amp;media=TEST&amp;utm_source=S1_2611_A_01&amp;utm_medium=TEST" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="첫날부터암보험 PC 랜딩, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_355.jpg" alt="첫날부터암보험 PC 랜딩" loading="lazy" width="936" height="3640"><div class="pk" style="left:10.1%;top:2.5%;width:39%;height:12.1%"><b class="bl">파라미터로 바뀌는 히어로</b></div></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>첫날부터암보험 랜딩</b>PC, 모바일</p><h3>광고 파라미터에 따라 히어로가 바뀌도록 분기했습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>랜딩 하나로 여러 광고 소재에 대응</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>PC와 모바일 랜딩에 같은 방식으로 적용</li></ul><a class="url" href="https://direct.e-lina.co.kr/emall/P00355.htm?t=S1_2611_A_01&amp;adtype=WEB_SA&amp;media=TEST&amp;utm_source=S1_2611_A_01&amp;utm_medium=TEST" target="_blank" rel="noopener">direct.e-lina.co.kr/emall/P00355 ↗</a></article>
+<article class="card pj rv d1"><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>lina.co.kr/nmall/P00421_00</span><a class="go" href="https://lina.co.kr/nmall/P00421_00.htm?t=D1_2609_A_01&amp;adtype=MOBILE_DA&amp;media=TEST&amp;utm_source=D1_2609_A_01&amp;utm_medium=TEST" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="새로담는건강보험 PC 랜딩, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_421pc.jpg" alt="새로담는건강보험 PC 랜딩" loading="lazy" width="936" height="3908"><div class="pk" style="left:7.3%;top:80.5%;width:85.4%;height:2.1%"><b class="bl">버튼으로 담기</b></div></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>새로담는건강보험 랜딩</b>PC, 모바일</p><h3>히어로와 상품특징에서 버튼으로 보장을 담는 기능을 넣었습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>고른 보장 플랜을 담아 보험료 확인으로 연결</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>PC와 모바일 신규 퍼블리싱부터 분기처리까지 주도</li></ul><a class="url" href="https://lina.co.kr/nmall/P00421_00.htm?t=D1_2609_A_01&amp;adtype=MOBILE_DA&amp;media=TEST&amp;utm_source=D1_2609_A_01&amp;utm_medium=TEST" target="_blank" rel="noopener">lina.co.kr/nmall/P00421_00 ↗</a></article>
+<article class="card pj rv "><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>direct.e-lina.co.kr/emall/P00197</span><a class="go" href="https://direct.e-lina.co.kr/emall/P00197.htm?t=S1_2611_A_01&amp;adtype=WEB_SA&amp;media=TEST&amp;utm_source=S1_2611_A_01&amp;utm_medium=TEST" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="치아보험 PC 랜딩, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_197.jpg" alt="치아보험 PC 랜딩" loading="lazy" width="936" height="3808"><div class="pk" style="left:66.1%;top:3.4%;width:29.6%;height:9.1%"><b class="bl">고정 입력 필드</b></div></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>치아보험 랜딩</b>PC</p><h3>스크롤해도 따라오는 고정 입력 필드를 만들었습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>공용 모듈로 제작</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>나머지 PC 랜딩 전체에 적용 완료</li></ul><a class="url" href="https://direct.e-lina.co.kr/emall/P00197.htm?t=S1_2611_A_01&amp;adtype=WEB_SA&amp;media=TEST&amp;utm_source=S1_2611_A_01&amp;utm_medium=TEST" target="_blank" rel="noopener">direct.e-lina.co.kr/emall/P00197 ↗</a></article>
+<article class="card pj rv d1"><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>m.lina.co.kr/product/easy</span><a class="go" href="https://m.lina.co.kr/product/easy" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp ph" tabindex="0" role="group" aria-label="보험료 간편조회 모바일 랜딩, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_easy.jpg" alt="보험료 간편조회 모바일 랜딩" loading="lazy" width="750" height="1624"></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>보험료 간편조회</b>모바일 신규 랜딩</p><h3>신규 랜딩을 직접 기획하고 A/B 테스트로 검증했습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>필요한 보장만 고르면 보험료를 한 번에 확인하는 흐름</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>기획, 퍼블리싱, 실험까지 담당</li></ul><a class="url" href="https://m.lina.co.kr/product/easy" target="_blank" rel="noopener">m.lina.co.kr/product/easy ↗</a></article>
+  </div>
+</section>
+
+<section class="sec" id="ob" data-file="ob맥주.html" data-dir="미래피엠피" data-msg="미리보기">
+  <div class="rv"><div class="kick"><p><b>OB맥주 공식 홈페이지</b>미래피엠피, 신규 구축과 운영</p><em>퍼블리싱 100%</em></div>
+  <h2>9개 영역 전 페이지를 혼자 구축해, 재오픈과 롤백 없이 런칭했습니다</h2></div>
+  <div class="proj">
+    <div class="rv">
+      <div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>ob.co.kr</span><a class="go" href="https://ob.co.kr/" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="OB맥주 공식 홈페이지 화면, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_ob.jpg" alt="OB맥주 공식 홈페이지 화면" loading="lazy" width="1100" height="2332"><div class="pk" style="left:91.4%;top:0.2%;width:7.6%;height:1.4%"><b class="br">국문, 영문</b></div></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div>
+      <div class="rul" id="rul"><span style="flex:26" data-w="390">Mobile</span><span style="flex:40" class="hi" data-w="1024">Tablet<em>별도 레이아웃</em></span><span style="flex:74" data-w="1440">PC</span></div>
+      <p class="cap" style="margin-top:10px">기업소개, Sustainability, 역사관, 브랜드, 인재채용 등 9개 영역을 PC, Tablet, Mobile 세 구간으로 따로 설계했습니다.</p>
+    </div>
+    <div class="rv d1">
+      <div class="pts">
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>규칙 먼저.</b>화면을 만들기 전에 CSS 변수와 SCSS로 공통 스타일 규칙과 컴포넌트 단위 구조부터 정했습니다. 페이지가 계속 늘어날 사이트였기 때문입니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>3단 반응형.</b>PC, Tablet, Mobile을 따로 설계했고 Tablet 구간은 별도 레이아웃으로 정의했습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>사전 QA.</b>구조적인 이슈를 QA 단계에서 미리 막아 재오픈과 롤백 없이 런칭했습니다.</p></div>
+        <div><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg><p><b>국문과 영문.</b>시맨틱 마크업과 접근성을 기준으로 두 언어 페이지를 만들고 운영했습니다.</p></div>
+      </div>
+      <dl class="facts" style="margin-top:28px"><dt>환경</dt><dd class="mono" style="font-size:13px">HTML5, SCSS, JavaScript, PHP</dd><dt>검수</dt><dd class="mono" style="font-size:13px">Chrome, Safari, Edge, Firefox</dd><dt>주소</dt><dd><a class="url" style="margin:0" href="https://ob.co.kr/" target="_blank" rel="noopener">ob.co.kr ↗</a></dd></dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="campaigns" data-file="캠페인.html" data-dir="미래피엠피" data-msg="미리보기">
+  <div class="rv"><div class="kick"><p><b>캠페인</b>미래피엠피, 2025.06 ~ 2026.02</p><em>카드를 누르면 상세 내용이 열립니다</em></div>
+  <h2>지도 연동과 리더보드처럼, 참여 흐름이 있는 캠페인 화면을 만들었습니다</h2></div>
+  <div class="cards">
+<article class="card pj rv "><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>hanmac.ob.co.kr/smoothmaster</span><a class="go" href="https://hanmac.ob.co.kr/smoothmaster/" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="한맥 스무스 마스터 캠페인 화면, 스크롤해서 볼 수 있습니다" data-y="0.32"><div class="pg"><img src="img/f_sm.jpg" alt="한맥 스무스 마스터 캠페인 화면" loading="lazy" width="1100" height="2216"><div class="pk" style="left:21.5%;top:42%;width:31%;height:19.3%"><b class="">SVG 지도</b></div><div class="pk" style="left:58.2%;top:48.1%;width:18.7%;height:10%"><b class="bl">SELECT, 지도와 연동</b></div><i class="lk" style="left:52.5%;top:52.9%;width:5.7%"></i></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>한맥 스무스 마스터 캠페인</b>퍼블리싱 100%</p><h3>SVG 지도와 지역 선택을 연동하고, 매장이 늘어도 버티는 구조로 만들었습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>SVG 지도 UI와 SELECT를 연동해 지역별 매장을 탐색</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>매장 추가를 감안한 Grid 기반 레이아웃</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>이후 2차 개편(Revamp Phase 2)까지 같은 구조로 대응</li></ul><a class="url" href="https://hanmac.ob.co.kr/smoothmaster/" target="_blank" rel="noopener">hanmac.ob.co.kr/smoothmaster ↗</a></article>
+<article class="card pj rv d1"><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>michelobultra.co.kr/ultra-hole</span><a class="go" href="https://michelobultra.co.kr/ultra-hole/index.php" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="미켈롭 울트라 홀 챌린지 화면, 스크롤해서 볼 수 있습니다" data-y="0.6"><div class="pg"><img src="img/f_mi.jpg" alt="미켈롭 울트라 홀 챌린지 화면" loading="lazy" width="1100" height="2213"><div class="pk" style="left:25.7%;top:51.3%;width:48.4%;height:21.6%"><b class="">리더보드 UI</b></div></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>미켈롭 울트라 홀 챌린지</b>퍼블리싱 100%</p><h3>응모부터 순위 확인까지, 참여 흐름을 리더보드로 풀었습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>참여 흐름을 기준으로 레이아웃 설계</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>순위가 한눈에 읽히는 리더보드 UI 구현</li></ul><a class="url" href="https://michelobultra.co.kr/ultra-hole/index.php" target="_blank" rel="noopener">michelobultra.co.kr/ultra-hole ↗</a></article>
+  </div>
+  <div class="strip rv"><p class="h">캠페인에서 구현한 기능</p>
+    <div><b>영역 캡처와 이미지 저장</b><span>html2canvas로 화면의 특정 영역을 캡처해 이미지로 내려받는 기능</span></div>
+    <div><b>데이터 연동</b><span>JSON 구조에 맞춘 마크업 설계와 GET/POST 연동. 백엔드 개발자와 API 방식 조율</span></div>
+    <div><b>스크롤 모션</b><span>GSAP 기반 캠페인 리스트. 캠페인이 늘어나도 유지되는 구조</span></div>
+  </div>
+</section>
+
+<section class="sec" id="brand" data-file="브랜드.html" data-dir="미래피엠피" data-msg="미리보기">
+  <div class="rv"><div class="kick"><p><b>브랜드 사이트</b>미래피엠피, 2025.06 ~ 2026.02</p><em>카드를 누르면 상세 내용이 열립니다</em></div>
+  <h2>만들고 끝내지 않고, 운영하기 쉬운 구조로 정리했습니다</h2></div>
+  <div class="cards c3">
+<article class="card pj rv "><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>hanmac.ob.co.kr</span><a class="go" href="https://hanmac.ob.co.kr/" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="한맥 메인 페이지, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_hm.jpg" alt="한맥 메인 페이지" loading="lazy" width="1100" height="3400"></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>한맥 메인 리뉴얼, 캠페인 리스트</b>퍼블리싱 100%</p><h3>수정이 잦은 영역을 공통 구조로 정리해, 반복되는 수정 요청을 줄였습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>시선 흐름을 기준으로 메인 레이아웃 재정비</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>캠페인 리스트에 GSAP 스크롤 모션 구현</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>프로덕트 페이지 A/B 테스트 대응, 메타와 스키마 적용</li></ul><a class="url" href="https://hanmac.ob.co.kr/" target="_blank" rel="noopener">hanmac.ob.co.kr ↗</a></article>
+<article class="card pj rv d1"><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>stellaartois.co.kr</span><a class="go" href="https://www.stellaartois.co.kr" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="스텔라 아르투아 공식 홈페이지, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_st.jpg" alt="스텔라 아르투아 공식 홈페이지" loading="lazy" width="1100" height="957"><div class="pk" style="left:3.6%;top:56.6%;width:23%;height:8.2%"><b class="">프로그레스 바, 전환 애니메이션</b></div></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>스텔라 아르투아 공식 홈페이지</b>퍼블리싱 100%</p><h3>슬라이드 인터랙션부터 Drupal 메뉴 구조까지, 운영에 필요한 곳을 직접 손봤습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>메인 슬라이드 프로그레스 바와 전환 애니메이션</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>Map 2.0(지도 API) UI 구현</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>공통 영역의 메타와 스키마 정리, Drupal 메뉴 구조 수정</li></ul><a class="url" href="https://www.stellaartois.co.kr" target="_blank" rel="noopener">stellaartois.co.kr ↗</a></article>
+<article class="card pj rv d2"><div class="fr watch"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>redcross.or.kr</span><a class="go" href="https://www.redcross.or.kr/donation_campaign/2025/winter/index.html" target="_blank" rel="noopener">열기 ↗</a></div><i class="sp"></i><div class="vp" tabindex="0" role="group" aria-label="대한적십자사 국제구호 캠페인, 스크롤해서 볼 수 있습니다"><div class="pg"><img src="img/f_rc.jpg" alt="대한적십자사 국제구호 캠페인" loading="lazy" width="1100" height="3400"></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div><p class="pn"><b>대한적십자사 국제구호 캠페인</b>퍼블리싱 100%</p><h3>긴 글과 후원 동선이 끝까지 읽히도록 구성했습니다</h3><ul class="ck"><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>접근성과 가독성을 우선한 UI 구성</li><li><svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>SEO 적용</li></ul><a class="url" href="https://www.redcross.or.kr/donation_campaign/2025/winter/index.html" target="_blank" rel="noopener">redcross.or.kr ↗</a></article>
+  </div>
+</section>
+
+<section class="sec" id="list" data-file="목록.csv" data-dir="미래피엠피" data-msg="12행">
+  <div class="rv"><div class="kick"><p><b>전체 목록</b>미래피엠피, 2025.06 ~ 2026.02</p><em>주소를 누르면 실제 사이트가 열립니다</em></div>
+  <h2>8개월 동안 열두 건을 만들었고, 그중 열한 건은 퍼블리싱을 혼자 맡았습니다</h2></div>
+  <div class="rv" id="listTable"></div>
+</section>
+
+<section class="sec" id="env" data-file="환경.md" data-msg="환경 8">
+  <div class="rv"><div class="kick"><p><b>환경과 도구</b>세 회사, 2년 8개월</p><em>처음 접한 것도 배워서</em></div>
+  <h2>환경이 바뀔 때마다, 그 구조부터 읽고 결과를 냈습니다</h2></div>
+  <div class="tw rv"><table class="env"><thead><tr><th></th><th>환경, 도구</th><th>어디서</th><th>거기서 해낸 것</th></tr></thead><tbody id="envBody"></tbody></table></div>
+  <div class="strip rv"><p class="h">협업하면서 한 일</p>
+    <div><b>개발팀 협업</b><span>BRD, SR로 개발 요건을 정리해 요청</span></div>
+    <div><b>대행사 협업</b><span>채널별 퍼블리싱 가이드 제작과 산출물 검수</span></div>
+    <div><b>반복 업무</b><span>캠페인 URL 생성과 트래킹을 시트 자동화 도구로 표준화</span></div>
+  </div>
+</section>
+
+<section class="sec" id="career" data-file="경력.md" data-msg="읽어 주셔서 고맙습니다" style="border-bottom:0">
+  <div class="cv">
+    <div class="rv"><h2>경력</h2>
+      <div class="git watch">
+        <div class="it"><p class="d">2026.04 ~ 현재</p><p class="n"><b>라이나생명</b>디지털세일즈팀, 웹 퍼블리셔</p><p class="p">보험 상품 페이지와 광고 랜딩 개발, 운영, A/B 테스트</p></div>
+        <div class="it br"><p class="d">2025.03 ~ 2026.08</p><p class="n"><b>한양사이버대학교</b>응용소프트웨어공학과, 학사 편입</p><p class="p">일과 병행</p></div>
+        <div class="it"><p class="d">2025.06 ~ 2026.02</p><p class="n"><b>미래피엠피</b>디자인팀, 웹 퍼블리셔</p><p class="p">OB맥주, 한맥, 스텔라 아르투아 등 브랜드 사이트 구축과 운영</p></div>
+        <div class="it"><p class="d">2023.11 ~ 2025.01</p><p class="n"><b>비디</b>상품개발팀, 웹 퍼블리셔</p><p class="p">사내 DBMS 솔루션 UI, 자사 홈페이지와 기술지원 사이트</p></div>
+        <div class="it edu"><p class="d">2023.01 ~ 2023.09</p><p class="n"><b>SBS아카데미컴퓨터아트학원</b>웹 퍼블리싱 및 UI/UX 과정</p></div>
+        <div class="it edu"><p class="d">2022.01 ~ 2022.06</p><p class="n"><b>이젠아카데미</b>풀스택 자바(JAVA) 웹개발자 과정</p></div>
+      </div>
+    </div>
+    <div class="rv d1"><h2>기술</h2>
+      <dl class="sk">
+        <dt>주로 쓰는 것</dt><dd class="tags"><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>SCSS</span><span>jQuery</span></dd>
+        <dt>챙기는 것</dt><dd class="tags"><span>웹 접근성(KWCAG)</span><span>Lighthouse</span><span>WebP</span><span>반응형</span><span>SEO</span><span>GEO</span><span>AEO</span><span>JSON-LD</span></dd>
+        <dt>도구</dt><dd class="tags"><span>Hackle</span><span>Git</span><span>SourceTree</span><span>Figma</span></dd>
+        <dt>써 본 것</dt><dd class="tags"><span>React</span><span>Vue</span><span>PHP</span><span>JSP</span><span>Drupal</span><span>GSAP</span><span>Tailwind CSS</span></dd>
+      </dl>
+      <div class="contact">
+        <div class="term">
+          <p><span class="pr">$</span>연락처</p>
+          <p class="ml"><span id="mail">maykim1823@gmail.com</span><button class="copy" data-copy="maykim1823@gmail.com">복사</button></p>
+          <p>010-7159-1823 <button class="copy" data-copy="010-7159-1823">복사</button></p>
+          <p class="tm">서울 광진구</p>
+          <p class="bye"><span class="pr">$</span><span id="bye"></span><span class="caret" style="height:1em;width:8px;background:var(--termfg)"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </div></div>
+  </main>
+</div>
+
+<button class="totop" id="toTop">맨 위로 ↑</button>
+
+<footer class="status"><span class="prog" id="prog"></span>
+  <div><svg class="ic" viewBox="0 0 16 16"><circle cx="4" cy="3.4" r="1.7"/><circle cx="4" cy="12.6" r="1.7"/><circle cx="12" cy="5.4" r="1.7"/><path d="M4 5.1v5.8M12 7.1c0 3.2-8 1.4-8 3.6"/></svg><span>main</span><span class="sm ok" id="stMsg">변경 1건</span></div>
+  <div><span class="hide mono" id="stPos">Ln 1</span><span class="mono" id="stPct">0%</span><span class="mono" id="stPage">1 / 13</span></div>
+</footer>
+
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-label="프로젝트 상세" tabindex="-1"></div>
+<div class="pal" id="pal" role="dialog" aria-modal="true" aria-label="파일 찾기"><div class="box"><input id="palIn" placeholder="파일 이름이나 내용으로 찾기" aria-label="파일 찾기"><ul id="palList"></ul></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CK='<svg class="ic" viewBox="0 0 16 16"><path d="M3 8.6l3.1 3.1L13 4.8"/></svg>';
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* theme */
+const root=document.documentElement;
+try{const t=localStorage.getItem('may-theme'); if(t) root.dataset.theme=t;}catch(e){}
+$('#themeBtn').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark'; try{localStorage.setItem('may-theme',root.dataset.theme)}catch(e){} toast(dark?'밝은 화면':'어두운 화면');};
+
+/* data tables */
+const P=[["OB Beer Official Website","브랜드 사이트","신규 구축, 9개 영역 전 페이지",100,"https://ob.co.kr/"],["Hanmac Main Page Renewal","브랜드 사이트","시선 흐름 기준 레이아웃 재정비, 공통 구조 정리",100,"https://hanmac.ob.co.kr/"],["Hanmac Campaign List","캠페인","GSAP 스크롤 모션, 확장을 고려한 구조",100,"https://hanmac.ob.co.kr/campaigns/index_gsap.php"],["Hanmac Smooth Master Campaign","캠페인","SVG 지도와 SELECT 연동, Grid 레이아웃",100,"https://hanmac.ob.co.kr/smoothmaster/"],["Michelob Ultra Hole Campaign","캠페인","참여 흐름 설계, 리더보드 UI",100,"https://michelobultra.co.kr/ultra-hole/index.php"],["Budweiser Product Page","상품 페이지","Flex 기반 반응형, 다양한 디바이스 대응",100,"https://www.budweiser.kr/about/product/"],["Stella Artois Official Website","브랜드 사이트","슬라이드 프로그레스 바, 전환 애니메이션",100,"https://www.stellaartois.co.kr"],["Red Cross Global Relief Campaign","공공 캠페인","접근성과 가독성 중심 구성, SEO",100,"https://www.redcross.or.kr/donation_campaign/2025/winter/index.html"],["Stella Artois Store Locator 2.0","지도 UI","지도 기능 2.0 UI, 기존 구조를 유지하며 개선",70,"https://www.stellaartois.co.kr/core/map4.php"],["Stella Artois Product Page","상품 페이지","호버 인터랙션, 반응형 UI",100,"https://www.stellaartois.co.kr/core/product.php"],["Hanmac Product Page","상품 페이지","페이지 이동 체감 속도 개선, 크로스 브라우징",100,"https://hanmac.ob.co.kr/products/list"],["Hanmac Discovery Campaign","캠페인","호버 인터랙션, 전 디바이스 반응형",100,"https://hanmac.ob.co.kr/campaign/smoothsmooth.php?p=tab-1"]];
+const short=u=>{let s=u.replace('https://','').replace('www.','').replace(/\/$/,'');return s.length>30?s.slice(0,29)+'…':s};
+const kind=k=>k.includes('캠페인')?'캠페인':k;
+const KS=['전체','브랜드 사이트','캠페인','상품 페이지','지도 UI'];
+$('#listTable').innerHTML='<div class="flt" role="group" aria-label="종류로 거르기">'+KS.map((k,i)=>`<button type="button" aria-pressed="${i===0}" data-k="${k}">${k}<sup>${k==='전체'?P.length:P.filter(p=>kind(p[1])===k).length}</sup></button>`).join('')+'</div><div class="tw"><table class="watch"><thead><tr><th></th><th>프로젝트</th><th>종류</th><th>핵심</th><th>기여도</th><th>주소</th></tr></thead><tbody>'+P.map((p,i)=>`<tr data-k="${kind(p[1])}"><td class="no">${i+1}</td><td class="nm">${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td><td class="pc"><span class="bar100"><i data-w="${p[3]}"></i></span>${p[3]}%</td><td class="u"><a href="${p[4]}" target="_blank" rel="noopener">${short(p[4])} ↗</a></td></tr>`).join('')+'</tbody></table></div>';
+$('#listTable .flt').onclick=e=>{const b=e.target.closest('button');if(!b)return;const k=b.dataset.k,tb=$('#listTable tbody');
+  $$('#listTable .flt button').forEach(x=>x.setAttribute('aria-pressed',x===b));tb.style.opacity=0;
+  setTimeout(()=>{tb.querySelectorAll('tr').forEach(r=>r.hidden=!(k==='전체'||r.dataset.k===k));tb.style.opacity=1},180)};
+
+const D=[["광고심의번호 수정과 확인","7.5시간","22분","랜딩마다 적던 번호를 공통 소스 한 곳으로 분리. 90개 기준","#review-no"],["같은 상품의 광고 랜딩","10개 이상","한 페이지","URL 파라미터로 나누는 구조로 통합","#review-no"],["AI 검색 언급률","18.2%","31.4%","통이미지 랜딩을 마크업으로 전환. 치아보험 기준","#search"],["AI 검색 인용률","19.2%","30.6%","FAQ 등 구조화 데이터(JSON-LD) 적용","#search"],["모바일 접근성 점수","59점","74점","제목 구조, alt, ARIA, 색상 대비 정비","#search"],["PC 화면이 뜨는 시간(LCP)","4.23초","3.18초","통이미지를 텍스트 마크업으로 교체","#search"],["상품 이미지 형식","PNG, JPG","WebP","전송량 53~57% 감소, LCP 2.4~3.0초 단축","#search"],["운영 페이지 검수","일부만","84개 전부","검수 에이전트를 직접 구성","#qa"],["상담 신청 전환율","기존안","10% 상승","소셜프루프 문구와 숫자 카운팅 제안. 2주 A/B 테스트","#experiment"],["보험료 변동 공지 팝업","전년 동월","전환율 5% 상승","시안 4종을 비교 제안한 뒤 구현",""]];
+$('#diffTable').innerHTML='<div class="dr h"><span></span><span>무엇을</span><span class="b"><i>−</i>전</span><span class="f"><i>+</i>후</span><span class="how">어떻게</span></div>'+D.map((d,i)=>`<div class="dr"><span class="n">${i+1}</span><span class="w">${d[4]?`<a href="${d[4]}">${d[0]}</a>`:d[0]}</span><span class="b"><i>−</i><span>${d[1]}</span></span><span class="f"><i>+</i><span style="transition-delay:${.35+i*.07}s">${d[2]}</span></span><span class="how">${d[3]}</span></div>`).join('');
+$$('#diffTable .b span').forEach((s,i)=>s.style.transitionDelay=(i*.07)+'s');
+
+const T=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/ /g,'&nbsp;');
+const C=[['del','<div class="landing">'],['del','  <img src="landing_full.jpg">',1],['del','</div>'],['add','<section>'],['add','  <h2>보장 내용</h2>'],['add','  <p>치료비 부담을 덜어 드립니다 …</p>'],['add','  <img src="table.webp" alt="보장 금액 표">'],['add','</section>'],['add','<script type="application/ld+json">'],['add','  { "@type": "FAQPage", … }'],['add','</scr'+'ipt>']];
+let dn=0,an=0;
+$('#codeDiff').innerHTML=C.map(c=>{const no=c[0]==='del'?++dn:++an;const code=c[2]?`&nbsp;&nbsp;<span class="sq">${T(c[1].trim())}</span>`:T(c[1]);
+  return `<div class="cl ${c[0]}"${c[0]==='add'?` style="transition-delay:${(an-1)*.12}s"`:''}><u>${no}</u><i>${c[0]==='del'?'−':'+'}</i><code>${code}</code>${c[2]?'<b class="tip"><svg class="ic" viewBox="0 0 16 16"><path d="M8 2.2 14.3 13.4H1.7Z"/><path d="M8 6.6v3.3M8 11.7v.1"/></svg>글자가 하나도 없음</b>':''}</div>`}).join('');
+$('#searchRes').innerHTML=[["AI 검색 언급률","18.2%","31.4%"],["AI 검색 인용률","19.2%","30.6%"],["PC 화면이 뜨는 시간(LCP)","4.23초","3.18초"],["모바일 접근성 점수","59점","74점"]].map(r=>`<div class="res"><p>${r[0]}</p><span class="o"><i>−</i>${r[1]}</span><span class="n"><i>+</i>${r[2]}</span></div>`).join('');
+
+const flagged=new Set([23,24,25,26,27,28,29,37,71]);
+$('#qgrid').innerHTML=Array.from({length:84},(_,i)=>flagged.has(i+1)?`<span class="ng" style="transition-delay:${i*.018}s">!</span>`:`<span class="ok" style="transition-delay:${i*.018}s">✓</span>`).join('');
+$('#abg').innerHTML=Array.from({length:40},(_,i)=>`<span class="${i===36?'hi':''}" style="transition-delay:${i*.025}s"><i>A</i><i>B</i></span>`).join('');
+$$('.stp .add').forEach((el,i)=>el.style.transitionDelay=(i*.1)+'s');
+
+const E=[["PHP","미래피엠피, OB맥주 계열 사이트","OB맥주 공식 홈페이지 전 페이지 구축. JSON 데이터 구조에 맞춘 마크업과 GET/POST 연동"],["Drupal","미래피엠피, 스텔라 아르투아","메뉴 구조를 직접 수정하고 공통 영역의 메타와 스키마 구조 정리"],["JSP/SSI","라이나생명, 금융 사이트","여러 스타일시트에 걸친 충돌 원인 규명, 심의번호 공통 소스 분리, CSS Grid 공통 컴포넌트 제작"],["Hackle","라이나생명, 도입 직후","실험 생성과 세팅을 익혀 A/B 테스트 약 40건 진행"],["AI 에이전트","라이나생명","운영 랜딩 84개 전수 검수 도구 구성, WebP 변환과 신규 페이지 생성 자동화"],["React","개인 프로젝트","포트폴리오 사이트를 직접 설계하고 구현해 GitHub Pages로 배포"],["Vanilla JS","대학 졸업 프로젝트","우리의 웨딩 플래너. Sortable.js 드래그 정렬과 localStorage 저장, Tailwind CSS"],["Flutter","대학 과제","Focuslet. MVVM 구조의 포모도로 타이머, 로컬 알림"]];
+$('#envBody').innerHTML=E.map((e,i)=>`<tr><td>${i+1}</td><td class="e">${e[0]}</td><td class="w">${e[1]}</td><td>${e[2]}</td></tr>`).join('');
+
+/* explorer, tabs */
+const S=$$('section.sec');
+const tree=[{f:'README.md',id:'readme'},{f:'소개.md',id:'about'},{d:'라이나생명',em:'2026.04 ~ 현재',k:['fixes','review-no','search','experiment','qa','lina']},{d:'미래피엠피',em:'2025.06 ~ 2026.02',k:['ob','campaigns','brand','list']},{f:'환경.md',id:'env'},{f:'경력.md',id:'career'}];
+const fileOf=id=>$('#'+id).dataset.file, idx=id=>S.findIndex(s=>s.id===id)+1;
+const fold='<svg class="ic" viewBox="0 0 16 16" style="width:12px;height:12px"><path d="M4 6l4 4 4-4"/></svg>';
+let th='<div class="row root">'+fold+'portfolio</div>';
+tree.forEach((t,i)=>{
+  if(t.f) th+=`<a class="row l1" href="#${t.id}" data-id="${t.id}"><span>${t.f}</span><b>${idx(t.id)}</b></a>`;
+  else th+=`<button class="row dir" aria-expanded="true" data-g="g${i}">${fold}<span>${t.d}</span><em>${t.em}</em></button><div class="grp" id="g${i}"><div>`+t.k.map(id=>`<a class="row" href="#${id}" data-id="${id}"><span>${fileOf(id)}</span><b>${idx(id)}</b></a>`).join('')+'</div></div>';
+});
+$('#tree').innerHTML=th;
+$$('.dir').forEach(b=>b.onclick=()=>{const g=$('#'+b.dataset.g);const open=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!open);g.classList.toggle('shut',open);});
+
+let cur='';
+function setActive(id){
+  if(id===cur) return; cur=id;
+  const s=$('#'+id), n=idx(id);
+  $$('.tree a.row').forEach(a=>a.classList.toggle('on',a.dataset.id===id));
+  const ids=S.map(x=>x.id); const k=ids.indexOf(id);
+  $('#tabs').innerHTML=[k-1,k,k+1].filter(j=>j>=0&&j<ids.length).map(j=>`<a class="tab${j===k?' on':''}" href="#${ids[j]}">${S[j].dataset.file}<span class="x">×</span></a>`).join('');
+  const parts=['portfolio'].concat(s.dataset.dir?[s.dataset.dir]:[]).concat([s.dataset.file]);
+  $('#crumb').innerHTML=parts.map(p=>`<span>${p}</span>`).join('<svg class="ic" viewBox="0 0 16 16" style="width:11px;height:11px"><path d="M6 4l4 4-4 4"/></svg>');
+  const st=(s.dataset.stat||'').split('|'); $('#crumbSt').innerHTML=(st[0]?`<i class="d">${st[0]}</i>`:'')+(st[1]?`<i class="a">${st[1]}</i>`:'');
+  $('#stMsg').textContent=s.dataset.msg||''; $('#stPage').textContent=n+' / '+S.length;
+}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setActive(e.target.id)})},{rootMargin:'-40% 0px -55% 0px'});
+S.forEach(s=>io.observe(s)); setActive('readme');
+
+/* scroll progress + line number */
+const onScroll=()=>{const h=document.documentElement.scrollHeight-innerHeight;const p=h>0?scrollY/h:0;$('#prog').style.width=(p*100)+'%';$('#stPos').textContent='Ln '+(Math.round(scrollY/24)+1);$('#stPct').textContent=Math.round(p*100)+'%';$('#toTop').classList.toggle('show',scrollY>700);};
+$('#toTop').onclick=()=>scrollTo({top:0,behavior:RM?'auto':'smooth'});
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+/* reveal: only hide what starts below the fold */
+const vh=innerHeight;
+if(!RM){$$('.rv').forEach(el=>{if(el.getBoundingClientRect().top>vh*0.92) el.classList.add('pre')});}
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+$$('.rv.pre').forEach(el=>rio.observe(el));
+const hio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre2');hio.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
+if(!RM) $$('section.sec h2').forEach(h=>{if(h.getBoundingClientRect().top<vh*0.92)return;
+  h.innerHTML=h.textContent.split(' ').map((w,i)=>`<span class="w" style="transition-delay:${i*45}ms">${w}</span>`).join(' ');h.classList.add('pre2');hio.observe(h)});
+
+/* scrollable frames */
+const initVp=v=>{const f=v.closest('.fr'),sp=f.querySelector('.sp'),im=v.querySelector('img');let auto=true;
+  const up=()=>{const m=v.scrollHeight-v.clientHeight;sp.style.width=(m>0?v.scrollTop/m*100:0)+'%';if(!auto&&v.scrollTop>4)f.classList.add('sc')};
+  v.addEventListener('scroll',up,{passive:true});
+  ['wheel','touchstart','pointerdown','keydown'].forEach(t=>v.addEventListener(t,()=>{auto=false},{passive:true}));
+  const init=()=>{const st=+v.dataset.y||0;if(st)v.scrollTop=(v.scrollHeight-v.clientHeight)*st;up()};
+  im.complete?init():im.addEventListener('load',init);
+  if(!RM&&!v.dataset.y){const o=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;o.disconnect();setTimeout(()=>{if(!auto)return;v.scrollTo({top:90,behavior:'smooth'});setTimeout(()=>{if(auto)v.scrollTo({top:0,behavior:'smooth'})},900)},700)},{threshold:.6});o.observe(v)}
+};
+$$('.vp').forEach(initVp);
+
+/* one-shot "in" animations */
+function count(el){const to=+el.dataset.to; if(RM){el.textContent=to;return;} const t0=performance.now(),dur=1100;
+  (function f(t){const k=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0);}
+const wio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting) return; const el=e.target; el.classList.add('in');
+  el.querySelectorAll('.count').forEach(count); el.querySelectorAll('.bar100 i').forEach(i=>i.style.width=i.dataset.w+'%');
+  if(el.classList.contains('fl')) el.parentNode.querySelectorAll('.count').forEach(count);
+  wio.unobserve(el)}),{threshold:.25});
+$$('.watch').forEach(el=>wio.observe(el));
+
+/* hero sequence */
+requestAnimationFrame(()=>setTimeout(()=>$('#readme').classList.add('go'),RM?0:150));
+setTimeout(()=>$('#readme').classList.add('done'),RM?0:3800);
+const szUp=()=>{const r=$('.sel').getBoundingClientRect();$('#sz').textContent='W '+Math.round(r.width)+' × H '+Math.round(r.height)};szUp();addEventListener('resize',szUp);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(szUp);
+setTimeout(()=>$$('.chip sup').forEach(el=>{el.dataset.to=el.textContent;count(el)}),RM?0:2700);
+
+/* draggable chips */
+$$('.chip').forEach(ch=>{let sx,sy,ox=0,oy=0,drag=false,px=0,py=0;
+  ch.addEventListener('pointerdown',e=>{if(innerWidth<=600) return;drag=true;px=e.clientX;py=e.clientY;ch.classList.add('dragging');ch.classList.remove('float');sx=e.clientX-ox;sy=e.clientY-oy;ch.setPointerCapture(e.pointerId)});
+  ch.addEventListener('pointermove',e=>{if(!drag)return;ox=e.clientX-sx;oy=e.clientY-sy;ch.style.translate=ox+'px '+oy+'px'});
+  ch.addEventListener('pointerup',e=>{const moved=Math.hypot(e.clientX-px,e.clientY-py);drag=false;ch.classList.remove('dragging');if(moved<5&&ch.dataset.to)location.hash='#'+ch.dataset.to});
+  ch.addEventListener('click',()=>{if(innerWidth<=600&&ch.dataset.to)location.hash='#'+ch.dataset.to});});
+/* parallax on hero title */
+if(!RM&&matchMedia('(pointer:fine)').matches){const hero=$('#readme');hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  $$('.chip:not(.dragging)').forEach((c,i)=>{c.style.transform=`translate(${x*(14+i*8)}px,${y*(14+i*8)}px)`})});
+  hero.addEventListener('pointerleave',()=>$$('.chip').forEach(c=>c.style.transform=''));}
+
+/* responsive ruler highlight */
+const rul=$('#rul'); const rw=()=>{const w=innerWidth;rul.querySelectorAll('span').forEach(s=>s.classList.remove('hi'));
+  const k=w<768?0:w<1200?1:2; rul.children[k].classList.add('hi');}; rw(); addEventListener('resize',rw);
+
+/* ask box: answers from this page's content */
+const QA=[
+ {k:['ob','오비','맥주','홈페이지'],q:'OB맥주 홈페이지는 뭘 했나요?',a:'신규 구축부터 운영까지 9개 영역 전 페이지를 혼자 맡았습니다. CSS 변수와 SCSS로 공통 규칙을 먼저 정했고, Tablet은 별도 레이아웃으로 설계했습니다. 재오픈과 롤백 없이 런칭했습니다.',
+  rel:[['img/ob_top.jpg','OB맥주 홈페이지','ob'],['img/sm_map.jpg','한맥 스무스 마스터','campaigns'],['img/st_top.jpg','스텔라 아르투아','brand']]},
+ {k:['랜딩','라이나','보험','히어로','간편조회'],q:'라이나생명에서는 뭘 만들었나요?',a:'광고 랜딩의 기능과 흐름을 직접 제안해 만들었습니다. 파라미터에 따라 히어로가 바뀌는 분기, 보장을 담는 버튼, 스크롤해도 따라오는 고정 입력 필드, 보험료 간편조회 신규 랜딩이 있습니다.',
+  rel:[['img/li_355pc.jpg','첫날부터암보험','lina'],['img/li_197pc.jpg','치아보험','lina'],['img/li_easy.jpg','보험료 간편조회','lina']]},
+ {k:['개선','고친','고쳤','찾아','성과','숫자'],q:'직접 찾아서 개선한 건 뭐가 있나요?',a:'라이나생명 8개월 동안 7건입니다. 심의번호 관리 7.5시간을 22분으로 줄였고, 통이미지 랜딩을 마크업으로 바꿔 AI 검색 언급률을 18.2%에서 31.4%로 올렸습니다.',
+  rel:[['','요약.diff','fixes'],['','심의번호.diff','review-no'],['','검색.diff','search']]},
+ {k:['ab','a/b','실험','테스트','핵클','hackle','전환'],q:'A/B 테스트는 어디까지 하나요?',a:'실험 소재 발굴, 생성, 세팅, 화면 제작, QA, 결과 해석까지 맡습니다. 2026년 7월부터 약 40건 진행했고, 제안한 소셜프루프 소재로 전환율이 10% 올랐습니다.',
+  rel:[['','실험.json','experiment'],['','요약.diff','fixes']]},
+ {k:['ai','에이전트','자동화','검수','qa'],q:'AI는 어떻게 쓰나요?',a:'운영 랜딩 84개를 전수 점검하는 검수 에이전트를 직접 구성했습니다. 시험 입력으로 실제 DB가 생기지 않게 조회 외 요청은 막았습니다. WebP 변환과 신규 페이지 생성도 에이전트로 자동화했습니다.',
+  rel:[['','검수.log','qa'],['','환경.md','env']]},
+ {k:['react','리액트','vue','기술','스택','php','jsp','drupal','환경'],q:'어떤 환경에서 일해 봤나요?',a:'주로 JavaScript, HTML5, CSS3, SCSS, jQuery를 씁니다. PHP, Drupal, JSP/SSI 환경에서 일했고, 환경이 바뀔 때마다 그 구조부터 읽고 결과를 냈습니다.',
+  rel:[['','환경.md','env'],['','경력.md','career']]},
+ {k:['연락','메일','전화','이메일'],q:'연락은 어떻게 하나요?',a:'maykim1823@gmail.com, 010-7159-1823으로 연락 주세요.',rel:[['','경력.md','career']]},
+];
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function sugg(skip){$('#sugg').innerHTML=QA.map((x,i)=>[x,i]).filter(([x])=>x!==skip).slice(0,4).map(([x,i])=>`<button type="button" data-i="${i}">${x.q}</button>`).join('')}
+sugg(null);
+let typingT;
+function answer(x,qtext){const box=$('#answer');box.hidden=false;clearTimeout(typingT);
+  box.innerHTML=`<p class="qb">${esc(qtext)}</p><div class="ab"><p class="lbl"><i></i>답변</p><p class="ans loading">답을 찾고 있습니다</p><div class="rel" hidden></div></div>`;
+  const txt=x?x.a:'그 질문에는 바로 답하기 어려워요. 아래 추천 질문을 눌러 보거나 메일로 물어봐 주세요.';
+  const rel=x?x.rel:[['','소개.md','about'],['','경력.md','career']];
+  const p=box.querySelector('.ans'),r=box.querySelector('.rel');let i=0;
+  const done=()=>{p.textContent=txt;p.classList.remove('typing');r.hidden=false;
+    r.innerHTML=rel.map((e,j)=>e[0]?`<a class="th" href="#${e[2]}" style="animation-delay:${j*.09}s"><img src="${e[0]}" alt="">${e[1]}</a>`:`<a class="f" href="#${e[2]}" style="animation-delay:${j*.09}s">${e[1]}</a>`).join('');sugg(x)};
+  const step=()=>{p.textContent=txt.slice(0,i);i+=2;if(i<=txt.length+1)typingT=setTimeout(step,16);else done()};
+  typingT=setTimeout(()=>{p.classList.remove('loading');p.classList.add('typing');RM?done():step()},RM?0:750);}
+$('#sugg').onclick=e=>{const b=e.target.closest('button');if(!b)return;const x=QA[+b.dataset.i];$('#askIn').value='';answer(x,x.q)};
+$('#ask').onsubmit=e=>{e.preventDefault();const v=$('#askIn').value.trim();if(!v)return;const l=v.toLowerCase();const x=QA.find(q=>q.k.some(k=>l.includes(k)));$('#askIn').value='';answer(x,v)};
+
+/* palette */
+const items=S.map(s=>({id:s.id,f:s.dataset.file,t:(s.querySelector('h2')||{}).textContent||''}));
+let pi=0;
+function renderPal(q){q=(q||'').toLowerCase();const list=items.filter(x=>!q||x.f.toLowerCase().includes(q)||x.t.toLowerCase().includes(q));pi=Math.min(pi,Math.max(0,list.length-1));
+  $('#palList').innerHTML=list.map((x,i)=>`<li><a href="#${x.id}" class="${i===pi?'on':''}">${x.t.slice(0,34)}${x.t.length>34?'…':''}<span>${x.f}</span></a></li>`).join('')||'<li style="padding:12px;color:var(--mute)">찾는 파일이 없어요</li>';}
+const openPal=()=>{$('#pal').classList.add('open');pi=0;renderPal('');$('#palIn').value='';setTimeout(()=>$('#palIn').focus(),30)};
+const closePal=()=>$('#pal').classList.remove('open');
+$('#palBtn').onclick=openPal;
+$('#pal').onclick=e=>{if(e.target.id==='pal'||e.target.closest('a'))closePal()};
+$('#palIn').oninput=e=>{pi=0;renderPal(e.target.value)};
+$('#palIn').onkeydown=e=>{const a=$$('#palList a');if(e.key==='ArrowDown'){pi=Math.min(pi+1,a.length-1);e.preventDefault()}else if(e.key==='ArrowUp'){pi=Math.max(pi-1,0);e.preventDefault()}else if(e.key==='Enter'&&a[pi]){location.hash=a[pi].getAttribute('href');closePal();return}else return;a.forEach((x,i)=>x.classList.toggle('on',i===pi))};
+addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#pal').classList.contains('open')?closePal():openPal()}if(e.key==='Escape'){if($('#pal').classList.contains('open'))closePal();else if(dOpen)closeD();navClose()}});
+
+/* mobile nav */
+const navClose=()=>{document.body.classList.remove('nav');$('#menuBtn').setAttribute('aria-expanded','false')};
+$('#menuBtn').onclick=()=>{const o=document.body.classList.toggle('nav');$('#menuBtn').setAttribute('aria-expanded',o)};
+$('#scrim').onclick=navClose; $('#tree').addEventListener('click',e=>{if(e.target.closest('a'))navClose()});
+
+/* project detail */
+const LINA_M={'회사':'라이나생명 디지털세일즈팀','기간':'2026.04 ~ 현재','환경':'HTML5, CSS3(SCSS), JavaScript, jQuery, JSP/SSI'};
+const MP_M={'회사':'미래피엠피','기간':'2025.06 ~ 2026.02'};
+const DT={
+ 'lina-355':{sec:'lina',dir:'라이나생명',file:'랜딩.html',img:'f_355',w:936,h:3640,url:'direct.e-lina.co.kr/emall/P00355',title:'첫날부터암보험 랜딩',cat:'라이나생명, 광고 랜딩',tags:['히어로 분기','PC','모바일'],
+  meta:Object.assign({'플랫폼':'PC, 모바일 광고 랜딩','역할':'퍼블리싱, 분기 처리'},LINA_M),
+  ov:['검색 광고로 들어오는 첫날부터암보험 랜딩입니다. 광고 소재마다 랜딩을 따로 만들지 않고, 주소의 파라미터 값에 따라 히어로 영역이 바뀌도록 분기했습니다.'],
+  wh:'랜딩 하나로 여러 광고 소재에 대응합니다.',wp:['같은 상품인데 소재만 다른 랜딩을 여러 개 운영하면 고칠 곳도 그만큼 늘어납니다. 히어로만 파라미터로 갈라 한 페이지에서 관리하도록 했습니다.','PC와 모바일 랜딩에 같은 방식으로 적용했습니다.']},
+ 'lina-421':{sec:'lina',dir:'라이나생명',file:'랜딩.html',img:'f_421pc',w:936,h:3908,url:'lina.co.kr/nmall/P00421_00',title:'새로담는건강보험 랜딩',cat:'라이나생명, 광고 랜딩',tags:['담기 기능','PC','모바일'],
+  meta:Object.assign({'플랫폼':'PC, 모바일 광고 랜딩','역할':'신규 퍼블리싱, 분기 처리'},LINA_M),
+  ov:['디스플레이 광고로 들어오는 새로담는건강보험 랜딩입니다. 히어로와 상품특징 영역에 버튼을 두고, 보고 있는 보장을 바로 담을 수 있게 했습니다.'],
+  wh:'읽다가 바로 담을 수 있게 했습니다.',wp:['PC와 모바일 화면을 새로 퍼블리싱하고 분기처리까지 주도했습니다.','고른 보장 플랜은 보험료 확인으로 이어집니다.']},
+ 'lina-197':{sec:'lina',dir:'라이나생명',file:'랜딩.html',img:'f_197',w:936,h:3808,url:'direct.e-lina.co.kr/emall/P00197',title:'치아보험 랜딩',cat:'라이나생명, 광고 랜딩',tags:['고정 입력 필드','PC','공용 모듈'],
+  meta:Object.assign({'플랫폼':'PC 광고 랜딩','역할':'퍼블리싱, 공용 모듈 제작'},LINA_M),
+  ov:['검색 광고로 들어오는 치아보험 PC 랜딩입니다. 페이지를 내려도 보험료 확인 입력 필드가 따라오도록 만들었습니다.'],
+  wh:'한 번 만들어 PC 랜딩 전체에 썼습니다.',wp:['스크롤 고정 입력 필드를 공용 모듈로 만들었습니다.','이 랜딩에 먼저 적용한 뒤 나머지 PC 랜딩 전체에 적용을 마쳤습니다.']},
+ 'lina-easy':{sec:'lina',dir:'라이나생명',file:'랜딩.html',img:'f_easy',w:750,h:1624,ph:1,url:'m.lina.co.kr/product/easy',title:'보험료 간편조회',cat:'라이나생명, 모바일 신규 랜딩',tags:['신규 랜딩 기획','A/B 테스트','모바일'],
+  meta:Object.assign({'플랫폼':'모바일 웹','역할':'기획, 퍼블리싱, 실험'},LINA_M),
+  ov:['필요한 보장만 고르면 보험료를 한 번에 알려 주는 모바일 랜딩입니다. 신규 랜딩으로 직접 기획했습니다.'],
+  wh:'기획한 안을 A/B 테스트로 검증했습니다.',wp:['보장을 고르는 1단계와 보험료를 확인하는 2단계로 흐름을 나눴습니다.','만든 랜딩은 A/B 테스트로 검증했습니다.']},
+ 'ob':{sec:'ob',dir:'미래피엠피',file:'ob맥주.html',img:'f_ob',w:1100,h:2332,url:'ob.co.kr',title:'OB맥주 공식 홈페이지',cat:'미래피엠피, 브랜드 사이트',tags:['신규 구축','3단 반응형','국문, 영문'],
+  meta:Object.assign({'플랫폼':'반응형 웹','역할':'퍼블리싱 100%','클라이언트':'OB맥주','환경':'HTML5, SCSS, JavaScript, PHP'},MP_M),
+  ov:['OB맥주 공식 홈페이지의 신규 구축과 운영입니다. 기업소개, Sustainability, 역사관, 브랜드, 인재채용 등 9개 영역 전 페이지를 혼자 맡았습니다.','재오픈과 롤백 없이 런칭했습니다.'],
+  wh:'화면보다 규칙을 먼저 만들었습니다.',wp:['페이지가 계속 늘어날 사이트라서, 화면을 만들기 전에 CSS 변수와 SCSS로 공통 스타일 규칙과 컴포넌트 단위 구조부터 정했습니다.','PC, Tablet, Mobile을 따로 설계했고 Tablet 구간은 별도 레이아웃으로 정의했습니다.','구조적인 이슈는 QA 단계에서 미리 막았습니다. 시맨틱 마크업과 접근성을 기준으로 국문과 영문 페이지를 만들고 운영했습니다.']},
+ 'sm':{sec:'campaigns',dir:'미래피엠피',file:'캠페인.html',img:'f_sm',w:1100,h:2216,y:.32,url:'hanmac.ob.co.kr/smoothmaster',title:'한맥 스무스 마스터 캠페인',cat:'미래피엠피, 캠페인',tags:['SVG 지도','SELECT 연동','Grid'],
+  meta:Object.assign({'플랫폼':'반응형 웹','역할':'퍼블리싱 100%','클라이언트':'OB맥주 한맥'},MP_M),
+  ov:['한맥 스무스 마스터 매장을 지역별로 찾는 캠페인 페이지입니다. SVG 지도와 지역 선택(SELECT)을 연동했습니다.'],
+  wh:'매장이 늘어도 버티는 구조로 만들었습니다.',wp:['지도에서 지역을 고르거나 SELECT에서 고르면 해당 지역의 매장이 나옵니다.','매장이 계속 추가될 것을 감안해 Grid 기반으로 레이아웃을 잡았고, 이후 2차 개편(Revamp Phase 2)까지 같은 구조로 대응했습니다.']},
+ 'mi':{sec:'campaigns',dir:'미래피엠피',file:'캠페인.html',img:'f_mi',w:1100,h:2213,y:.6,url:'michelobultra.co.kr/ultra-hole',title:'미켈롭 울트라 홀 챌린지',cat:'미래피엠피, 캠페인',tags:['리더보드 UI','참여형 캠페인'],
+  meta:Object.assign({'플랫폼':'반응형 웹','역할':'퍼블리싱 100%','클라이언트':'OB맥주 미켈롭 울트라'},MP_M),
+  ov:['참여형 브랜드 캠페인 페이지입니다. 응모에서 순위 확인까지 이어지는 흐름을 한 페이지에 담았습니다.'],
+  wh:'참여 흐름을 리더보드로 풀었습니다.',wp:['참여 흐름을 기준으로 레이아웃을 잡았습니다.','순위가 한눈에 읽히도록 리더보드 UI를 구현했습니다.']},
+ 'hm':{sec:'brand',dir:'미래피엠피',file:'브랜드.html',img:'f_hm',w:1100,h:3400,url:'hanmac.ob.co.kr',title:'한맥 메인 리뉴얼, 캠페인 리스트',cat:'미래피엠피, 브랜드 사이트',tags:['리뉴얼','GSAP','공통 구조'],
+  meta:Object.assign({'플랫폼':'반응형 웹','역할':'퍼블리싱 100%','클라이언트':'OB맥주 한맥'},MP_M),
+  ov:['한맥 브랜드 사이트의 메인 페이지 리뉴얼과 캠페인 리스트 작업입니다.'],
+  wh:'수정이 잦은 영역을 공통 구조로 정리했습니다.',wp:['사용자의 시선 흐름을 기준으로 메인 레이아웃을 다시 잡았습니다.','캠페인 리스트에는 GSAP 스크롤 모션을 넣었고, 캠페인이 늘어나도 유지되는 구조로 만들었습니다.','프로덕트 페이지 A/B 테스트에 대응하고 메타와 스키마를 적용했습니다. 공통 구조로 정리한 뒤 반복되는 수정 요청이 줄었습니다.']},
+ 'st':{sec:'brand',dir:'미래피엠피',file:'브랜드.html',img:'f_st',w:1100,h:957,url:'stellaartois.co.kr',title:'스텔라 아르투아 공식 홈페이지',cat:'미래피엠피, 브랜드 사이트',tags:['슬라이드 인터랙션','지도 API','Drupal'],
+  meta:Object.assign({'플랫폼':'반응형 웹, Drupal','역할':'퍼블리싱 100%','클라이언트':'OB맥주 스텔라 아르투아'},MP_M),
+  ov:['스텔라 아르투아 공식 홈페이지의 퍼블리싱과 운영입니다.'],
+  wh:'운영에 필요한 곳을 직접 손봤습니다.',wp:['메인 슬라이드에 프로그레스 바와 전환 애니메이션을 구현했습니다.','Map 2.0(지도 API) UI를 만들었습니다.','공통 영역의 메타와 스키마 구조를 정리했고, Drupal 메뉴 구조도 직접 수정했습니다.']},
+ 'rc':{sec:'brand',dir:'미래피엠피',file:'브랜드.html',img:'f_rc',w:1100,h:3400,url:'redcross.or.kr',title:'대한적십자사 국제구호 캠페인',cat:'미래피엠피, 공공 캠페인',tags:['접근성','가독성','SEO'],
+  meta:Object.assign({'플랫폼':'반응형 웹','역할':'퍼블리싱 100%','클라이언트':'대한적십자사'},MP_M),
+  ov:['대한적십자사 국제구호 캠페인 페이지입니다. 긴 글과 후원 동선이 끝까지 읽히도록 구성했습니다.'],
+  wh:'읽기 쉬운 것을 먼저 챙겼습니다.',wp:['접근성과 가독성을 우선해 UI를 구성했습니다.','SEO를 적용했습니다.']},
+};
+const DK=Object.keys(DT), IMG2KEY={}; DK.forEach(k=>IMG2KEY[DT[k].img]=k);
+const ARW='<svg class="ic" viewBox="0 0 16 16"><path d="M5 11 11 5M6 5h5v5"/></svg>';
+const SEP='<svg class="ic" viewBox="0 0 16 16" style="width:11px;height:11px"><path d="M6 4l4 4-4 4"/></svg>';
+let dOpen=null,dTrig=null,dPushed=false;
+$$('.fr').forEach(f=>{const im=f.querySelector('.vp img');if(!im)return;const key=IMG2KEY[(im.getAttribute('src').match(/img\/(.+)\.jpg/)||[])[1]];if(!key)return;
+  const host=f.closest('.card')||f.closest('.proj');const a=host.querySelector('a.url');DT[key].href=a?a.href:'';
+  const btn=document.createElement('button');btn.type='button';btn.className='more';btn.innerHTML='자세히 보기'+ARW;btn.onclick=()=>openD(key,btn);
+  const card=f.closest('.card');
+  if(card){card.appendChild(btn);card.querySelectorAll('h3,.pn b').forEach(el=>el.addEventListener('click',()=>openD(key,btn)));}
+  else{const cap=host.querySelector('.cap');cap.parentNode.insertBefore(btn,cap.nextSibling);}
+});
+function renderD(key){const d=DT[key],i=DK.indexOf(key),nk=DK[(i+1)%DK.length],n=DT[nk];
+  return `<div class="dbar"><div class="cp"><span>portfolio</span>${SEP}<span>${d.dir}</span>${SEP}<span>${d.file}</span>${SEP}<span>${d.title}</span></div><button type="button" class="dx" data-close>닫기 ✕</button></div>
+<div class="dwrap"><aside class="dside"><p class="cat">${d.cat}</p><h2>${d.title}</h2><div class="pills">${d.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+<dl class="dmeta">${Object.entries(d.meta).map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+<button type="button" class="dclose" data-close>닫기 ✕</button></aside>
+<div class="dmain"><div class="dov dr2"><h3>프로젝트 개요</h3><div>${d.ov.map(t=>`<p>${t}</p>`).join('')}</div></div>
+<div class="fr in dr2"><div class="ub"><span class="dots"><i></i><i></i><i></i></span><span>${d.url}</span>${d.href?`<a class="go" href="${d.href}" target="_blank" rel="noopener">실제 페이지 열기 ↗</a>`:''}</div><i class="sp"></i>
+<div class="vp${d.ph?' ph':''}" tabindex="0" role="group" aria-label="${d.title} 화면, 스크롤해서 볼 수 있습니다"${d.y?` data-y="${d.y}"`:''}><div class="pg"><img src="img/${d.img}.jpg" alt="${d.title} 화면" width="${d.w}" height="${d.h}"></div></div><span class="hint"><svg class="ic" viewBox="0 0 16 16"><rect x="5" y="2" width="6" height="12" rx="3"/><path d="M8 4.6v2.2"/></svg>스크롤</span></div>
+<div class="dwork dr2"><p class="lb">한 일</p><h3>${d.wh}</h3><div>${d.wp.map(t=>`<p>${t}</p>`).join('')}</div></div>
+<button type="button" class="dnext dr2" data-next="${nk}"><span><small>다음 프로젝트</small><b>${n.title}</b></span><svg class="ic" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></button></div></div>`;}
+function showD(key){const el=$('#detail');if(!DT[key])return;dOpen=key;el.innerHTML=renderD(key);el.scrollTop=0;el.classList.add('open');root.style.overflow='hidden';
+  el.querySelectorAll('.vp').forEach(initVp);
+  if(!RM){const els=[...el.querySelectorAll('.dr2')];els.forEach((x,i)=>{x.classList.add('pre')});
+    const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');o.unobserve(e.target)}}),{root:el,rootMargin:'0px 0px -6% 0px'});
+    requestAnimationFrame(()=>els.forEach(x=>o.observe(x)));}
+  $('#stMsg').textContent='상세: '+DT[key].title; setTimeout(()=>el.focus({preventScroll:true}),50);}
+function hideD(){if(!dOpen)return;const sec=DT[dOpen].sec;dOpen=null;$('#detail').classList.remove('open');root.style.overflow='';$('#stMsg').textContent=$('#'+sec).dataset.msg||'';if(dTrig){dTrig.focus({preventScroll:true});dTrig=null}}
+function openD(key,trig){dTrig=trig||null;dPushed=true;location.hash='#d-'+key;}
+function closeD(){if(!dOpen)return;if(dPushed){dPushed=false;history.back()}else{const sec=DT[dOpen].sec;hideD();try{history.replaceState(null,'','#'+sec)}catch(e){location.hash='#'+sec}}}
+const routeD=()=>{const h=location.hash;if(h.indexOf('#d-')===0&&DT[h.slice(3)])showD(h.slice(3));else hideD();};
+addEventListener('hashchange',routeD); routeD();
+$('#detail').addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeD();const n=e.target.closest('[data-next]');if(n){location.replace('#d-'+n.dataset.next)}});
+
+/* copy */
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),1600)}
+$$('.copy').forEach(b=>b.onclick=()=>{const v=b.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(()=>toast('복사했어요')).catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling||b.parentNode);const s=getSelection();s.removeAllRanges();s.addRange(r);toast('선택했어요. 복사해 주세요')})});
+
+/* typed bye */
+const bye='읽어 주셔서 고맙습니다';let bi=0;const bio=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;bio.disconnect();const el=$('#bye');if(RM){el.textContent=bye;return}(function t(){el.textContent=bye.slice(0,++bi);if(bi<bye.length)setTimeout(t,90)})()});bio.observe($('#bye'));
+})();
+</script>
+</body></html>
